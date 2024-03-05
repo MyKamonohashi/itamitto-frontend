@@ -1,0 +1,117 @@
+{
+    "title": {
+        "reason": "なぜ病院に来ましたか？",
+        "symptoms": "症状（しょうじょう）",
+        "pain_location": "どこが痛いですか？",
+        "pain_description": "どのように痛いですか？",
+        "hurt_scale": "どのくらいつらいですか？",
+        "symptoms_duration": "いつから症状（しょうじょう）がありますか？",
+        "test": "何の検査（けんさ）をうけますか？",
+        "vaccine": "何のワクチンをうちますか？",
+        "medications": "ほかの薬を飲んでいますか？",
+        "allergy": "アレルギーはありますか？",
+        "pregnancy": "妊娠中または授乳中ですか？",
+        "final_report" : "この画面を医師に見せてください"
+    },
+
+    "button": {
+        "submit": "送信",
+        "yes": "はい",
+        "no": "いいえ"
+    },
+
+    "duration": {
+        "about": "だいたい",
+        "days": "日",
+        "hours": "時間",
+        "months": "月",
+        "years": "年"
+    },
+
+    "final_report": {
+        "symptoms": "症状",
+        "pain": "痛み",
+        "durarion": "症状持続期間",
+        "special_notes": "特記事項",
+        "test": "検査",
+        "vaccine": "ワクチン"
+    },
+    
+    "reason": {
+        "illness" : "具合がわるい",
+        "injury" : "けが",
+        "vaccine" : "ワクチン",
+        "test" : "検査（けんさ）"
+    },
+
+    "symptoms": {
+        "fever": "熱（ねつ）",
+        "sore throat": "のどの痛み",
+        "cough": "せき",
+        "sneezing": "くしゃみ",
+        "nausea": "はき気", 
+        "pain": "痛み",
+        "congestion": "胸がくるしい"
+    },
+
+    "pain_location": {
+        "head": "あたま",
+        "stomach": "おなか",
+        "arm": "うで",
+        "leg": "あし",
+        "back": "せなか",
+        "shoulder": "かた",
+        "neck": "くび",
+        "chest": "むね",
+        "eyes_ears_nose": "め/みみ/はな"
+    },
+
+    "pain_description": {
+        "sharp": "sharp/stabbing",
+        "throbbing": "throbbing",
+        "aching": "aching",
+        "burning": "burning",
+        "cramping": "cramping",
+        "numbness": "numbness",
+        "constant": "constant/nonstop",
+        "sudden": "sudden"
+    },
+
+    "hurt": {
+        "no_pain": "No pain",
+        "very_mild": "Very mild",
+        "discomforting": "Discomforting",
+        "tolerable": "Tolerable",
+        "distressing": "Distressing",
+        "very_distressing": "Very distressing",
+        "intense": "Intense",
+        "very_intense": "Very intense",
+        "utterly_horrible": "Utterly horrible",
+        "excruciating_unbearable": "Excruciating unbearable",
+        "unimaginable_unspeakable": "Unimaginable unspeakable"
+    },
+
+    "test": {
+        "blood_test": "blood test",
+        "urine_test": "urine test",
+        "allergy_test": "allergy test",
+        "ultrasound": "ultrasound",
+        "STD_test": "STD test",
+        "X-ray": "X-ray",
+        "mammogram": "mammogram",
+        "pap_smear": "pap smear",
+        "MRI_CAT_scan": "MRI/CAT scan"
+    },
+
+    "vaccine": {
+        "influenza": "インフルエンザ",
+        "COVID-19": "コロナウイルス",
+        "HPV": "HPV - 子宮頸がん",
+        "measles": "はしか"
+    },
+
+    "other_medication": {
+        "medication_name": "飲んでいるくすり",
+        "dosage": "量（りょう）"
+    }
+}
