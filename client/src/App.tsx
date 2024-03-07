@@ -1,6 +1,6 @@
 import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Switch } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from './localize/en.json';
 import ja from './localize/ja.json'
@@ -26,10 +26,10 @@ export default function App() {
     <View style={styles.container}>
       <Text>{language.title.reason}</Text>
       <View>
-        <Button title={language.reason.illness}></Button>
-        <Button title={language.reason.injury}></Button>
-        <Button title={language.reason.vaccine}></Button>
-        <Button title={language.reason.test}></Button>
+        <Pressable><Text>{language.reason.illness}</Text></Pressable>
+        <Pressable><Text>{language.reason.injury}</Text></Pressable>
+        <Pressable><Text>{language.reason.vaccine}</Text></Pressable>
+        <Pressable><Text>{language.reason.test}</Text></Pressable>
       </View>
       <View style={styles.switch}>
         <Text>EN</Text>
