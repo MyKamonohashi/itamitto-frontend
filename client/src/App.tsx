@@ -1,7 +1,7 @@
 import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Switch } from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import en from './localize/en.json';
 import ja from './localize/ja.json'
 
@@ -17,6 +17,10 @@ export default function App() {
       setLanguage(ja);
     }
   }
+
+  useEffect(() => {
+    handleLanguage();
+  }, [isEnabled]);
 
   return (
     <View style={styles.container}>
