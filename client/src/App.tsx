@@ -1,18 +1,20 @@
 import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Switch } from 'react-native';
 import { useState } from 'react';
 import en from './localize/en.json';
 import ja from './localize/ja.json'
 
 export default function App() {
   const [language, setLanguage] = useState(en);
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   const handleLanguage = () => {
-    if (language === en) {
-      setLanguage(ja);
-    } else {
+    if (!isEnabled) {
       setLanguage(en);
+    } else {
+      setLanguage(ja);
     }
   }
 
@@ -24,6 +26,13 @@ export default function App() {
         <Button title={language.reason.injury}></Button>
         <Button title={language.reason.vaccine}></Button>
         <Button title={language.reason.test}></Button>
+      </View>
+      <View style={styles.switch}>
+        <Text>EN</Text>
+        <Switch 
+          onValueChange={toggleSwitch}
+          value={isEnabled} /> 
+        <Text>JP</Text>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -37,6 +46,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  switch: {
+    flexDirection: 'row'
+  }
 });
 
 registerRootComponent(App);
