@@ -25,11 +25,19 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{language.title.reason}</Text>
-      <View>
-        <Pressable><Text>{language.reason.illness}</Text></Pressable>
-        <Pressable><Text>{language.reason.injury}</Text></Pressable>
-        <Pressable><Text>{language.reason.vaccine}</Text></Pressable>
-        <Pressable><Text>{language.reason.test}</Text></Pressable>
+      <View style={styles.buttons}>
+        <Pressable>
+          <Text style={styles.buttonText}>{language.reason.illness}</Text>
+        </Pressable>
+        <Pressable>
+          <Text style={styles.buttonText}>{language.reason.injury}</Text>
+        </Pressable>
+        <Pressable>
+          <Text style={styles.buttonText}>{language.reason.vaccine}</Text>
+        </Pressable>
+        <Pressable>
+          <Text style={styles.buttonText}>{language.reason.test}</Text>
+        </Pressable>
       </View>
       <View style={styles.switch}>
         <Text>EN</Text>
@@ -52,15 +60,24 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#B9F3E4',
-    fontSize: 40,
+    fontSize: 35,
     textAlign: 'center',
     width:'100%',
     paddingBottom: 20,
     paddingTop: 20,
-    marginTop: -40
+    marginTop: -25
+  },
+  buttons: {
+    gap: 30
+  },
+  buttonText: {
+    fontSize: 35,
+    textAlign: 'center',
   },
   switch: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
   }
 });
 
