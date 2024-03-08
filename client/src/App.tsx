@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.reason}</Text>
+      <Text style={styles.header}>{language.title.reason}</Text>
       <View>
         <Pressable><Text>{language.reason.illness}</Text></Pressable>
         <Pressable><Text>{language.reason.injury}</Text></Pressable>
@@ -48,7 +48,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around'
+  },
+  header: {
+    backgroundColor: '#B9F3E4',
+    fontSize: 40,
+    textAlign: 'center',
+    width:'100%',
+    paddingBottom: 20,
+    paddingTop: 20,
+    marginTop: -40
   },
   switch: {
     flexDirection: 'row'
