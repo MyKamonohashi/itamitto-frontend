@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     minWidth:'100%',
     paddingBottom: 20,
     paddingTop: 20,
-    marginTop: -25
+    marginTop: 10
   },
   buttons: {
     gap: 30
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     minWidth: 300
   },
   switch: {
+    marginBottom: 40,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
