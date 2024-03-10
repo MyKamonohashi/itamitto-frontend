@@ -1,52 +1,15 @@
 import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
-import { useState, useEffect } from 'react';
-import en from './localize/en.json';
-import ja from './localize/ja.json'
+import { StyleSheet, View } from 'react-native';
+import FrameOne from './components/FrameOne';
 
 export default function App() {
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>{language.title.reason}</Text>
-      <View style={styles.buttons}>
-        <Pressable>
-          <Text style={styles.buttonText}>{language.reason.illness}</Text>
-        </Pressable>
-        <Pressable>
-          <Text style={styles.buttonText}>{language.reason.injury}</Text>
-        </Pressable>
-        <Pressable>
-          <Text style={styles.buttonText}>{language.reason.vaccine}</Text>
-        </Pressable>
-        <Pressable>
-          <Text style={styles.buttonText}>{language.reason.test}</Text>
-        </Pressable>
+    <View>
+      <FrameOne />
+      <View>
+        <StatusBar style="auto" />
       </View>
-      <View style={styles.switch}>
-        <Text>EN</Text>
-        <Switch 
-          onValueChange={toggleSwitch}
-          value={isEnabled} /> 
-        <Text>JP</Text>
-      </View>
-      <StatusBar style="auto" />
     </View>
   );
 }
