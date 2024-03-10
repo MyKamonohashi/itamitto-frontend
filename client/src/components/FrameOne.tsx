@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#B9F3E4',
     fontSize: 35,
     textAlign: 'center',
-    width:'100%',
+    minWidth:'100%',
     paddingBottom: 20,
     paddingTop: 20,
     marginTop: -25
