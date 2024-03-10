@@ -24,16 +24,16 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.header}>{language.title.reason}</Text>
       <View style={styles.buttons}>
-        <Pressable>
+        <Pressable style={styles.buttonOne}>
           <Text style={styles.buttonText}>{language.reason.illness}</Text>
         </Pressable>
-        <Pressable>
+        <Pressable style={styles.buttonTwo}>
           <Text style={styles.buttonText}>{language.reason.injury}</Text>
         </Pressable>
-        <Pressable>
+        <Pressable style={styles.buttonThree}>
           <Text style={styles.buttonText}>{language.reason.vaccine}</Text>
         </Pressable>
-        <Pressable>
+        <Pressable style={styles.buttonFour}>
           <Text style={styles.buttonText}>{language.reason.test}</Text>
         </Pressable>
       </View>
@@ -70,6 +70,30 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 35,
     textAlign: 'center',
+  },
+  buttonOne: {
+    borderRadius: 10,
+    backgroundColor:'#EA8FEA',
+    padding: 20,
+    minWidth: 300
+  },
+  buttonTwo: {
+    borderRadius: 10,
+    backgroundColor:'#FFAACF',
+    padding: 20,
+    minWidth: 300
+  },
+  buttonThree: {
+    borderRadius: 10,
+    backgroundColor:'#F6E6C2',
+    padding: 20,
+    minWidth: 300
+  },
+  buttonFour: {
+    borderRadius: 10,
+    backgroundColor:'#8ACDD7',
+    padding: 20,
+    minWidth: 300
   },
   switch: {
     flexDirection: 'row',
