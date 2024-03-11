@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import en from '../localize/en.json';
 import ja from '../localize/ja.json'
 
-export default function App() {
+export default function FrameOne() {
   const [language, setLanguage] = useState(en);
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
