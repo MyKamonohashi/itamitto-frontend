@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en.json';
-import ja from '../localize/ja.json'
+import ja from '../localize/ja.json';
 
 export default function App() {
   const [language, setLanguage] = useState(en);
