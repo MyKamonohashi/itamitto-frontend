@@ -57,6 +57,13 @@ export default function FrameThree() {
           <Text>{language.button.submit}</Text>
         </Pressable>
       </View>
+      <View>
+        <Text>EN</Text>
+        <Switch 
+          onValueChange={toggleSwitch}
+          value={isEnabled} /> 
+        <Text>JP</Text>
+      </View>
     </View>
   );
 }
