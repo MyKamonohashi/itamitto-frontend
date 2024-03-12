@@ -4,8 +4,6 @@ import en from '../localize/en.json';
 import ja from '../localize/ja.json';
 
 export default function FrameThree() {
-  // We should probably extract the language toggle into a separate 
-  // component so we don't have to keep copy-pasting it on every page
   const [language, setLanguage] = useState(en);
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
