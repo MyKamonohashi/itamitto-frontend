@@ -56,11 +56,11 @@ export default function FrameThree() {
         </Pressable>
       </View>
       <View>
-        <Text>EN</Text>
+        {/* <Text>EN</Text>
         <Switch 
           onValueChange={toggleSwitch}
           value={isEnabled} /> 
-        <Text>JP</Text>
+        <Text>JP</Text> */}
       </View>
     </View>
   );

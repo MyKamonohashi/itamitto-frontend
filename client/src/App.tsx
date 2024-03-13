@@ -3,12 +3,14 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View} from 'react-native';
 import FrameOne from 'FrameOne';
 import FrameThree from 'FrameThree';
+import LanguageToggle from 'LanguageToggle';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View>
-        <FrameThree />
+        <FrameOne />
+        <LanguageToggle />
       </View>
       <StatusBar style="auto" />
     </View>
