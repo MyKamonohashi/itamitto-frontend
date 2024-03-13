@@ -86,10 +86,4 @@ const styles = StyleSheet.create({
     padding: 20,
     minWidth: 300
   },
-  // switch: {
-  //   marginBottom: 40,
-  //   flexDirection: 'row',
-  //   alignItems: 'center',
-  //   gap: 5,
-  // }
 });

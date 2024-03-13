@@ -24,9 +24,10 @@ export default function App() {
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
+
   return (
     <View style={styles.container}>
-      <FrameOne language={language}/>
+      <FrameThree language={language}/>
       <LanguageToggle isEnabled={isEnabled} onValueChange={toggleSwitch}/>
       <StatusBar style="auto" />
     </View>

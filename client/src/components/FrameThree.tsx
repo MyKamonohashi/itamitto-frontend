@@ -27,7 +27,7 @@ interface FrameProps {
 export default function FrameThree({language}: FrameProps) {
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>{language.title.pain_location}</Text>
       <View>
         <Pressable>
@@ -57,14 +57,19 @@ export default function FrameThree({language}: FrameProps) {
         <Pressable>
           <Text>{language.pain_location.eyes_ears_nose}</Text>
         </Pressable>
+      </View>
         <Pressable>
           <Text>{language.button.submit}</Text>
         </Pressable>
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  },
 });
