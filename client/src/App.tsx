@@ -1,13 +1,14 @@
 import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View} from 'react-native';
-import FrameOne from './components/FrameOne'
+import FrameOne from 'FrameOne';
+import FrameThree from 'FrameThree';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View>
-        <FrameOne />
+        <FrameThree />
       </View>
       <StatusBar style="auto" />
     </View>
