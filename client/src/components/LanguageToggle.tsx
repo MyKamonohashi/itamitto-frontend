@@ -1,32 +1,29 @@
 import { StyleSheet, Text, View, Switch } from 'react-native';
 import { useState, useEffect } from 'react';
-import en from '../localize/en.json';
-import ja from '../localize/ja.json';
 
-export default function LanguageToggle() {
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+interface LanguageToggleProps {
+  isEnabled: boolean,
+  onValueChange: () => void
+}
 
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
+export default function LanguageToggle({ isEnabled, onValueChange }: LanguageToggleProps) {
 
   return (
-    <View>
+    <View style={styles.switch}>
       <Text>EN</Text>
       <Switch 
-        onValueChange={toggleSwitch}
+        onValueChange={onValueChange}
         value={isEnabled} /> 
       <Text>JP</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  switch: {
+    marginBottom: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  }
+});

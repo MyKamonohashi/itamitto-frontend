@@ -1,4 +1,4 @@
-{
+const en = {
     "title": {
         "reason": "Reason for Visit?",
         "symptoms": "Symptoms",
@@ -115,3 +115,5 @@
         "dosage": "Dosage"
     }
 }
+
+export default en;
