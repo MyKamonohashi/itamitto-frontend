@@ -1,7 +1,30 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { useState, useEffect } from 'react';
 
-export default function FrameThree() {
+type LanguageType = {
+  title: {
+    pain_location: string
+  },
+  pain_location: {
+    head: string,
+    stomach: string,
+    arm: string,
+    leg: string,
+    back: string,
+    shoulder: string,
+    neck: string,
+    chest: string,
+    eyes_ears_nose: string
+  },
+  button: {
+    submit: string
+  }
+}
+
+interface FrameProps {
+  language: LanguageType,
+}
+
+export default function FrameThree({language}: FrameProps) {
 
   return (
     <View>

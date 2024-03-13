@@ -1,8 +1,19 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { useState } from 'react';
+
+type LanguageType = {
+  title: {
+    reason: string
+  },
+  reason: {
+    illness: string,
+    injury: string,
+    vaccine: string,
+    test: string
+  }
+}
 
 interface FrameProps {
-  language: Object,
+  language: LanguageType,
 }
 
 export default function FrameOne({language}: FrameProps) {
