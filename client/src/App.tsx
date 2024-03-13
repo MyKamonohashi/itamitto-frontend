@@ -6,6 +6,7 @@ import en from './localize/en';
 import ja from './localize/ja';
 import FrameOne from 'FrameOne';
 import FrameThree from 'FrameThree';
+import FrameFour from 'FrameFour';
 import LanguageToggle from 'LanguageToggle';
 
 export default function App() {
@@ -27,7 +28,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <FrameOne language={language}/>
+      <FrameFour language={language}/>
       <LanguageToggle isEnabled={isEnabled} onValueChange={toggleSwitch}/>
       <StatusBar style="auto" />
     </View>
