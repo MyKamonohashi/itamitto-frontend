@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <FrameThree language={language}/>
+      <FrameOne language={language}/>
       <LanguageToggle isEnabled={isEnabled} onValueChange={toggleSwitch}/>
       <StatusBar style="auto" />
     </View>
