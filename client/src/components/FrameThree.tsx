@@ -1,27 +1,33 @@
-import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
-import { useState, useEffect } from 'react';
-import en from '../localize/en.json';
-import ja from '../localize/ja.json';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 
-export default function FrameThree() {
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
+type LanguageType = {
+  title: {
+    pain_location: string
+  },
+  pain_location: {
+    head: string,
+    stomach: string,
+    arm: string,
+    leg: string,
+    back: string,
+    shoulder: string,
+    neck: string,
+    chest: string,
+    eyes_ears_nose: string
+  },
+  button: {
+    submit: string
   }
+}
 
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
+interface FrameProps {
+  language: LanguageType,
+}
+
+export default function FrameThree({language}: FrameProps) {
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>{language.title.pain_location}</Text>
       <View>
         <Pressable>
@@ -51,21 +57,19 @@ export default function FrameThree() {
         <Pressable>
           <Text>{language.pain_location.eyes_ears_nose}</Text>
         </Pressable>
+      </View>
         <Pressable>
           <Text>{language.button.submit}</Text>
         </Pressable>
-      </View>
-      <View>
-        <Text>EN</Text>
-        <Switch 
-          onValueChange={toggleSwitch}
-          value={isEnabled} /> 
-        <Text>JP</Text>
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  },
 });

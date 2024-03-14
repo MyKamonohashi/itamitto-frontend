@@ -1,24 +1,22 @@
-import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
-import { useState, useEffect } from 'react';
-import en from '../localize/en.json';
-import ja from '../localize/ja.json';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 
-export default function FrameOne() {
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
+type LanguageType = {
+  title: {
+    reason: string
+  },
+  reason: {
+    illness: string,
+    injury: string,
+    vaccine: string,
+    test: string
   }
+}
 
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
+interface FrameProps {
+  language: LanguageType,
+}
+
+export default function FrameOne({language}: FrameProps) {
 
   return (
     <View style={styles.container}>
@@ -36,13 +34,6 @@ export default function FrameOne() {
         <Pressable style={styles.buttonFour}>
           <Text style={styles.buttonText}>{language.reason.test}</Text>
         </Pressable>
-      </View>
-      <View style={styles.switch}>
-        <Text>EN</Text>
-        <Switch 
-          onValueChange={toggleSwitch}
-          value={isEnabled} /> 
-        <Text>JP</Text>
       </View>
     </View>
   );
@@ -95,10 +86,4 @@ const styles = StyleSheet.create({
     padding: 20,
     minWidth: 300
   },
-  switch: {
-    marginBottom: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-  }
 });
