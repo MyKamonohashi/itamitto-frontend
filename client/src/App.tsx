@@ -6,6 +6,7 @@ import en from './localize/en';
 import ja from './localize/ja';
 import FrameOne from 'FrameOne';
 import FrameThree from 'FrameThree';
+import FrameSix from 'FrameSix';
 import LanguageToggle from 'LanguageToggle';
 
 export default function App() {
