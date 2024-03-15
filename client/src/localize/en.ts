@@ -24,6 +24,7 @@ const en = {
     "about": "about",
     "days": "day(s)",
     "hours": "hour(s)",
+    "weeks": "week(s)",
     "months": "month(s)",
     "years": "year(s)"
   },

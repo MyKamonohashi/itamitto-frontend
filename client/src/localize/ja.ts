@@ -24,6 +24,7 @@ const ja = {
     "about": "だいたい",
     "days": "日",
     "hours": "時間",
+    "weeks": "週間",
     "months": "月",
     "years": "年"
   },
