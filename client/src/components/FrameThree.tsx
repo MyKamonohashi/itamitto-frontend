@@ -7,30 +7,6 @@ import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 
 
-// type LanguageType = {
-//   title: {
-//     pain_location: string
-//   },
-//   pain_location: {
-//     head: string,
-//     stomach: string,
-//     arm: string,
-//     leg: string,
-//     back: string,
-//     shoulder: string,
-//     neck: string,
-//     chest: string,
-//     eyes_ears_nose: string
-//   },
-//   button: {
-//     submit: string
-//   }
-// }
-
-// interface FrameProps {
-//   language: LanguageType,
-// }
-
 type FrameThreeRouteProp = RouteProp<StackParams, 'FrameThree'>;
 
 type FrameThreeProps = {
@@ -42,8 +18,8 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route }) => {
   const { symptom } = route.params;
   console.log(symptom);
 
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [language, setLanguage] = useState(route.params.language);
+  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   const handleLanguage = () => {
