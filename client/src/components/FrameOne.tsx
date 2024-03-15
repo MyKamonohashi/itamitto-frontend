@@ -35,7 +35,7 @@ const FrameOne: React.FC<Props> = () => {
         <Pressable  style={styles.buttonOne}
           onPress={() => {
             //go to illness FrameTwo
-            navigation.navigate("FrameTwo", {reason: "illness"})
+            navigation.navigate("FrameTwo", {reason: "illness", language: language, isEnabled: isEnabled})
           }}
         >
           <Text style={styles.buttonText}>{language.reason.illness}</Text>

@@ -14,10 +14,11 @@ type FrameTwoProps = NativeStackScreenProps<StackParams, 'FrameTwo'>;
 const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
 
   const { reason } = route.params;
-  console.log(reason);
+  console.log("🍎:",reason)
+  // console.log("🍇:", route.params.language, "🍊:",route.params.isEnabled);
   
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [language, setLanguage] = useState(route.params.language);
+  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   const handleLanguage = () => {
@@ -54,7 +55,7 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
         <Pressable style={styles.buttonOne}
           onPress={() => {
             //go to pain location FrameThree
-            navigation.navigate("FrameThree", {symptom: "pain"})
+            navigation.navigate("FrameThree", {symptom: "pain", language: language, isEnabled: isEnabled})
           }}
           >
           <Text style={styles.buttonText}>{language.symptoms.pain}</Text>
@@ -63,7 +64,9 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
           <Text style={styles.buttonText}>{language.symptoms.congestion}</Text>
         </Pressable>
       </View>
+      <View style={styles.switch}>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      </View>
     </View>
   );
 }
@@ -76,13 +79,12 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around'
     },
     header: {
-      backgroundColor: '#B9F3E4',
+      marginTop: 150,
       fontSize: 35,
       textAlign: 'center',
       minWidth:'100%',
-      paddingBottom: 20,
-      paddingTop: 20,
-      marginTop: 10
+      paddingBottom: 10,
+      paddingTop: 10,
     },
     buttons: {
       gap: 30
@@ -94,10 +96,11 @@ const styles = StyleSheet.create({
     buttonOne: {
       borderRadius: 10,
       backgroundColor:'#EA8FEA',
-      padding: 20,
-      minWidth: 300
+      padding: 5,
+      minWidth: 300,
     },
     switch: {
+      marginTop: 40,
       marginBottom: 40,
       flexDirection: 'row',
       alignItems: 'center',

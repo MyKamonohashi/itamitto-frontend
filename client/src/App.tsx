@@ -7,8 +7,8 @@ import FrameThree from './components/FrameThree';
 
 export type StackParams = {
   FrameOne: undefined
-  FrameTwo: {reason: string}
-  FrameThree: { symptom: string }
+  FrameTwo: {reason: string, language: any, isEnabled: boolean}
+  FrameThree: { symptom: string, language: any ,isEnabled: boolean}
 }
 
 const Stack = createNativeStackNavigator<StackParams>();
