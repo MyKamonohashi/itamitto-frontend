@@ -4,7 +4,6 @@ import en from '../localize/en';
 import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 
 type FrameTwoRouteProp = RouteProp<StackParams, 'FrameTwo'>;
