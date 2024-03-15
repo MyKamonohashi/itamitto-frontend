@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 import { CheckBox } from '@rneui/themed';
 
@@ -48,6 +48,9 @@ export default function FrameFour({language}: FrameProps) {
         <CheckBox checked={checked7} title={language.pain_description.constant} onPress={() => {setChecked7(!checked7)}}/>
         <CheckBox checked={checked8} title={language.pain_description.sudden} onPress={() => {setChecked8(!checked8)}}/>
       </View>
+      <Pressable>
+        <Text>{language.button.submit}</Text>
+      </Pressable>
     </View>
   );
 }
