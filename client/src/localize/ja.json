@@ -46,7 +46,7 @@
 
     "symptoms": {
         "fever": "熱（ねつ）",
-        "sore_throat": "のどの痛み",
+        "sore throat": "のどの痛み",
         "cough": "せき",
         "sneezing": "くしゃみ",
         "nausea": "はき気", 

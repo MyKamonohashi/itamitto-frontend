@@ -7,6 +7,14 @@ import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 
 const Stack = createNativeStackNavigator();
+import { useState, useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, View} from 'react-native';
+import en from './localize/en';
+import ja from './localize/ja';
+import FrameOne from 'FrameOne';
+import FrameThree from 'FrameThree';
+import LanguageToggle from 'LanguageToggle';
 
 export default function App() {
   return (
