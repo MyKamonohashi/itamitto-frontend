@@ -5,18 +5,16 @@ import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 type FrameTwoRouteProp = RouteProp<StackParams, 'FrameTwo'>;
 
-type FrameTwoProps = {
-  route: FrameTwoRouteProp;
-};
+type FrameTwoProps = NativeStackScreenProps<StackParams, 'FrameTwo'>; 
 
-const FrameTwo: React.FC<FrameTwoProps>  = ({ route }) => {
+const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
 
   const { reason } = route.params;
   console.log(reason);
-
   
   const [language, setLanguage] = useState(en);
   const [isEnabled, setIsEnabled] = useState(false);
@@ -53,7 +51,12 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route }) => {
         <Pressable style={styles.buttonOne}>
           <Text style={styles.buttonText}>{language.symptoms.nausea}</Text>
         </Pressable>
-        <Pressable style={styles.buttonOne}>
+        <Pressable style={styles.buttonOne}
+          onPress={() => {
+            //go to pain location FrameThree
+            navigation.navigate("FrameThree", {symptom: "pain"})
+          }}
+          >
           <Text style={styles.buttonText}>{language.symptoms.pain}</Text>
         </Pressable>
         <Pressable style={styles.buttonOne}>

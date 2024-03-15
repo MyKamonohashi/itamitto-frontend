@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
-import FrameThree from './components/FrameTwo';
+import FrameThree from './components/FrameThree';
 
 export type StackParams = {
   FrameOne: undefined
