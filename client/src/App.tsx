@@ -12,7 +12,6 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View} from 'react-native';
 import en from './localize/en';
 import ja from './localize/ja';
-import FrameOne from 'FrameOne';
 import FrameThree from 'FrameThree';
 import LanguageToggle from 'LanguageToggle';
 

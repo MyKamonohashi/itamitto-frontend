@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
-import ja from '../localize/ja'
+import ja from '../localize/ja';
+import LanguageToggle from './LanguageToggle';
 
 export default function FrameTwo() {
   const [language, setLanguage] = useState(en);
@@ -46,13 +47,7 @@ export default function FrameTwo() {
           <Text style={styles.buttonText}>{language.symptoms.congestion}</Text>
         </Pressable>
       </View>
-      <View style={styles.switch}>
-        <Text>EN</Text>
-        <Switch 
-          onValueChange={toggleSwitch}
-          value={isEnabled} /> 
-        <Text>JP</Text>
-      </View>
+      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
 }
