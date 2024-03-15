@@ -1,30 +1,63 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { useState, useEffect } from 'react';
+import en from '../localize/en';
+import ja from '../localize/ja'
+import LanguageToggle from './LanguageToggle';
+import { StackParams } from '../App';
+import { RouteProp } from '@react-navigation/native';
 
-type LanguageType = {
-  title: {
-    pain_location: string
-  },
-  pain_location: {
-    head: string,
-    stomach: string,
-    arm: string,
-    leg: string,
-    back: string,
-    shoulder: string,
-    neck: string,
-    chest: string,
-    eyes_ears_nose: string
-  },
-  button: {
-    submit: string
+
+// type LanguageType = {
+//   title: {
+//     pain_location: string
+//   },
+//   pain_location: {
+//     head: string,
+//     stomach: string,
+//     arm: string,
+//     leg: string,
+//     back: string,
+//     shoulder: string,
+//     neck: string,
+//     chest: string,
+//     eyes_ears_nose: string
+//   },
+//   button: {
+//     submit: string
+//   }
+// }
+
+// interface FrameProps {
+//   language: LanguageType,
+// }
+
+type FrameThreeRouteProp = RouteProp<StackParams, 'FrameThree'>;
+
+type FrameThreeProps = {
+  route: FrameThreeRouteProp;
+};
+
+const FrameThree: React.FC<FrameThreeProps>  = ({ route }) => {
+
+  const { symptom } = route.params;
+  console.log(symptom);
+
+  const [language, setLanguage] = useState(en);
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  const handleLanguage = () => {
+    if (!isEnabled) {
+      setLanguage(en);
+    } else {
+      setLanguage(ja);
+    }
   }
-}
 
-interface FrameProps {
-  language: LanguageType,
-}
+  useEffect(() => {
+    handleLanguage();
+  }, [isEnabled]);
 
-export default function FrameThree({language}: FrameProps) {
 
   return (
     <View style={styles.container}>
@@ -61,6 +94,7 @@ export default function FrameThree({language}: FrameProps) {
         <Pressable>
           <Text>{language.button.submit}</Text>
         </Pressable>
+      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
 }
@@ -73,3 +107,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
 });
+
+export default FrameThree;
