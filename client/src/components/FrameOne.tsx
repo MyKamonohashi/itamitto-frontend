@@ -3,8 +3,15 @@ import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
+import { StackParams } from '../App';
 
-export default function FrameOne() {
+type Props = NativeStackScreenProps<StackParams, "FrameOne">
+
+const FrameOne: React.FC<Props> = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
+
   const [language, setLanguage] = useState(en);
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -25,7 +32,12 @@ export default function FrameOne() {
     <View style={styles.container}>
       <Text style={styles.header}>{language.title.reason}</Text>
       <View style={styles.buttons}>
-        <Pressable style={styles.buttonOne}>
+        <Pressable  style={styles.buttonOne}
+          onPress={() => {
+            //go to illness FrameTwo
+            navigation.navigate("FrameTwo", {reason: "illness"})
+          }}
+        >
           <Text style={styles.buttonText}>{language.reason.illness}</Text>
         </Pressable>
         <Pressable style={styles.buttonTwo}>
@@ -97,3 +109,5 @@ const styles = StyleSheet.create({
     gap: 5,
   }
 });
+
+export default FrameOne;

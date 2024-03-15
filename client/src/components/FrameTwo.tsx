@@ -3,8 +3,22 @@ import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
+import { StackParams } from '../App';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RouteProp } from '@react-navigation/native';
 
-export default function FrameTwo() {
+type FrameTwoRouteProp = RouteProp<StackParams, 'FrameTwo'>;
+
+type FrameTwoProps = {
+  route: FrameTwoRouteProp;
+};
+
+const FrameTwo: React.FC<FrameTwoProps>  = ({ route }) => {
+
+  const { reason } = route.params;
+  console.log(reason);
+
+  
   const [language, setLanguage] = useState(en);
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -88,3 +102,5 @@ const styles = StyleSheet.create({
       gap: 5,
     }
   });
+
+  export default FrameTwo;
