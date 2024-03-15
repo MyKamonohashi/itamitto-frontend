@@ -5,10 +5,12 @@ import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
 
+import { FrameOneLanguageType, FrameTwoLanguageType, FrameThreeLanguageType } from './type/type';
+
 export type StackParams = {
-  FrameOne: undefined
-  FrameTwo: {reason: string, language: any, isEnabled: boolean}
-  FrameThree: { symptom: string, language: any ,isEnabled: boolean}
+  FrameOne: {language: FrameOneLanguageType}
+  FrameTwo: {reason: string, language: FrameTwoLanguageType , isEnabled: boolean}
+  FrameThree: { symptom: string, language: FrameThreeLanguageType ,isEnabled: boolean}
 }
 
 const Stack = createNativeStackNavigator<StackParams>();
