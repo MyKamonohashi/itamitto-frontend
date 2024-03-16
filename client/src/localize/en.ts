@@ -46,7 +46,7 @@ const en = {
 
   "symptoms": {
     "fever": "fever",
-    "sore throat": "sore throat",
+    "sore_throat": "sore throat",
     "cough": "cough",
     "sneezing": "sneezing",
     "nausea": "nausea", 
