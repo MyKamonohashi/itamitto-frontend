@@ -46,7 +46,7 @@ const ja = {
 
   "symptoms": {
     "fever": "熱（ねつ）",
-    "sore throat": "のどの痛み",
+    "sore_throat": "のどの痛み",
     "cough": "せき",
     "sneezing": "くしゃみ",
     "nausea": "はき気", 
