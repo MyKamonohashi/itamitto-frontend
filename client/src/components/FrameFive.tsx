@@ -6,6 +6,7 @@ import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import objFinalReport from './ObjectFinalReport';
 
 
 type FrameFiveRouteProp = RouteProp<StackParams, 'FrameFive'>;
@@ -16,6 +17,8 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
 
   const { pain_description } = route.params;
   console.log(pain_description);
+
+  objFinalReport.pain_description = pain_description;
 
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
