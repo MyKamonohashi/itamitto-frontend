@@ -15,6 +15,7 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [vaccines, setVaccines] = useState('');
 
   const handleLanguage = () => {
     if (!isEnabled) {
@@ -32,6 +33,18 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
     <View style={styles.container}>
       <Text>{language.reason.vaccine}</Text>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <Pressable
+      // uncomment when FrameNine is created to navigate
+        // onPress={() => {
+        //   handleDataInput();
+        //   navigation.navigate("FrameNine", {
+        //     vaccine: vaccines,
+        //     language: language,
+        //     isEnabled: isEnabled})
+        // }}
+      >
+        <Text>{language.button.submit}</Text>
+      </Pressable>
     </View>
   );
 }
