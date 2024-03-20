@@ -12,7 +12,7 @@ type FrameFiveRouteProp = RouteProp<StackParams, 'FrameFive'>;
 
 type FrameFiveProps = NativeStackScreenProps<StackParams, 'FrameFive'>; 
 
-const FrameFive: React.FC<FrameFiveProps>  = ({ route }) => {
+const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
 
   const { pain_description } = route.params;
   console.log(pain_description);
@@ -73,7 +73,12 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route }) => {
             <Text>{language.hurt.unimaginable_unspeakable}</Text>
         </Pressable>
       </View>
-        <Pressable>
+        <Pressable onPress={() => {
+          navigation.navigate("FrameSix", {
+          hurt: painScale,
+          language: language,
+          isEnabled: isEnabled})
+        }}>
           <Text>{language.button.submit}</Text>
         </Pressable>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>

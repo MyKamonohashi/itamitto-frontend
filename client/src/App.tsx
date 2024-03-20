@@ -18,7 +18,7 @@ export type StackParams = {
   FrameThree: { symptom: string, language: LanguageType ,isEnabled: boolean}
   FrameFour: { pain_location: string, language: LanguageType, isEnabled: boolean}
   FrameFive: { pain_description: string, language: LanguageType, isEnabled: boolean}
-  FrameSix: { pain_description: string, language: LanguageType, isEnabled: boolean}
+  FrameSix: { hurt: string, language: LanguageType, isEnabled: boolean}
   FrameSeven: { reason: string, language: LanguageType, isEnabled: boolean}
   FrameEight: { reason: string, language: LanguageType, isEnabled: boolean}
 }
