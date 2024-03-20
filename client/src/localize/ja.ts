@@ -33,8 +33,14 @@ const ja = {
 
   "final_report": {
     "symptoms": "症状",
-    "pain": "痛み",
-    "duration": "症状持続期間",
+    "pain": "痛いところ",
+    "pain_description": "どのような痛みか",
+    "pain_scale": "どのくらい痛いか",
+    "duration": "どのくらい続いているか",
+    "other_medication": "のんでいるくすり",
+    "pregnancy": "妊娠しているか",
+    "allergies": "アレルギーがあるか",
+    "allergies_name": "アレルギーの名前",
     "special_notes": "特記事項",
     "test": "検査",
     "vaccine": "ワクチン"

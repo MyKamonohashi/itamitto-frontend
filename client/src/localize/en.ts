@@ -33,8 +33,14 @@ const en = {
 
   "final_report": {
     "symptoms": "Symptoms",
-    "pain": "Pain",
+    "pain": "Pain Location",
+    "pain_description": "Pain Description",
+    "pain_scale": "Pain Scale",
     "duration": "Duration",
+    "other_medication": "Other Medication",
+    "pregnancy": "Pregnancy",
+    "allergies": "Allergies",
+    "allergies_name": "Allergies Name",
     "special_notes": "Special Notes",
     "test": "Test",
     "vaccine": "Vaccine"

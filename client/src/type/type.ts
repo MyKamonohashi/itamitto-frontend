@@ -31,7 +31,13 @@ type LanguageType = {
   final_report: {
     symptoms: string,
     pain: string,
+    pain_description: string,
+    pain_scale: string,
     duration: string,
+    other_medication: string,
+    pregnancy: string,
+    allergies: string,
+    allergies_name: string,
     special_notes: string,
     test: string,
     vaccine: string
