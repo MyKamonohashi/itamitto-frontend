@@ -11,6 +11,7 @@ import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
 import FrameFour from './components/FrameFour';
+import FrameFive from './components/FrameFive';
 
 import {  FrameOneLanguageType, 
           FrameTwoLanguageType, 
@@ -58,6 +59,7 @@ export default function App() {
       <Stack.Screen name="FrameTwo" component={FrameTwo}/>
       <Stack.Screen name="FrameThree" component={FrameThree}/>
       <Stack.Screen name="FrameFour" component={FrameFour}/>
+      <Stack.Screen name="FrameFive" component={FrameFive}/>
     </Stack.Navigator>
   </NavigationContainer>
     // <View style={styles.container}>

@@ -109,6 +109,7 @@ type FrameFiveLanguageType = {
         symptoms: string;
         pain_location: string;
         pain_description: string;
+        hurt: string;
     },
     pain_description: {
         sharp: string;
