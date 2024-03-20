@@ -15,6 +15,7 @@ type FrameTwoLanguageType = {
         symptoms: string;
         pain_location: string;
         pain_description: string;
+        hurt_scale: string;
     },
     symptoms: {
         fever: string;
@@ -46,6 +47,19 @@ type FrameTwoLanguageType = {
         constant: string;
         sudden: string;
     },
+    hurt: {
+        no_pain: string;
+        very_mild: string;
+        discomforting: string;
+        tolerable: string;
+        distressing: string;
+        very_distressing: string;
+        intense: string;
+        very_intense: string;
+        utterly_horrible: string;
+        excruciating_unbearable: string;
+        unimaginable_unspeakable: string;
+    },
     button: {
         submit: string
     }
@@ -56,6 +70,7 @@ type FrameThreeLanguageType = {
         symptoms: string;
         pain_location: string;
         pain_description: string;
+        hurt_scale: string;
     },
     pain_location: {
         head: string,
@@ -77,7 +92,20 @@ type FrameThreeLanguageType = {
         numbness: string;
         constant: string;
         sudden: string;
-    };
+    },
+    hurt: {
+        no_pain: string;
+        very_mild: string;
+        discomforting: string;
+        tolerable: string;
+        distressing: string;
+        very_distressing: string;
+        intense: string;
+        very_intense: string;
+        utterly_horrible: string;
+        excruciating_unbearable: string;
+        unimaginable_unspeakable: string;
+    },
     button: {
         submit: string
     }
@@ -88,6 +116,7 @@ type FrameFourLanguageType = {
         symptoms: string;
         pain_location: string;
         pain_description: string;
+        hurt_scale: string;
     },
     pain_description: {
         sharp: string;
@@ -99,6 +128,19 @@ type FrameFourLanguageType = {
         constant: string;
         sudden: string;
     },
+    hurt: {
+        no_pain: string;
+        very_mild: string;
+        discomforting: string;
+        tolerable: string;
+        distressing: string;
+        very_distressing: string;
+        intense: string;
+        very_intense: string;
+        utterly_horrible: string;
+        excruciating_unbearable: string;
+        unimaginable_unspeakable: string;
+    },
     button: {
         submit: string
     }
@@ -109,7 +151,7 @@ type FrameFiveLanguageType = {
         symptoms: string;
         pain_location: string;
         pain_description: string;
-        hurt: string;
+        hurt_scale: string;
     },
     pain_description: {
         sharp: string;

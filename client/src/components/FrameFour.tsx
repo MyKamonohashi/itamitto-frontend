@@ -16,7 +16,7 @@ type FrameFourProps = NativeStackScreenProps<StackParams, 'FrameFour'>;
 //   language: LanguageType,
 // }
 
-const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
+const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
 
   const { pain_location } = route.params;
   console.log(route.params.language);
@@ -90,7 +90,14 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
         <CheckBox checked={checked7} title={language.pain_description.constant} onPress={() => {setChecked7(!checked7)}}/>
         <CheckBox checked={checked8} title={language.pain_description.sudden} onPress={() => {setChecked8(!checked8)}}/>
       </View>
-      <Pressable onPress={handleDataInput}>
+      <Pressable onPress={() => {
+        handleDataInput;
+        // go to FrameFive
+        navigation.navigate("FrameFive", {
+        pain_description: data.join(', '),
+        language: language,
+        isEnabled: isEnabled})
+      }}>
         <Text>{route.params.language.button.submit}</Text>
       </Pressable>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>

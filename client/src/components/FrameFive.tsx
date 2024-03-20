@@ -36,7 +36,7 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.hurt}</Text>
+      <Text>{language.title.hurt_scale}</Text>
       <View>
       </View>
         <Pressable>
