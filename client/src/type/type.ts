@@ -123,9 +123,10 @@ type FrameSixLanguageType = {
 
 
   
-export type {   FrameOneLanguageType, 
-                FrameTwoLanguageType, 
-                FrameThreeLanguageType,
-                FrameFourLanguageType,
-                FrameSixLanguageType
-            };
+export type {   
+  FrameOneLanguageType, 
+  FrameTwoLanguageType, 
+  FrameThreeLanguageType,
+  FrameFourLanguageType,
+  FrameSixLanguageType
+};

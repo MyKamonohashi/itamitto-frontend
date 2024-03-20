@@ -1,8 +1,11 @@
 import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import LanguageToggle from '../components/LanguageToggle';
+import en from '../localize/en';
+import ja from '../localize/ja';
 
 type FrameSixRouteProp = RouteProp<StackParams, 'FrameSix'>;
 type FrameSixProps = NativeStackScreenProps<StackParams, 'FrameSix'>; 
@@ -10,7 +13,21 @@ type FrameSixProps = NativeStackScreenProps<StackParams, 'FrameSix'>;
 export default function FrameSix({ route, navigation }: FrameSixProps) {
   const [text, setText] = useState('');
   const [language, setLanguage] = useState(route.params.language);
-  // const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
+  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
+
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  const handleLanguage = () => {
+    if (!isEnabled) {
+      setLanguage(en);
+    } else {
+      setLanguage(ja);
+    }
+  }
+
+  useEffect(() => {
+    handleLanguage();
+  }, [isEnabled]);
   
   return (
     <View style={styles.container}>
@@ -41,9 +58,18 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
           </Pressable>
         </View>
       </View>
-      <Pressable>
+      <Pressable 
+        // onPress={() => {
+        //   // go to FrameSeven
+        //   navigation.navigate("FrameSeven", {
+        //     pain_location: painLocation,
+        //     language: language,
+        //     isEnabled: isEnabled})
+        // }}
+        >
         <Text>{language.button.submit}</Text>
       </Pressable>
+      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
 }

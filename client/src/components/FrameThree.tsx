@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
-import ja from '../localize/ja'
+import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';

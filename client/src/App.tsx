@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View} from 'react-native';
 import en from './localize/en';
 import ja from './localize/ja';
-import LanguageToggle from 'LanguageToggle';
+import LanguageToggle from './components/LanguageToggle';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FrameOne from './components/FrameOne'
@@ -61,22 +61,9 @@ export default function App() {
       <Stack.Screen name="FrameFour" component={FrameFour}/>
       <Stack.Screen name="FrameSix" component={FrameSix}/>
     </Stack.Navigator>
+    <StatusBar style="auto" />
   </NavigationContainer>
-    // <View style={styles.container}>
-    //   <FrameFour language={language}/>
-    //   <LanguageToggle isEnabled={isEnabled} onValueChange={toggleSwitch}/>
-    //   <StatusBar style="auto" />
-    // </View>
   );
 }
 
-
 registerRootComponent(App);
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
