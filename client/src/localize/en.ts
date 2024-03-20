@@ -9,9 +9,11 @@ const en = {
     "test": "Type of test",
     "vaccine": "Type of Vaccine",
     "medications": "Are you currently taking any medications?",
-    "allergy": "Are you allergic to any medications?",
+    "allergy": "Do you have any allergies?",
     "pregnancy": "Are you currently pregnant or breastfeeding?",
-    "final_report" : "Final Report"
+    "final_report" : "Final Report",
+    "injury_location": "Injury Location",
+    "injury_description": "Injury Description"
   },
 
   "button": {
@@ -114,7 +116,34 @@ const en = {
   "other_medication": {
     "medication_name": "Medication name",
     "dosage": "Dosage"
+  },
+
+  "allergies": {
+    "allergies_name": "Allergies"
+  },
+
+  "injury_location": {
+    "head": "head",
+    "stomach": "stomach/torso",
+    "arm": "arm(s)",
+    "leg": "leg(s)",
+    "back": "back",
+    "shoulder": "shoulder(s)",
+    "neck": "neck",
+    "chest": "chest",
+    "eyes_ears_nose": "eyes/ears/nose"
+  },
+
+  "injury_description": {
+    "cut_gash": "cut/gash",
+    "bruise": "bruise",
+    "bump": "bump",
+    "swelling": "swelling",
+    "scratch": "scratch",
+    "scrape": "scrape",
+    "break": "break"
   }
+
 }
 
 export default en;

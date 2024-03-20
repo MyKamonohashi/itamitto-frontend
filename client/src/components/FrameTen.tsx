@@ -44,7 +44,7 @@ export default function FrameTen({ route }: FrameTenProps) {
             <Text>{language.button.no}</Text>
         </Pressable>
         <View style={styles.inputs}>
-            <Text>{language.other_medication.medication_name}</Text>
+            <Text>{language.allergies.allergies_name}</Text>
             <TextInput
             onChangeText={setAllergy}
             value={allergy}
