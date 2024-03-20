@@ -6,12 +6,15 @@ import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import objFinalReport from './ObjectFinalReport';
 
 type FrameTwoRouteProp = RouteProp<StackParams, 'FrameTwo'>;
 
 type FrameTwoProps = NativeStackScreenProps<StackParams, 'FrameTwo'>; 
 
 const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
+
+  objFinalReport.symptoms = route.params.reason;
 
   const { reason } = route.params;
   console.log("🍎:",reason)

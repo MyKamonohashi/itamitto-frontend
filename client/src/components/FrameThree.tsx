@@ -6,6 +6,7 @@ import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import objFinalReport from './ObjectFinalReport';
 
 
 type FrameThreeRouteProp = RouteProp<StackParams, 'FrameThree'>;
