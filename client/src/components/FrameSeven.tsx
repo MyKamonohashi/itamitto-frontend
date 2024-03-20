@@ -42,6 +42,38 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
+
+  const handleDataInput = () => {
+    const result = [];
+    if (checked1) {
+      result.push(language.test.blood_test);
+    }
+    if (checked2) {
+      result.push(language.test.urine_test);
+    }
+    if (checked3) {
+      result.push(language.test.allergy_test);
+    }
+    if (checked4) {
+      result.push(language.test.ultrasound);
+    }
+    if (checked5) {
+      result.push(language.test.STD_test);
+    }
+    if (checked6) {
+      result.push(language.test.X_ray);
+    }
+    if (checked7) {
+      result.push(language.test.mammogram);
+    }
+    if (checked8) {
+      result.push(language.test.pap_smear);
+    }
+    if (checked9) {
+      result.push(language.test.MRI_CAT_scan);
+    }
+    setTests(result.join('/'));
+  }
   
   return (
     <View style={styles.container}>
@@ -55,7 +87,7 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
         <CheckBox checked={checked6} title={language.test.X_ray} onPress={() => {setChecked6(!checked6)}}/>
         <CheckBox checked={checked7} title={language.test.mammogram} onPress={() => {setChecked7(!checked7)}}/>
         <CheckBox checked={checked8} title={language.test.pap_smear} onPress={() => {setChecked8(!checked8)}}/>
-        <CheckBox checked={checked9} title={language.test.MRI_CAT_scan} onPress={() => {setChecked8(!checked9)}}/>
+        <CheckBox checked={checked9} title={language.test.MRI_CAT_scan} onPress={() => {setChecked9(!checked9)}}/>
       </View>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
