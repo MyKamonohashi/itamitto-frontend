@@ -6,6 +6,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import LanguageToggle from '../components/LanguageToggle';
 import en from '../localize/en';
 import ja from '../localize/ja';
+import objFinalReport from './ObjectFinalReport';
 
 type FrameSixRouteProp = RouteProp<StackParams, 'FrameSix'>;
 type FrameSixProps = NativeStackScreenProps<StackParams, 'FrameSix'>; 
@@ -20,6 +21,8 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
 
   const { hurt } = route.params;
   console.log("hurt🤩", hurt);
+
+  objFinalReport.pain_scale = hurt;
 
   const handleLanguage = () => {
     if (!isEnabled) {

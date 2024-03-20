@@ -47,6 +47,10 @@ export default function FinalReport({ route }: FinalReportProps) {
         <Text>{finalReport.pain_description}</Text>
       </View>
       <View>
+        <Text>{language.final_report.pain_scale}</Text>
+        <Text>{finalReport.pain_scale}</Text>
+      </View>
+      <View>
         <Text>{language.final_report.duration}</Text>
         <Text>{finalReport.duration}</Text>
       </View>
