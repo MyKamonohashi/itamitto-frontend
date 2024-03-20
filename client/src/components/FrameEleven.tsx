@@ -7,19 +7,19 @@ import LanguageToggle from '../components/LanguageToggle';
 import en from '../localize/en';
 import ja from '../localize/ja';
 
-type FrameTenRouteProp = RouteProp<StackParams, 'FrameTen'>;
-type FrameTenProps = NativeStackScreenProps<StackParams, 'FrameTen'>; 
+type FrameElevenRouteProp = RouteProp<StackParams, 'FrameEleven'>;
+type FrameElevenProps = NativeStackScreenProps<StackParams, 'FrameEleven'>; 
 
-export default function FrameTen({ route, navigation }: FrameTenProps) {
+export default function FrameEleven({ route }: FrameElevenProps) {
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
-  const [isAllergic, setIsAllergic] = useState(false);
-  const [allergy, setAllergy] = useState('')
+  const [isPregnant, setIsPregnant] = useState(false);
 
-  const { pain_duration } = route.params;
-  console.log("pain_duration🥰", pain_duration);//change pain_duration into medication after FrameNine is created
+  const { allergies_name } = route.params;
+  console.log("allergies_name🍳", allergies_name);
+
 
   const handleLanguage = () => {
     if (!isEnabled) {
@@ -36,28 +36,21 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.allergy}</Text>
-        <Pressable onPress={() => setIsAllergic(true)}>
+      <Text>{language.title.pregnancy}</Text>
+        <Pressable onPress={() => setIsPregnant(true)}>
             <Text>{language.button.yes}</Text>
         </Pressable>
-        <Pressable  onPress={() => setIsAllergic(false)}>
+        <Pressable  onPress={() => setIsPregnant(false)}>
             <Text>{language.button.no}</Text>
         </Pressable>
-        <View style={styles.inputs}>
-            <Text>{language.allergies.allergies_name}</Text>
-            <TextInput
-            onChangeText={setAllergy}
-            value={allergy}
-            placeholder='#'
-            />
-        </View>
       <Pressable 
-        onPress={() => {
-          navigation.navigate("FrameEleven", {
-            allergies_name: allergy,
-            language: language,
-            isEnabled: isEnabled})
-        }}
+      // uncomment when FrameTwelve is created to navigate
+        // onPress={() => {
+        //   handleDataInput();
+        //   navigation.navigate("FrameTwelve", {
+        //     language: language,
+        //     isEnabled: isEnabled})
+        // }}
         >
         <Text>{language.button.submit}</Text>
       </Pressable>
@@ -72,8 +65,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around'
-  },
-  inputs: {
-    flexDirection: 'column'
   }
 });
