@@ -37,20 +37,20 @@ export default function FrameTen({ route }: FrameTenProps) {
   return (
     <View style={styles.container}>
       <Text>{language.title.allergy}</Text>
-      <View style={styles.inputs}>
-        <Pressable>
-            <Text>Yes</Text>
+        <Pressable onPress={() => setIsAllergic(true)}>
+            <Text>{language.button.yes}</Text>
         </Pressable>
-        <Pressable>
-            <Text>No</Text>
+        <Pressable  onPress={() => setIsAllergic(false)}>
+            <Text>{language.button.no}</Text>
         </Pressable>
-        <Text>{language.other_medication.medication_name}</Text>
-        <TextInput
-          onChangeText={setAllergy}
-          value={allergy}
-          placeholder='#'
-        />
-      </View>
+        <View style={styles.inputs}>
+            <Text>{language.other_medication.medication_name}</Text>
+            <TextInput
+            onChangeText={setAllergy}
+            value={allergy}
+            placeholder='#'
+            />
+        </View>
       <Pressable 
       // uncomment when FrameEleven is created to navigate
         // onPress={() => {
@@ -76,6 +76,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   inputs: {
-    flexDirection: 'row'
+    flexDirection: 'column'
   }
 });
