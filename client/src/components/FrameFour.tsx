@@ -1,31 +1,43 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CheckBox } from '@rneui/themed';
+import LanguageToggle from './LanguageToggle';
+import { StackParams } from '../App';
+import { RouteProp } from '@react-navigation/native';
+import en from '../localize/en';
+import ja from '../localize/ja';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-type LanguageType = {
-  title: {
-    pain_description: string
-  },
-  pain_description: {
-    sharp: string,
-    throbbing: string,
-    aching: string,
-    burning: string,
-    cramping: string,
-    numbness: string,
-    constant: string,
-    sudden: string
-  },
-  button: {
-    submit: string
+type FrameFourRouteProp = RouteProp<StackParams, 'FrameFour'>;
+
+type FrameFourProps = NativeStackScreenProps<StackParams, 'FrameFour'>; 
+
+// interface FrameProps {
+//   language: LanguageType,
+// }
+
+const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
+
+  const { pain_location } = route.params;
+  console.log(route.params.language);
+  console.log("pain_location🍍", pain_location);
+
+  const [language, setLanguage] = useState(route.params.language);
+  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  const handleLanguage = () => {
+    if (!isEnabled) {
+      setLanguage(en);
+    } else {
+      setLanguage(ja);
+    }
   }
-}
 
-interface FrameProps {
-  language: LanguageType,
-}
+  useEffect(() => {
+    handleLanguage();
+  }, [isEnabled]);
 
-export default function FrameFour({language}: FrameProps) {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
@@ -67,7 +79,7 @@ export default function FrameFour({language}: FrameProps) {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.pain_description}</Text>
+      <Text>{route.params.language.title.pain_description}</Text>
       <View>
         <CheckBox checked={checked1} title={language.pain_description.sharp} onPress={() => {setChecked1(!checked1)}}/>
         <CheckBox checked={checked2} title={language.pain_description.throbbing} onPress={() => {setChecked2(!checked2)}}/>
@@ -79,8 +91,9 @@ export default function FrameFour({language}: FrameProps) {
         <CheckBox checked={checked8} title={language.pain_description.sudden} onPress={() => {setChecked8(!checked8)}}/>
       </View>
       <Pressable onPress={handleDataInput}>
-        <Text>{language.button.submit}</Text>
+        <Text>{route.params.language.button.submit}</Text>
       </Pressable>
+      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
 }
@@ -93,3 +106,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
 });
+
+export default FrameFour;

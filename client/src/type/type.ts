@@ -14,6 +14,7 @@ type FrameTwoLanguageType = {
     title: {
         symptoms: string;
         pain_location: string;
+        pain_description: string;
     },
     symptoms: {
         fever: string;
@@ -35,6 +36,16 @@ type FrameTwoLanguageType = {
         chest: string,
         eyes_ears_nose: string
     },
+    pain_description: {
+        sharp: string;
+        throbbing: string;
+        aching: string;
+        burning: string;
+        cramping: string;
+        numbness: string;
+        constant: string;
+        sudden: string;
+    },
     button: {
         submit: string
     }
@@ -44,6 +55,7 @@ type FrameThreeLanguageType = {
     title: {
         symptoms: string;
         pain_location: string;
+        pain_description: string;
     },
     pain_location: {
         head: string,
@@ -56,9 +68,46 @@ type FrameThreeLanguageType = {
         chest: string,
         eyes_ears_nose: string
     },
+    pain_description: {
+        sharp: string;
+        throbbing: string;
+        aching: string;
+        burning: string;
+        cramping: string;
+        numbness: string;
+        constant: string;
+        sudden: string;
+    };
     button: {
         submit: string
     }
 }
+
+type FrameFourLanguageType = {
+    title: {
+        symptoms: string;
+        pain_location: string;
+        pain_description: string;
+    },
+    pain_description: {
+        sharp: string;
+        throbbing: string;
+        aching: string;
+        burning: string;
+        cramping: string;
+        numbness: string;
+        constant: string;
+        sudden: string;
+    },
+    button: {
+        submit: string
+    }
+}
+
+
   
-export type { FrameOneLanguageType, FrameTwoLanguageType, FrameThreeLanguageType };
+export type {   FrameOneLanguageType, 
+                FrameTwoLanguageType, 
+                FrameThreeLanguageType,
+                FrameFourLanguageType
+            };
