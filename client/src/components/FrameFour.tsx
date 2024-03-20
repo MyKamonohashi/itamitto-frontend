@@ -7,6 +7,7 @@ import en from '../localize/en';
 import { RouteProp } from '@react-navigation/native';
 import ja from '../localize/ja';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import objFinalReport from './ObjectFinalReport';
 
 type FrameFourRouteProp = RouteProp<StackParams, 'FrameFour'>;
 type FrameFourProps = NativeStackScreenProps<StackParams, 'FrameFour'>; 
@@ -15,6 +16,8 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
 
   const { pain_location } = route.params;
   console.log("pain_location🍍", pain_location);
+
+  objFinalReport.pain = pain_location;
 
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
