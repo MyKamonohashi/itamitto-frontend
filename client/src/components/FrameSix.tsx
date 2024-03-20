@@ -11,12 +11,15 @@ type FrameSixRouteProp = RouteProp<StackParams, 'FrameSix'>;
 type FrameSixProps = NativeStackScreenProps<StackParams, 'FrameSix'>; 
 
 export default function FrameSix({ route, navigation }: FrameSixProps) {
-  const [text, setText] = useState('');
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const [painDuration, setDuration] = useState("");
-
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [text, setText] = useState('');
+  const [interval, setInterval] = useState('')
+  const [painDuration, setDuration] = useState('');
+
+  const { pain_description } = route.params;
+  console.log("pain_description🤩", pain_description);
 
   const handleLanguage = () => {
     if (!isEnabled) {
@@ -29,7 +32,11 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
-  
+
+  const handleDataInput = () => {
+    setDuration(text + " " + interval);
+  }
+
   return (
     <View style={styles.container}>
       <Text>{language.title.symptoms_duration}</Text>
@@ -42,27 +49,28 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
           inputMode="numeric"
         />
         <View>
-          <Pressable>
+          <Pressable onPress={() => {setInterval('hour(s)')}}>
             <Text>{language.duration.hours}</Text>
           </Pressable>
-          <Pressable>
+          <Pressable onPress={() => {setInterval('day(s)')}}>
             <Text>{language.duration.days}</Text>
           </Pressable>
-          <Pressable>
+          <Pressable onPress={() => {setInterval('week(s)')}}>
             <Text>{language.duration.weeks}</Text>
           </Pressable>
-          <Pressable>
+          <Pressable onPress={() => {setInterval('month(s)')}}>
             <Text>{language.duration.months}</Text>
           </Pressable>
-          <Pressable>
+          <Pressable onPress={() => {setInterval('year(s)')}}>
             <Text>{language.duration.years}</Text>
           </Pressable>
         </View>
       </View>
       <Pressable 
+      // uncomment when FrameNine is created to navigate
         // onPress={() => {
-        //   // go to FrameSeven
-        //   navigation.navigate("FrameSeven", {
+        //   handleDataInput();
+        //   navigation.navigate("FrameNine", {
         //     pain_duration: painDuration,
         //     language: language,
         //     isEnabled: isEnabled})
