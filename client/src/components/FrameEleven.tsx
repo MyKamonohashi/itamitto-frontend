@@ -10,7 +10,7 @@ import ja from '../localize/ja';
 type FrameElevenRouteProp = RouteProp<StackParams, 'FrameEleven'>;
 type FrameElevenProps = NativeStackScreenProps<StackParams, 'FrameEleven'>; 
 
-export default function FrameEleven({ route }: FrameElevenProps) {
+export default function FrameEleven({ route, navigation }: FrameElevenProps) {
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -44,13 +44,11 @@ export default function FrameEleven({ route }: FrameElevenProps) {
             <Text>{language.button.no}</Text>
         </Pressable>
       <Pressable 
-      // uncomment when FrameTwelve is created to navigate
-        // onPress={() => {
-        //   handleDataInput();
-        //   navigation.navigate("FrameTwelve", {
-        //     language: language,
-        //     isEnabled: isEnabled})
-        // }}
+        onPress={() => {
+          navigation.navigate("FinalReport", {
+            language: language,
+            isEnabled: isEnabled})
+        }}
         >
         <Text>{language.button.submit}</Text>
       </Pressable>
