@@ -87,13 +87,13 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
       </View>
       <Pressable 
       // uncomment when FrameFive is created to navigate
-        onPress={() => {
-          handleDataInput();
-          navigation.navigate("FrameSix", {
-            pain_description: painDescription,
-            language: language,
-            isEnabled: isEnabled})
-        }}
+        // onPress={() => {
+        //   handleDataInput();
+        //   navigation.navigate("FrameFive", {
+        //     pain_description: painDescription,
+        //     language: language,
+        //     isEnabled: isEnabled})
+        // }}
       >
         <Text>{language.button.submit}</Text>
       </Pressable>
