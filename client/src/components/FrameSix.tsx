@@ -1,29 +1,16 @@
 import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
 import { useState } from 'react';
+import { StackParams } from '../App';
+import { RouteProp } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-type LanguageType = {
-  title: {
-    symptoms_duration: string
-  },
-  button: {
-    submit: string
-  },
-  duration: {
-    about: string,
-    days: string,
-    hours: string,
-    weeks: string,
-    months: string,
-    years: string
-  }
-}
+type FrameSixRouteProp = RouteProp<StackParams, 'FrameSix'>;
+type FrameSixProps = NativeStackScreenProps<StackParams, 'FrameSix'>; 
 
-interface FrameProps {
-  language: LanguageType,
-}
-
-export default function FrameSix({language}: FrameProps) {
+export default function FrameSix({ route, navigation }: FrameSixProps) {
   const [text, setText] = useState('');
+  const [language, setLanguage] = useState(route.params.language);
+  // const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   
   return (
     <View style={styles.container}>

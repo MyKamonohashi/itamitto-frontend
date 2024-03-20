@@ -11,12 +11,13 @@ import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
 import FrameFour from './components/FrameFour';
-import FrameSix from 'FrameSix';
+import FrameSix from './components/FrameSix';
 
 import {  FrameOneLanguageType, 
           FrameTwoLanguageType, 
           FrameThreeLanguageType,
           FrameFourLanguageType,
+          FrameSixLanguageType
         } from './type/type';
 
 export type StackParams = {
@@ -24,10 +25,10 @@ export type StackParams = {
   FrameTwo: {reason: string, language: FrameTwoLanguageType , isEnabled: boolean}
   FrameThree: { symptom: string, language: FrameThreeLanguageType ,isEnabled: boolean}
   FrameFour: { pain_location: string, language: FrameFourLanguageType, isEnabled: boolean}
+  FrameSix: { symptom_duration: string, language: FrameSixLanguageType, isEnabled: boolean}
 }
 
 const Stack = createNativeStackNavigator<StackParams>();
-
 
 export default function App() {
   const [language, setLanguage] = useState(en);
@@ -45,6 +46,7 @@ export default function App() {
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
+
   return (
   <NavigationContainer>
     <Stack.Navigator
@@ -57,6 +59,7 @@ export default function App() {
       <Stack.Screen name="FrameTwo" component={FrameTwo}/>
       <Stack.Screen name="FrameThree" component={FrameThree}/>
       <Stack.Screen name="FrameFour" component={FrameFour}/>
+      <Stack.Screen name="FrameSix" component={FrameSix}/>
     </Stack.Navigator>
   </NavigationContainer>
     // <View style={styles.container}>

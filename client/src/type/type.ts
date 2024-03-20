@@ -104,10 +104,28 @@ type FrameFourLanguageType = {
     }
 }
 
+type FrameSixLanguageType = {
+  title: {
+    symptoms_duration: string
+  },
+  button: {
+    submit: string
+  },
+  duration: {
+    about: string,
+    days: string,
+    hours: string,
+    weeks: string,
+    months: string,
+    years: string
+  }
+}
+
 
   
 export type {   FrameOneLanguageType, 
                 FrameTwoLanguageType, 
                 FrameThreeLanguageType,
-                FrameFourLanguageType
+                FrameFourLanguageType,
+                FrameSixLanguageType
             };
