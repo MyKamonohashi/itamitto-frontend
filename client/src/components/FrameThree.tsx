@@ -18,6 +18,8 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
   const { symptom } = route.params;
   console.log(symptom);
 
+  objFinalReport.symptoms = symptom;
+
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
