@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around'
     },
     header: {
-      marginTop: 150,
+      // marginTop: 150,
       fontSize: 35,
       textAlign: 'center',
       minWidth:'100%',

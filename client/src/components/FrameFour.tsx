@@ -3,29 +3,33 @@ import { useState, useEffect } from 'react';
 import { CheckBox } from '@rneui/themed';
 import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
-import { RouteProp } from '@react-navigation/native';
 import en from '../localize/en';
+import { RouteProp } from '@react-navigation/native';
 import ja from '../localize/ja';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 type FrameFourRouteProp = RouteProp<StackParams, 'FrameFour'>;
-
 type FrameFourProps = NativeStackScreenProps<StackParams, 'FrameFour'>; 
 
-// interface FrameProps {
-//   language: LanguageType,
-// }
-
-const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
+const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
 
   const { pain_location } = route.params;
-  console.log(route.params.language);
   console.log("pain_location🍍", pain_location);
 
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [painDescription, setPainDescription] = useState('');
 
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
+  const [checked4, setChecked4] = useState(false);
+  const [checked5, setChecked5] = useState(false);
+  const [checked6, setChecked6] = useState(false);
+  const [checked7, setChecked7] = useState(false);
+  const [checked8, setChecked8] = useState(false);
+  
   const handleLanguage = () => {
     if (!isEnabled) {
       setLanguage(en);
@@ -38,15 +42,6 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
     handleLanguage();
   }, [isEnabled]);
 
-  const [checked1, setChecked1] = useState(false);
-  const [checked2, setChecked2] = useState(false);
-  const [checked3, setChecked3] = useState(false);
-  const [checked4, setChecked4] = useState(false);
-  const [checked5, setChecked5] = useState(false);
-  const [checked6, setChecked6] = useState(false);
-  const [checked7, setChecked7] = useState(false);
-  const [checked8, setChecked8] = useState(false);
-  const [data, setData] = useState<string[]>([]);
 
   const handleDataInput = () => {
     const result = [];
@@ -74,12 +69,12 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
     if (checked8) {
       result.push(language.pain_description.sudden);
     }
-    setData(result);
+    setPainDescription(result.join('/'));
   }
 
   return (
     <View style={styles.container}>
-      <Text>{route.params.language.title.pain_description}</Text>
+      <Text>{language.title.pain_description}</Text>
       <View>
         <CheckBox checked={checked1} title={language.pain_description.sharp} onPress={() => {setChecked1(!checked1)}}/>
         <CheckBox checked={checked2} title={language.pain_description.throbbing} onPress={() => {setChecked2(!checked2)}}/>
@@ -90,8 +85,17 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
         <CheckBox checked={checked7} title={language.pain_description.constant} onPress={() => {setChecked7(!checked7)}}/>
         <CheckBox checked={checked8} title={language.pain_description.sudden} onPress={() => {setChecked8(!checked8)}}/>
       </View>
-      <Pressable onPress={handleDataInput}>
-        <Text>{route.params.language.button.submit}</Text>
+      <Pressable 
+      // uncomment when FrameFive is created to navigate
+        onPress={() => {
+          handleDataInput();
+          navigation.navigate("FrameSix", {
+            pain_description: painDescription,
+            language: language,
+            isEnabled: isEnabled})
+        }}
+      >
+        <Text>{language.button.submit}</Text>
       </Pressable>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
