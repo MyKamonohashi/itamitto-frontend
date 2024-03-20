@@ -1,10 +1,5 @@
 import { registerRootComponent } from 'expo';
-import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View} from 'react-native';
-import en from './localize/en';
-import ja from './localize/ja';
-import LanguageToggle from './components/LanguageToggle';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FrameOne from './components/FrameOne'
@@ -31,22 +26,6 @@ export type StackParams = {
 const Stack = createNativeStackNavigator<StackParams>();
 
 export default function App() {
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
-
   return (
   <NavigationContainer>
     <Stack.Navigator

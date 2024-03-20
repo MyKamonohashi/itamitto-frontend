@@ -12,10 +12,6 @@ type FrameFourRouteProp = RouteProp<StackParams, 'FrameFour'>;
 
 type FrameFourProps = NativeStackScreenProps<StackParams, 'FrameFour'>; 
 
-// interface FrameProps {
-//   language: LanguageType,
-// }
-
 const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
 
   const { pain_location } = route.params;
@@ -79,7 +75,7 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route }) =>  {
 
   return (
     <View style={styles.container}>
-      <Text>{route.params.language.title.pain_description}</Text>
+      <Text>{language.title.pain_description}</Text>
       <View>
         <CheckBox checked={checked1} title={language.pain_description.sharp} onPress={() => {setChecked1(!checked1)}}/>
         <CheckBox checked={checked2} title={language.pain_description.throbbing} onPress={() => {setChecked2(!checked2)}}/>
