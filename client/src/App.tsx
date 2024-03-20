@@ -8,6 +8,7 @@ import FrameThree from './components/FrameThree';
 import FrameFour from './components/FrameFour';
 import FrameSix from './components/FrameSix';
 import FrameSeven from './components/FrameSeven';
+import FrameEight from './components/FrameEight';
 import { LanguageType } from './type/type';
 
 export type StackParams = {
@@ -17,6 +18,7 @@ export type StackParams = {
   FrameFour: { pain_location: string, language: LanguageType, isEnabled: boolean}
   FrameSix: { pain_description: string, language: LanguageType, isEnabled: boolean}
   FrameSeven: { reason: string, language: LanguageType, isEnabled: boolean}
+  FrameEight: { reason: string, language: LanguageType, isEnabled: boolean}
 }
 
 const Stack = createNativeStackNavigator<StackParams>();
@@ -36,6 +38,7 @@ export default function App() {
       <Stack.Screen name="FrameFour" component={FrameFour}/>
       <Stack.Screen name="FrameSix" component={FrameSix}/>
       <Stack.Screen name="FrameSeven" component={FrameSeven}/>
+      <Stack.Screen name="FrameEight" component={FrameEight}/>
     </Stack.Navigator>
     <StatusBar style="auto" />
   </NavigationContainer>
