@@ -89,6 +89,18 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
         <CheckBox checked={checked8} title={language.test.pap_smear} onPress={() => {setChecked8(!checked8)}}/>
         <CheckBox checked={checked9} title={language.test.MRI_CAT_scan} onPress={() => {setChecked9(!checked9)}}/>
       </View>
+      <Pressable
+      // uncomment when FrameNine is created to navigate
+        // onPress={() => {
+        //   handleDataInput();
+        //   navigation.navigate("FrameNine", {
+        //     tests: tests,
+        //     language: language,
+        //     isEnabled: isEnabled})
+        // }}
+      >
+        <Text>{language.button.submit}</Text>
+      </Pressable>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   )
