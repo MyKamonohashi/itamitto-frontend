@@ -4,10 +4,30 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View} from 'react-native';
 import en from './localize/en';
 import ja from './localize/ja';
-import FrameOne from 'FrameOne';
-import FrameThree from 'FrameThree';
-import FrameSix from 'FrameSix';
 import LanguageToggle from 'LanguageToggle';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import FrameOne from './components/FrameOne'
+import FrameTwo from './components/FrameTwo';
+import FrameThree from './components/FrameThree';
+import FrameFour from './components/FrameFour';
+import FrameSix from 'FrameSix';
+
+import {  FrameOneLanguageType, 
+          FrameTwoLanguageType, 
+          FrameThreeLanguageType,
+          FrameFourLanguageType,
+        } from './type/type';
+
+export type StackParams = {
+  FrameOne: {language: FrameOneLanguageType}
+  FrameTwo: {reason: string, language: FrameTwoLanguageType , isEnabled: boolean}
+  FrameThree: { symptom: string, language: FrameThreeLanguageType ,isEnabled: boolean}
+  FrameFour: { pain_location: string, language: FrameFourLanguageType, isEnabled: boolean}
+}
+
+const Stack = createNativeStackNavigator<StackParams>();
+
 
 export default function App() {
   const [language, setLanguage] = useState(en);
@@ -25,16 +45,30 @@ export default function App() {
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
-
   return (
-    <View style={styles.container}>
-      <FrameSix language={language}/>
-      <LanguageToggle isEnabled={isEnabled} onValueChange={toggleSwitch}/>
-      <StatusBar style="auto" />
-    </View>
+  <NavigationContainer>
+    <Stack.Navigator
+      initialRouteName="FrameOne"
+      screenOptions={{
+        headerTitle: 'itamitto',
+        headerTitleAlign: 'center'
+      }}>
+      <Stack.Screen name="FrameOne" component={FrameOne}/>
+      <Stack.Screen name="FrameTwo" component={FrameTwo}/>
+      <Stack.Screen name="FrameThree" component={FrameThree}/>
+      <Stack.Screen name="FrameFour" component={FrameFour}/>
+    </Stack.Navigator>
+  </NavigationContainer>
+    // <View style={styles.container}>
+    //   <FrameFour language={language}/>
+    //   <LanguageToggle isEnabled={isEnabled} onValueChange={toggleSwitch}/>
+    //   <StatusBar style="auto" />
+    // </View>
   );
 }
 
+
+registerRootComponent(App);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,5 +77,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-registerRootComponent(App);
