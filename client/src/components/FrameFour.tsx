@@ -86,15 +86,15 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
         <CheckBox checked={checked8} title={language.pain_description.sudden} onPress={() => {setChecked8(!checked8)}}/>
       </View>
       <Pressable 
-      // uncomment when FrameFive is created to navigate
-        // onPress={() => {
-        //   handleDataInput();
-        //   navigation.navigate("FrameFive", {
-        //     pain_description: painDescription,
-        //     language: language,
-        //     isEnabled: isEnabled})
-        // }}
-      >
+      // go to FrameFive
+        onPress={() => {
+          handleDataInput();
+          navigation.navigate("FrameFive", {
+            pain_description: painDescription,
+            language: language,
+            isEnabled: isEnabled})
+        }}
+        >
         <Text>{language.button.submit}</Text>
       </Pressable>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>

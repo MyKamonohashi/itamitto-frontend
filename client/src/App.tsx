@@ -6,6 +6,7 @@ import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
 import FrameFour from './components/FrameFour';
+import FrameFive from './components/FrameFive';
 import FrameSix from './components/FrameSix';
 import FrameSeven from './components/FrameSeven';
 import FrameEight from './components/FrameEight';
@@ -16,7 +17,8 @@ export type StackParams = {
   FrameTwo: {reason: string, language: LanguageType , isEnabled: boolean}
   FrameThree: { symptom: string, language: LanguageType ,isEnabled: boolean}
   FrameFour: { pain_location: string, language: LanguageType, isEnabled: boolean}
-  FrameSix: { pain_description: string, language: LanguageType, isEnabled: boolean}
+  FrameFive: { pain_description: string, language: LanguageType, isEnabled: boolean}
+  FrameSix: { hurt: string, language: LanguageType, isEnabled: boolean}
   FrameSeven: { reason: string, language: LanguageType, isEnabled: boolean}
   FrameEight: { reason: string, language: LanguageType, isEnabled: boolean}
 }
@@ -36,6 +38,7 @@ export default function App() {
       <Stack.Screen name="FrameTwo" component={FrameTwo}/>
       <Stack.Screen name="FrameThree" component={FrameThree}/>
       <Stack.Screen name="FrameFour" component={FrameFour}/>
+      <Stack.Screen name="FrameFive" component={FrameFive}/>
       <Stack.Screen name="FrameSix" component={FrameSix}/>
       <Stack.Screen name="FrameSeven" component={FrameSeven}/>
       <Stack.Screen name="FrameEight" component={FrameEight}/>
