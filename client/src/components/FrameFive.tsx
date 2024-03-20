@@ -20,6 +20,7 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route }) => {
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [painScale, setPainScale] = useState('');
 
   const handleLanguage = () => {
     if (!isEnabled) {
@@ -38,6 +39,39 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route }) => {
     <View style={styles.container}>
       <Text>{language.title.hurt_scale}</Text>
       <View>
+        <Pressable onPress={() => setPainScale("No pain")}>
+            <Text>{language.hurt.no_pain}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Very mild")}>
+            <Text>{language.hurt.very_mild}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Discomforting")}>
+            <Text>{language.hurt.discomforting}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Tolerable")}>
+            <Text>{language.hurt.tolerable}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Distressing")}>
+            <Text>{language.hurt.distressing}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Very distressing")}>
+            <Text>{language.hurt.very_distressing}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Intense")}>
+            <Text>{language.hurt.intense}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Very intense")}>
+            <Text>{language.hurt.very_intense}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Utterly horrible")}>
+            <Text>{language.hurt.utterly_horrible}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Excruciating unbearable")}>
+            <Text>{language.hurt.excruciating_unbearable}</Text>
+        </Pressable>
+        <Pressable onPress={() => setPainScale("Unimaginable unspeakable")}>
+            <Text>{language.hurt.unimaginable_unspeakable}</Text>
+        </Pressable>
       </View>
         <Pressable>
           <Text>{language.button.submit}</Text>
