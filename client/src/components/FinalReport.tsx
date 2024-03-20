@@ -10,7 +10,7 @@ import ja from '../localize/ja';
 type FinalReportRouteProp = RouteProp<StackParams, 'FinalReport'>;
 type FinalReportProps = NativeStackScreenProps<StackParams, 'FinalReport'>; 
 
-export default function FrameTen({ route }: FinalReportProps) {
+export default function FinalReport({ route }: FinalReportProps) {
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
