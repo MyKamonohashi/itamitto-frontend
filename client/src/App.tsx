@@ -16,6 +16,7 @@ import {  FrameOneLanguageType,
           FrameTwoLanguageType, 
           FrameThreeLanguageType,
           FrameFourLanguageType,
+          FrameFiveLanguageType,
         } from './type/type';
 
 export type StackParams = {
@@ -23,6 +24,7 @@ export type StackParams = {
   FrameTwo: {reason: string, language: FrameTwoLanguageType , isEnabled: boolean}
   FrameThree: { symptom: string, language: FrameThreeLanguageType ,isEnabled: boolean}
   FrameFour: { pain_location: string, language: FrameFourLanguageType, isEnabled: boolean}
+  FrameFive: { pain_description: string, language: FrameFiveLanguageType, isEnabled: boolean}
 }
 
 const Stack = createNativeStackNavigator<StackParams>();

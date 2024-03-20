@@ -104,10 +104,45 @@ type FrameFourLanguageType = {
     }
 }
 
+type FrameFiveLanguageType = {
+    title: {
+        symptoms: string;
+        pain_location: string;
+        pain_description: string;
+    },
+    pain_description: {
+        sharp: string;
+        throbbing: string;
+        aching: string;
+        burning: string;
+        cramping: string;
+        numbness: string;
+        constant: string;
+        sudden: string;
+    },
+    hurt: {
+        no_pain: string;
+        very_mild: string;
+        discomforting: string;
+        tolerable: string;
+        distressing: string;
+        very_distressing: string;
+        intense: string;
+        very_intense: string;
+        utterly_horrible: string;
+        excruciating_unbearable: string;
+        unimaginable_unspeakable: string;
+    },
+    button: {
+        submit: string
+    }
+}
+
 
   
 export type {   FrameOneLanguageType, 
                 FrameTwoLanguageType, 
                 FrameThreeLanguageType,
-                FrameFourLanguageType
+                FrameFourLanguageType,
+                FrameFiveLanguageType
             };
