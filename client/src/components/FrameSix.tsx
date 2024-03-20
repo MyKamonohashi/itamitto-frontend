@@ -14,6 +14,7 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
   const [text, setText] = useState('');
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
+  const [painDuration, setDuration] = useState("");
 
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -62,7 +63,7 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
         // onPress={() => {
         //   // go to FrameSeven
         //   navigation.navigate("FrameSeven", {
-        //     pain_location: painLocation,
+        //     pain_duration: painDuration,
         //     language: language,
         //     isEnabled: isEnabled})
         // }}

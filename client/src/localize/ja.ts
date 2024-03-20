@@ -98,7 +98,7 @@ const ja = {
     "allergy_test": "アレルギー検査",
     "ultrasound": "超音波検査",
     "STD_test": "性感染症検査",
-    "X-ray": "X線検査",
+    "X_ray": "X線検査",
     "mammogram": "乳房エックス線検査",
     "pap_smear": "子宮頸がん検査",
     "MRI_CAT_scan": "MRI/CATスキャン"
@@ -106,7 +106,7 @@ const ja = {
 
   "vaccine": {
     "influenza": "インフルエンザ",
-    "COVID-19": "コロナウイルス",
+    "COVID_19": "コロナウイルス",
     "HPV": "HPV - 子宮頸がん",
     "measles": "はしか"
   },

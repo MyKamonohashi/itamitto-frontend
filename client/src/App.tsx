@@ -7,20 +7,14 @@ import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
 import FrameFour from './components/FrameFour';
 import FrameSix from './components/FrameSix';
-
-import {  FrameOneLanguageType, 
-          FrameTwoLanguageType, 
-          FrameThreeLanguageType,
-          FrameFourLanguageType,
-          FrameSixLanguageType
-        } from './type/type';
+import { LanguageType } from './type/type';
 
 export type StackParams = {
-  FrameOne: {language: FrameOneLanguageType}
-  FrameTwo: {reason: string, language: FrameTwoLanguageType , isEnabled: boolean}
-  FrameThree: { symptom: string, language: FrameThreeLanguageType ,isEnabled: boolean}
-  FrameFour: { pain_location: string, language: FrameFourLanguageType, isEnabled: boolean}
-  FrameSix: { symptom_duration: string, language: FrameSixLanguageType, isEnabled: boolean}
+  FrameOne: {language: LanguageType}
+  FrameTwo: {reason: string, language: LanguageType , isEnabled: boolean}
+  FrameThree: { symptom: string, language: LanguageType ,isEnabled: boolean}
+  FrameFour: { pain_location: string, language: LanguageType, isEnabled: boolean}
+  FrameSix: { pain_description: string, language: LanguageType, isEnabled: boolean}
 }
 
 const Stack = createNativeStackNavigator<StackParams>();

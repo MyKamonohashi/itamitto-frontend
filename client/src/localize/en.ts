@@ -98,7 +98,7 @@ const en = {
     "allergy_test": "allergy test",
     "ultrasound": "ultrasound",
     "STD_test": "STD test",
-    "X-ray": "X-ray",
+    "X_ray": "X-ray",
     "mammogram": "mammogram",
     "pap_smear": "pap smear",
     "MRI_CAT_scan": "MRI/CAT scan"
@@ -106,7 +106,7 @@ const en = {
 
   "vaccine": {
     "influenza": "influenza",
-    "COVID-19": "COVID-19",
+    "COVID_19": "COVID-19",
     "HPV": "HPV - Gardasil",
     "measles": "measles"
   },
