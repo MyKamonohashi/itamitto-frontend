@@ -46,7 +46,12 @@ const FrameOne: React.FC<Props> = () => {
         <Pressable style={styles.buttonThree}>
           <Text style={styles.buttonText}>{language.reason.vaccine}</Text>
         </Pressable>
-        <Pressable style={styles.buttonFour}>
+        <Pressable style={styles.buttonFour}
+        onPress={() => {
+          //go to pain location FrameSeven
+          navigation.navigate("FrameSeven", {reason: "test", language: language, isEnabled: isEnabled})
+        }}
+        >
           <Text style={styles.buttonText}>{language.reason.test}</Text>
         </Pressable>
       </View>
