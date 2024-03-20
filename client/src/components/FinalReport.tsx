@@ -18,15 +18,6 @@ export default function FinalReport({ route }: FinalReportProps) {
 
   const [finalReport, setFinalReport] = useState(objFinalReport)
 
-//   setFinalReport({
-//     symptoms: "no input",
-//     pain: "no input",
-//     duration: "no input",
-//     test: "no input",
-//     vaccine: "no input",
-//     special_notes: "no input"
-//   })
-
   const handleLanguage = () => {
     if (!isEnabled) {
       setLanguage(en);
@@ -44,19 +35,28 @@ export default function FinalReport({ route }: FinalReportProps) {
     <View style={styles.container}>
       <Text>{language.title.final_report}</Text>
       <View>
+        <Text>{language.final_report.symptoms}</Text>
         <Text>{finalReport.symptoms}</Text>
       </View>
       <View>
+        <Text>{language.final_report.pain}</Text>
         <Text>{finalReport.pain}</Text>
       </View>
       <View>
+        <Text>{language.final_report.duration}</Text>
         <Text>{finalReport.duration}</Text>
       </View>
       <View>
+        <Text>{language.final_report.test}</Text>
         <Text>{finalReport.test}</Text>
       </View>
       <View>
+        <Text>{language.final_report.vaccine}</Text>
         <Text>{finalReport.vaccine}</Text>
+      </View>
+      <View>
+        <Text>{language.final_report.special_notes}</Text>
+        <Text>{finalReport.special_notes}</Text>
       </View>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>

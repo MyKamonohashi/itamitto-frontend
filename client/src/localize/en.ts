@@ -34,7 +34,7 @@ const en = {
   "final_report": {
     "symptoms": "Symptoms",
     "pain": "Pain",
-    "durarion": "Duration",
+    "duration": "Duration",
     "special_notes": "Special Notes",
     "test": "Test",
     "vaccine": "Vaccine"

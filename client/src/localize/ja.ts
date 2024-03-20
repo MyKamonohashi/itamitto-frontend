@@ -34,7 +34,7 @@ const ja = {
   "final_report": {
     "symptoms": "症状",
     "pain": "痛み",
-    "durarion": "症状持続期間",
+    "duration": "症状持続期間",
     "special_notes": "特記事項",
     "test": "検査",
     "vaccine": "ワクチン"
