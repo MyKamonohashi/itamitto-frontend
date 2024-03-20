@@ -14,8 +14,6 @@ type FrameSevenProps = NativeStackScreenProps<StackParams, 'FrameSeven'>;
 export default function FrameSeven({ route, navigation }: FrameSevenProps) {
 
   const { reason } = route.params;
-  console.log('reason: ', reason);
-
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);

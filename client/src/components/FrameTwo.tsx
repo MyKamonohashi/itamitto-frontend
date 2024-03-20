@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
