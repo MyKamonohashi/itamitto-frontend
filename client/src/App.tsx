@@ -10,14 +10,19 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
-import FrameFour from 'FrameFour';
+import FrameFour from './components/FrameFour';
 
-import { FrameOneLanguageType, FrameTwoLanguageType, FrameThreeLanguageType } from './type/type';
+import {  FrameOneLanguageType, 
+          FrameTwoLanguageType, 
+          FrameThreeLanguageType,
+          FrameFourLanguageType,
+        } from './type/type';
 
 export type StackParams = {
   FrameOne: {language: FrameOneLanguageType}
   FrameTwo: {reason: string, language: FrameTwoLanguageType , isEnabled: boolean}
   FrameThree: { symptom: string, language: FrameThreeLanguageType ,isEnabled: boolean}
+  FrameFour: { pain_location: string, language: FrameFourLanguageType, isEnabled: boolean}
 }
 
 const Stack = createNativeStackNavigator<StackParams>();
@@ -50,6 +55,7 @@ export default function App() {
       <Stack.Screen name="FrameOne" component={FrameOne}/>
       <Stack.Screen name="FrameTwo" component={FrameTwo}/>
       <Stack.Screen name="FrameThree" component={FrameThree}/>
+      <Stack.Screen name="FrameFour" component={FrameFour}/>
     </Stack.Navigator>
   </NavigationContainer>
     // <View style={styles.container}>
