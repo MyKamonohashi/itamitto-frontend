@@ -68,13 +68,13 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
       </View>
       <Pressable 
       // uncomment when FrameNine is created to navigate
-        // onPress={() => {
-        //   handleDataInput();
-        //   navigation.navigate("FrameNine", {
-        //     pain_duration: painDuration,
-        //     language: language,
-        //     isEnabled: isEnabled})
-        // }}
+        onPress={() => {
+          handleDataInput();
+          navigation.navigate("FrameTen", {
+            pain_duration: painDuration,
+            language: language,
+            isEnabled: isEnabled})
+        }}
         >
         <Text>{language.button.submit}</Text>
       </Pressable>

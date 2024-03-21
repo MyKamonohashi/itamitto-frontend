@@ -11,7 +11,9 @@ type LanguageType = {
     medications: string,
     allergy: string,
     pregnancy: string,
-    final_report: string
+    final_report: string,
+    injury_location : string,
+    injury_description: string
   },
   button: {
     submit: string,
@@ -111,7 +113,34 @@ type LanguageType = {
   other_medication: {
     medication_name: string,
     dosage: string
+  },
+
+  allergies: {
+    allergies_name: string
+  },
+
+  injury_location: {
+    head: string,
+    stomach: string,
+    arm: string,
+    leg: string,
+    back: string,
+    shoulder: string,
+    neck: string,
+    chest: string,
+    eyes_ears_nose: string
+  },
+
+  injury_description: {
+    cut_gash: string,
+    bruise: string,
+    bump: string,
+    swelling: string,
+    scratch: string,
+    scrape: string,
+    break: string
   }
+
 }
 
 export type { LanguageType };

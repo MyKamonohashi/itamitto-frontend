@@ -11,7 +11,9 @@ const ja = {
     "medications": "ほかの薬を飲んでいますか？",
     "allergy": "アレルギーはありますか？",
     "pregnancy": "妊娠中または授乳中ですか？",
-    "final_report" : "この画面を医師に見せてください"
+    "final_report" : "この画面を医師に見せてください",
+    "injury_location": "どこをけがしましたか",
+    "injury_description": "どのようなけがですか"
   },
 
   "button": {
@@ -114,6 +116,32 @@ const ja = {
   "other_medication": {
     "medication_name": "飲んでいるくすり",
     "dosage": "量（りょう）"
+  },
+
+  "allergies": {
+    "allergies_name": "アレルギーのあるもの"
+  },
+
+  "injury_location": {
+    "head": "あたま",
+    "stomach": "おなか",
+    "arm": "うで",
+    "leg": "あし",
+    "back": "せなか",
+    "shoulder": "かた",
+    "neck": "くび",
+    "chest": "むね",
+    "eyes_ears_nose": "め/みみ/はな"
+  },
+
+  "injury_description": {
+    "cut_gash": "きりきず",
+    "bruise": "あざ",
+    "bump": "こぶ",
+    "swelling": "はれている",
+    "scratch": "ひっかききず",
+    "scrape": "すりきず",
+    "break": "こっせつ"
   }
 }
 
