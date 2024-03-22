@@ -7,6 +7,7 @@ import ja from '../localize/ja';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import objFinalReport from './ObjectFinalReport';
 
 type FrameSevenRouteProp = RouteProp<StackParams, 'FrameSeven'>;
 type FrameSevenProps = NativeStackScreenProps<StackParams, 'FrameSeven'>;
@@ -18,6 +19,8 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const [tests, setTests] = useState('');
+
+  objFinalReport.reason = reason;
 
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
