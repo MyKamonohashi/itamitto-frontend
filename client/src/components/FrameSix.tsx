@@ -18,8 +18,8 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
   const [interval, setInterval] = useState('')
   const [painDuration, setDuration] = useState('');
 
-  const { pain_description } = route.params;
-  console.log("pain_description🤩", pain_description);
+  const { hurt } = route.params;
+  console.log("hurt🤩", hurt);
 
   const handleLanguage = () => {
     if (!isEnabled) {
