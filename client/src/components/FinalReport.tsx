@@ -76,6 +76,7 @@ export default function FinalReport({ route }: FinalReportProps) {
         </View>
         )
         )}
+        <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
 }
