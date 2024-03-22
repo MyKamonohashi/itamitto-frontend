@@ -7,6 +7,7 @@ import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import objFinalReport from './ObjectFinalReport';
 
 type FrameEightRouteProp = RouteProp<StackParams, 'FrameEight'>;
 type FrameEightProps = NativeStackScreenProps<StackParams, 'FrameEight'>;
@@ -17,6 +18,8 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const [vaccines, setVaccines] = useState('');
+
+  objFinalReport.reason = reason;
 
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
