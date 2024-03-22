@@ -6,6 +6,8 @@ import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import objFinalReport from './ObjectFinalReport';
+
 
 type FrameTwoRouteProp = RouteProp<StackParams, 'FrameTwo'>;
 
@@ -16,6 +18,8 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
   const { reason } = route.params;
   console.log("🍎:",reason)
   // console.log("🍇:", route.params.language, "🍊:",route.params.isEnabled);
+
+  objFinalReport.reason = reason;
   
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
