@@ -16,7 +16,7 @@ type FrameFiveProps = NativeStackScreenProps<StackParams, 'FrameFive'>;
 const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
 
   const { pain_description } = route.params;
-  console.log(pain_description);
+  console.log("😇",pain_description);
 
   objFinalReport.pain_description = pain_description;
 

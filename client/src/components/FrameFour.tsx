@@ -75,6 +75,19 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
     setPainDescription(result.join('/'));
   }
 
+  // const navigateFrameFive = () => {
+  //   navigation.navigate("FrameFive", {
+  //     pain_description: painDescription,
+  //     language: language,
+  //     isEnabled: isEnabled})
+  // }
+
+  // const functionCombined = () => {
+  //   this.handleDataInput();
+  // }
+
+
+
   return (
     <View style={styles.container}>
       <Text>{language.title.pain_description}</Text>
@@ -90,8 +103,8 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
       </View>
       <Pressable 
       // go to FrameFive
+        onPressIn={() => handleDataInput()}
         onPress={() => {
-          handleDataInput();
           navigation.navigate("FrameFive", {
             pain_description: painDescription,
             language: language,
