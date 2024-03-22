@@ -6,6 +6,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import LanguageToggle from '../components/LanguageToggle';
 import en from '../localize/en';
 import ja from '../localize/ja';
+import objFinalReport from './ObjectFinalReport';
 
 type FrameElevenRouteProp = RouteProp<StackParams, 'FrameEleven'>;
 type FrameElevenProps = NativeStackScreenProps<StackParams, 'FrameEleven'>; 
@@ -19,6 +20,8 @@ export default function FrameEleven({ route, navigation }: FrameElevenProps) {
 
   const { allergies_name } = route.params;
   console.log("allergies_name🍳", allergies_name);
+
+  objFinalReport.allergies_name = allergies_name;
 
 
   const handleLanguage = () => {
