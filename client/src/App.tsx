@@ -12,6 +12,8 @@ import FrameSeven from './components/FrameSeven';
 import FrameEight from './components/FrameEight';
 import FrameTen from './components/FrameTen';
 import FrameEleven from './components/FrameEleven';
+
+import FrameSixteen from './components/FrameSixteen';
 import { LanguageType } from './type/type';
 
 export type StackParams = {
@@ -26,6 +28,8 @@ export type StackParams = {
   
   FrameTen: { pain_duration: string, language: LanguageType, isEnabled: boolean}
   FrameEleven: { allergies_name: string, language: LanguageType, isEnabled: boolean}
+
+  FrameSixteen: {reason: string, language: LanguageType, isEnabled: boolean}
 }
 
 const Stack = createNativeStackNavigator<StackParams>();
@@ -50,6 +54,8 @@ export default function App() {
 
       <Stack.Screen name="FrameTen" component={FrameTen}/>
       <Stack.Screen name="FrameEleven" component={FrameEleven}/>
+
+      <Stack.Screen name="FrameSixteen" component={FrameSixteen}/>
     </Stack.Navigator>
     <StatusBar style="auto" />
   </NavigationContainer>
