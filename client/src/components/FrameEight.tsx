@@ -63,14 +63,14 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
       </View>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
       <Pressable
-      // uncomment when FrameNine is created to navigate
-        // onPress={() => {
-        //   handleDataInput();
-        //   navigation.navigate("FrameNine", {
-        //     vaccine: vaccines,
-        //     language: language,
-        //     isEnabled: isEnabled})
-        // }}
+      // to FrameNine
+        onPress={() => {
+          handleDataInput();
+          navigation.navigate("FrameNine", {
+            vaccine: vaccines,
+            language: language,
+            isEnabled: isEnabled})
+        }}
       >
         <Text>{language.button.submit}</Text>
       </Pressable>

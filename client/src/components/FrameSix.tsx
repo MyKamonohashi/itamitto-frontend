@@ -67,10 +67,10 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
         </View>
       </View>
       <Pressable 
-      // uncomment when FrameNine is created to navigate
+      // to FrameNine
         onPress={() => {
           handleDataInput();
-          navigation.navigate("FrameTen", {
+          navigation.navigate("FrameNine", {
             pain_duration: painDuration,
             language: language,
             isEnabled: isEnabled})
