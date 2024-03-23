@@ -60,7 +60,7 @@ export default function FrameFifteen( { route, navigation }: FrameFifteenProps) 
           <Text>{language.injury_location.eyes_ears_nose}</Text>
         </Pressable>
       </View>
-      {/* <Pressable onPress={() => {
+      <Pressable onPress={() => {
           // go to FrameSixteen
           navigation.navigate("FrameSixteen", {
             injury_location: injuryLocation,
@@ -69,7 +69,7 @@ export default function FrameFifteen( { route, navigation }: FrameFifteenProps) 
           }
         }>
           <Text>{language.button.submit}</Text>
-        </Pressable> */}
+        </Pressable>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
