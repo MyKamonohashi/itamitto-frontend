@@ -25,8 +25,7 @@ export type StackParams = {
   FrameSeven: { reason: string, language: LanguageType, isEnabled: boolean}
   FrameEight: { reason: string, language: LanguageType, isEnabled: boolean}
   FrameNine: { pain_duration?: string, test?: string, vaccine?: string, language: LanguageType, isEnabled: boolean}
-  
-  FrameTen: { pain_duration: string, language: LanguageType, isEnabled: boolean}
+  FrameTen: { takingMedications: boolean, currentMedications: string, language: LanguageType, isEnabled: boolean}
   FrameEleven: { allergies_name: string, language: LanguageType, isEnabled: boolean}
 }
 
@@ -50,7 +49,6 @@ export default function App() {
       <Stack.Screen name="FrameSeven" component={FrameSeven}/>
       <Stack.Screen name="FrameEight" component={FrameEight}/>
       <Stack.Screen name="FrameNine" component={FrameNine}/>
-
       <Stack.Screen name="FrameTen" component={FrameTen}/>
       <Stack.Screen name="FrameEleven" component={FrameEleven}/>
     </Stack.Navigator>

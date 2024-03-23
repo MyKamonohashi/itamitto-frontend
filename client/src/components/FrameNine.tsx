@@ -31,13 +31,23 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
     handleLanguage();
   }, [isEnabled]);
 
+  const handleNoMedications = () => {
+    navigation.navigate("FrameTen", {
+      takingMedications: false,
+      currentMedications: 'none',
+      language: language,
+      isEnabled: isEnabled
+
+    })
+  }
+
   return (
     <View style={styles.container}>
       <Text>{language.title.medications}</Text>
       <Pressable>
         <Text>{language.button.yes}</Text>
       </Pressable>
-      <Pressable>
+      <Pressable onPress={handleNoMedications}>
         <Text>{language.button.no}</Text>
       </Pressable>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>

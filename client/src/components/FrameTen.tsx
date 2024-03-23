@@ -18,8 +18,8 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
   const [isAllergic, setIsAllergic] = useState(false);
   const [allergy, setAllergy] = useState('')
 
-  const { pain_duration } = route.params;
-  console.log("pain_duration🥰", pain_duration);//change pain_duration into medication after FrameNine is created
+  // const { pain_duration } = route.params;
+  // console.log("pain_duration🥰", pain_duration);//change pain_duration into medication after FrameNine is created
 
   const handleLanguage = () => {
     if (!isEnabled) {
