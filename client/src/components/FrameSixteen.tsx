@@ -28,7 +28,7 @@ export default function FrameSixteen( { route, navigation }: FrameSixteenProps) 
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
-  
+
   return (
     <View style={styles.container}>
       <Text>{language.title.injury_description}</Text>
@@ -55,6 +55,16 @@ export default function FrameSixteen( { route, navigation }: FrameSixteenProps) 
           <Text>{language.injury_description.break}</Text>
         </Pressable>
       </View>
+      {/* <Pressable onPress={() => {
+          // go to FrameNine
+          navigation.navigate("FrameNine", {
+            injury_description: injuryDescription,
+            language: language,
+            isEnabled: isEnabled})
+          }
+        }>
+          <Text>{language.button.submit}</Text>
+        </Pressable> */}
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
