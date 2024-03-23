@@ -13,7 +13,10 @@ import FrameEight from './components/FrameEight';
 import FrameNine from './components/FrameNine';
 import FrameTen from './components/FrameTen';
 import FrameEleven from './components/FrameEleven';
+
+import FrameSixteen from './components/FrameSixteen';
 import FrameFifteen from './components/FrameFifteen';
+
 import { LanguageType } from './type/type';
 
 export type StackParams = {
@@ -28,6 +31,8 @@ export type StackParams = {
   FrameNine: { pain_duration?: string, test?: string, vaccine?: string, language: LanguageType, isEnabled: boolean}
   FrameTen: { takingMedications: boolean, currentMedications: string, dosage: string, language: LanguageType, isEnabled: boolean}
   FrameEleven: { allergies_name: string, language: LanguageType, isEnabled: boolean}
+
+  FrameSixteen: {reason: string, language: LanguageType, isEnabled: boolean}
   FrameFifteen: {reason: string, language: LanguageType, isEnabled: boolean}
 }
 
@@ -53,7 +58,10 @@ export default function App() {
       <Stack.Screen name="FrameNine" component={FrameNine}/>
       <Stack.Screen name="FrameTen" component={FrameTen}/>
       <Stack.Screen name="FrameEleven" component={FrameEleven}/>
+
+      <Stack.Screen name="FrameSixteen" component={FrameSixteen}/>
       <Stack.Screen name="FrameFifteen" component={FrameFifteen}/>
+
     </Stack.Navigator>
     <StatusBar style="auto" />
   </NavigationContainer>
