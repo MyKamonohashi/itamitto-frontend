@@ -40,12 +40,16 @@ const FrameOne: React.FC<Props> = () => {
         >
           <Text style={styles.buttonText}>{language.reason.illness}</Text>
         </Pressable>
-        <Pressable style={styles.buttonTwo}>
+        <Pressable style={styles.buttonTwo}
+          onPress={() => {
+            //go to injury FrameFifteen
+            navigation.navigate("FrameFifteen", {reason: "injury", language: language, isEnabled: isEnabled})
+          }}>
           <Text style={styles.buttonText}>{language.reason.injury}</Text>
         </Pressable>
         <Pressable style={styles.buttonThree}
           onPress={() => {
-            //go to pain location FrameEight
+            //go to vaccine FrameEight
             navigation.navigate("FrameEight", {reason: "vaccine", language: language, isEnabled: isEnabled})
           }}
         >
