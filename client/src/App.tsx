@@ -25,7 +25,7 @@ export type StackParams = {
   FrameSeven: { reason: string, language: LanguageType, isEnabled: boolean}
   FrameEight: { reason: string, language: LanguageType, isEnabled: boolean}
   FrameNine: { pain_duration?: string, test?: string, vaccine?: string, language: LanguageType, isEnabled: boolean}
-  FrameTen: { takingMedications: boolean, currentMedications: string, language: LanguageType, isEnabled: boolean}
+  FrameTen: { takingMedications: boolean, currentMedications: string, dosage: string, language: LanguageType, isEnabled: boolean}
   FrameEleven: { allergies_name: string, language: LanguageType, isEnabled: boolean}
 }
 

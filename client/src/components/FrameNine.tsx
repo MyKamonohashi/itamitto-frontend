@@ -36,6 +36,7 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
     navigation.navigate("FrameTen", {
       takingMedications: false,
       currentMedications: 'none',
+      dosage: 'N/A',
       language: language,
       isEnabled: isEnabled
     });
@@ -70,6 +71,17 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
             inputMode="text"
             />
           </View>
+          <Pressable onPress={() => {
+            navigation.navigate("FrameTen", {
+              takingMedications: takingMedications,
+              currentMedications: currentMedications,
+              dosage: dosage,
+              language: language,
+              isEnabled: isEnabled
+            });
+          }}>
+            <Text>{language.button.submit}</Text>
+          </Pressable>
         </View>
       }
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
@@ -86,5 +98,6 @@ const styles = StyleSheet.create({
   },
   inputs: {
     flexDirection: "row",
+    gap: 25
   },
 });
