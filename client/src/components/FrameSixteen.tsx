@@ -28,10 +28,33 @@ export default function FrameSixteen( { route, navigation }: FrameSixteenProps) 
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
+  
   return (
     <View style={styles.container}>
-      <Text>{language.title.injury_location}</Text>
-      
+      <Text>{language.title.injury_description}</Text>
+      <View>
+      <Pressable onPress={() => setInjuryDescription("cut/gash")}>
+          <Text>{language.injury_description.cut_gash}</Text>
+        </Pressable>
+        <Pressable onPress={() => setInjuryDescription("bruise")}>
+          <Text>{language.injury_description.bruise}</Text>
+        </Pressable>
+        <Pressable onPress={() => setInjuryDescription("bump")}>
+          <Text>{language.injury_description.bump}</Text>
+        </Pressable>
+        <Pressable onPress={() => setInjuryDescription("swelling")}>
+          <Text>{language.injury_description.swelling}</Text>
+        </Pressable>
+        <Pressable onPress={() => setInjuryDescription("scratch")}>
+          <Text>{language.injury_description.scratch}</Text>
+        </Pressable>
+        <Pressable onPress={() => setInjuryDescription("scrape")}>
+          <Text>{language.injury_description.scrape}</Text>
+        </Pressable>
+        <Pressable onPress={() => setInjuryDescription("break")}>
+          <Text>{language.injury_description.break}</Text>
+        </Pressable>
+      </View>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
