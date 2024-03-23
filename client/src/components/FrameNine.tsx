@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable, TextInput } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
@@ -16,6 +16,7 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const [takingMedications, setTakingMedications] = useState(false);
   const [currentMedications, setCurrentMedications] = useState('');
+  const [dosage, setDosage] = useState('')
   
   const { pain_duration, test, vaccine } = route.params;
 
@@ -37,19 +38,40 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
       currentMedications: 'none',
       language: language,
       isEnabled: isEnabled
+    });
+  }
 
-    })
+  const handleTakesMedications = () => {
+    setTakingMedications(true);
   }
 
   return (
     <View style={styles.container}>
       <Text>{language.title.medications}</Text>
-      <Pressable>
+      <Pressable onPress={handleTakesMedications}>
         <Text>{language.button.yes}</Text>
       </Pressable>
       <Pressable onPress={handleNoMedications}>
         <Text>{language.button.no}</Text>
       </Pressable>
+      { takingMedications && 
+        <View>
+          <View style={styles.inputs}>
+            <TextInput
+            onChangeText={setCurrentMedications}
+            value={currentMedications}
+            placeholder='Medication Name'
+            inputMode="text"
+            />
+            <TextInput
+            onChangeText={setDosage}
+            value={dosage}
+            placeholder='Dosage'
+            inputMode="text"
+            />
+          </View>
+        </View>
+      }
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
@@ -61,5 +83,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around'
+  },
+  inputs: {
+    flexDirection: "row",
   },
 });
