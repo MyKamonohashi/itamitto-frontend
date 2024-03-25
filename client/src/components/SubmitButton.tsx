@@ -1,4 +1,10 @@
 import { Pressable, StyleSheet, Text } from "react-native";
+import { GestureResponderEvent } from "react-native";
+
+type SubmitButtonProps = {
+  onPress: GestureResponderEvent,
+}
+
 
 export default function SubmitButton() {
   return (
