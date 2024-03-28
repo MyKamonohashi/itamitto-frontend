@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja'
 import LanguageToggle from './LanguageToggle';
+import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';

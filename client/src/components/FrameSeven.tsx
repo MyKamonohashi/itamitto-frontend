@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { CheckBox } from '@rneui/themed';
 import LanguageToggle from './LanguageToggle';
+import SubmitButton from './SubmitButton';
 import en from '../localize/en';
 import ja from '../localize/ja';
 import { StackParams } from '../App';
