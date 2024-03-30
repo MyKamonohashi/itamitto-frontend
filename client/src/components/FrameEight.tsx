@@ -63,7 +63,6 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
     });
   }
   
-
   return (
     <View style={styles.container}>
       <Text>{language.reason.vaccine}</Text>

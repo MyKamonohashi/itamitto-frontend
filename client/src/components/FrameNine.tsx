@@ -47,6 +47,16 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
     setTakingMedications(true);
   }
 
+  const handleSubmission = () => {
+    navigation.navigate("FrameTen", {
+      takingMedications: takingMedications,
+      currentMedications: currentMedications,
+      dosage: dosage,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
+
   return (
     <View style={styles.container}>
       <Text>{language.title.medications}</Text>
@@ -72,17 +82,7 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
             inputMode="text"
             />
           </View>
-          <Pressable onPress={() => {
-            navigation.navigate("FrameTen", {
-              takingMedications: takingMedications,
-              currentMedications: currentMedications,
-              dosage: dosage,
-              language: language,
-              isEnabled: isEnabled
-            });
-          }}>
-            <Text>{language.button.submit}</Text>
-          </Pressable>
+          <SubmitButton language={language} onPress={handleSubmission}/>
         </View>
       }
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>

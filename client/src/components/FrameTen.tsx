@@ -36,6 +36,14 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
     handleLanguage();
   }, [isEnabled]);
 
+  const handleSubmission = () => {
+    navigation.navigate("FrameEleven", {
+      allergies_name: allergy,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
+
 
   return (
     <View style={styles.container}>
@@ -54,16 +62,7 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
             placeholder='#'
             />
         </View>
-      <Pressable 
-        onPress={() => {
-          navigation.navigate("FrameEleven", {
-            allergies_name: allergy,
-            language: language,
-            isEnabled: isEnabled})
-        }}
-        >
-        <Text>{language.button.submit}</Text>
-      </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );

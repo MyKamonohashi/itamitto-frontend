@@ -30,6 +30,15 @@ export default function FrameSixteen( { route, navigation }: FrameSixteenProps) 
     handleLanguage();
   }, [isEnabled]);
 
+  const handleSubmission = () => {
+    // go to FrameNine
+    navigation.navigate("FrameNine", {
+      injury_description: injuryDescription,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
+
   return (
     <View style={styles.container}>
       <Text>{language.title.injury_description}</Text>
@@ -56,16 +65,7 @@ export default function FrameSixteen( { route, navigation }: FrameSixteenProps) 
           <Text>{language.injury_description.break}</Text>
         </Pressable>
       </View>
-      <Pressable onPress={() => {
-          // go to FrameNine
-          navigation.navigate("FrameNine", {
-            injury_description: injuryDescription,
-            language: language,
-            isEnabled: isEnabled})
-          }
-        }>
-          <Text>{language.button.submit}</Text>
-        </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );

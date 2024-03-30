@@ -26,6 +26,14 @@ export default function FrameFifteen( { route, navigation }: FrameFifteenProps) 
     }
   }
 
+  const handleSubmission = () => {
+    navigation.navigate("FrameSixteen", {
+      injury_location: injuryLocation,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
+
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
@@ -61,16 +69,7 @@ export default function FrameFifteen( { route, navigation }: FrameFifteenProps) 
           <Text>{language.injury_location.eyes_ears_nose}</Text>
         </Pressable>
       </View>
-      <Pressable onPress={() => {
-          // go to FrameSixteen
-          navigation.navigate("FrameSixteen", {
-            injury_location: injuryLocation,
-            language: language,
-            isEnabled: isEnabled})
-          }
-        }>
-          <Text>{language.button.submit}</Text>
-        </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );

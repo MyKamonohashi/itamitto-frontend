@@ -10,7 +10,6 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 
 type FrameFiveRouteProp = RouteProp<StackParams, 'FrameFive'>;
-
 type FrameFiveProps = NativeStackScreenProps<StackParams, 'FrameFive'>; 
 
 const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
@@ -34,6 +33,15 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
+
+  const handleSubmission = () => {
+    // go to FrameSix
+    navigation.navigate("FrameSix", {
+      hurt: painScale,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
 
 
   return (
@@ -74,14 +82,7 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
             <Text>{language.hurt.unimaginable_unspeakable}</Text>
         </Pressable>
       </View>
-        <Pressable onPress={() => {
-          navigation.navigate("FrameSix", {
-          hurt: painScale,
-          language: language,
-          isEnabled: isEnabled})
-        }}>
-          <Text>{language.button.submit}</Text>
-        </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
