@@ -11,7 +11,7 @@ export default function SubmitButton({language, onPress}: SubmitButtonProps) {
   return (
     <>
       <Pressable style={styles.submit} onPress={onPress}>
-        <Text>{language.button.submit}</Text>
+        <Text style={styles.buttonText}>{language.button.submit}</Text>
       </Pressable>
     </>
   );
@@ -19,6 +19,13 @@ export default function SubmitButton({language, onPress}: SubmitButtonProps) {
 
 const styles = StyleSheet.create({
   submit: {
-
+    backgroundColor: '#039388',
+    padding: 5,
+    paddingHorizontal: 35,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 30
   }
 });
