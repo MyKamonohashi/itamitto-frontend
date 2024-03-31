@@ -6,31 +6,40 @@ import LanguageToggle from './LanguageToggle';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StackParams } from '../App';
+import { LanguageType } from '../type/type';
 
 type Props = NativeStackScreenProps<StackParams, "FrameOne">
 
-const FrameOne: React.FC<Props> = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
+const FrameOne: React.FC<Props> = ({ route, navigation:{ setParams } }) => {
+  // const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
 
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  
 
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
+  // const [language, setLanguage] = useState(en);
+  // const [isEnabled, setIsEnabled] = useState(false);
+  // const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  // const handleLanguage = () => {
+  //   if (!isEnabled) {
+  //     setLanguage(en);
+  //   } else {
+  //     setLanguage(ja);
+  //   }
+  // }
+
 
   useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
+    console.log("HELLO");
+    console.log('route', route);
+    console.log('language: ', route.params.language);
+    // console.log('navigation', navigation);
+  }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>{language.title.reason}</Text>
+      <Text>HELLO</Text>
+      <Pressable><Text>BUTTON</Text></Pressable>
+      {/* <Text style={styles.header}>{language.title.reason}</Text>
       <View style={styles.buttons}>
         <Pressable  style={styles.buttonOne}
           onPress={() => {
@@ -63,8 +72,7 @@ const FrameOne: React.FC<Props> = () => {
         >
           <Text style={styles.buttonText}>{language.reason.test}</Text>
         </Pressable>
-      </View>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      </View> */}
     </View>
   );
 }
