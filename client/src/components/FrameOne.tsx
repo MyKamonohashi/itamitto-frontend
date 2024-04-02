@@ -1,45 +1,24 @@
 import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
 import { useState, useEffect } from 'react';
-import en from '../localize/en';
-import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StackParams } from '../App';
-import { LanguageType } from '../type/type';
 
 type Props = NativeStackScreenProps<StackParams, "FrameOne">
 
-const FrameOne: React.FC<Props> = ({ route, navigation:{ setParams } }) => {
-  // const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
-
-  
-
-  // const [language, setLanguage] = useState(en);
-  // const [isEnabled, setIsEnabled] = useState(false);
-  // const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  // const handleLanguage = () => {
-  //   if (!isEnabled) {
-  //     setLanguage(en);
-  //   } else {
-  //     setLanguage(ja);
-  //   }
-  // }
-
+const FrameOne: React.FC<Props> = ({ route, navigation }) => {
+  const { language, isEnabled } = route.params;
 
   useEffect(() => {
     console.log("HELLO");
     console.log('route', route);
     console.log('language: ', route.params.language);
-    // console.log('navigation', navigation);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>HELLO</Text>
-      <Pressable><Text>BUTTON</Text></Pressable>
-      {/* <Text style={styles.header}>{language.title.reason}</Text>
+      <Text style={styles.header}>{language.title.reason}</Text>
       <View style={styles.buttons}>
         <Pressable  style={styles.buttonOne}
           onPress={() => {
@@ -72,7 +51,7 @@ const FrameOne: React.FC<Props> = ({ route, navigation:{ setParams } }) => {
         >
           <Text style={styles.buttonText}>{language.reason.test}</Text>
         </Pressable>
-      </View> */}
+      </View>
     </View>
   );
 }
