@@ -4,6 +4,7 @@ import { CheckBox } from '@rneui/themed';
 import en from '../localize/en';
 import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
+import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -52,6 +53,16 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
     setVaccines(result.join('/'));
   }
 
+  const handleSubmission = () => {
+    handleDataInput();
+    // to FrameNine
+    navigation.navigate("FrameNine", {
+      vaccine: vaccines,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
+  
   return (
     <View style={styles.container}>
       <Text>{language.reason.vaccine}</Text>
@@ -61,19 +72,8 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
         <CheckBox checked={checked3} title={language.vaccine.HPV} onPress={() => {setChecked3(!checked3)}}/>
         <CheckBox checked={checked4} title={language.vaccine.measles} onPress={() => {setChecked4(!checked4)}}/>
       </View>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
-      <Pressable
-      // to FrameNine
-        onPress={() => {
-          handleDataInput();
-          navigation.navigate("FrameNine", {
-            vaccine: vaccines,
-            language: language,
-            isEnabled: isEnabled})
-        }}
-      >
-        <Text>{language.button.submit}</Text>
-      </Pressable>
     </View>
   );
 }

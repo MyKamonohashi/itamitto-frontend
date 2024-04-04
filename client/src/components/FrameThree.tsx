@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
+import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -34,6 +35,13 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
     handleLanguage();
   }, [isEnabled]);
 
+  const handleSubmission = () => {
+    // go to FrameFour
+    navigation.navigate("FrameFour", {
+      pain_location: painLocation,
+      language: language,
+      isEnabled: isEnabled})
+  }
 
   return (
     <View style={styles.container}>
@@ -67,16 +75,7 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
           <Text>{language.pain_location.eyes_ears_nose}</Text>
         </Pressable>
       </View>
-        <Pressable onPress={() => {
-          // go to FrameFour
-          navigation.navigate("FrameFour", {
-            pain_location: painLocation,
-            language: language,
-            isEnabled: isEnabled})
-        }
-          }>
-          <Text>{language.button.submit}</Text>
-        </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );

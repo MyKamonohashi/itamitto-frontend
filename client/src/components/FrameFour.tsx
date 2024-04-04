@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { CheckBox } from '@rneui/themed';
 import LanguageToggle from './LanguageToggle';
+import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
 import en from '../localize/en';
 import { RouteProp } from '@react-navigation/native';
@@ -72,6 +73,15 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
     setPainDescription(result.join('/'));
   }
 
+  const handleSubmission = () => {
+    handleDataInput();
+    navigation.navigate("FrameFive", {
+      pain_description: painDescription,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
+
   return (
     <View style={styles.container}>
       <Text>{language.title.pain_description}</Text>
@@ -85,18 +95,7 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
         <CheckBox checked={checked7} title={language.pain_description.constant} onPress={() => {setChecked7(!checked7)}}/>
         <CheckBox checked={checked8} title={language.pain_description.sudden} onPress={() => {setChecked8(!checked8)}}/>
       </View>
-      <Pressable 
-      // go to FrameFive
-        onPress={() => {
-          handleDataInput();
-          navigation.navigate("FrameFive", {
-            pain_description: painDescription,
-            language: language,
-            isEnabled: isEnabled})
-        }}
-        >
-        <Text>{language.button.submit}</Text>
-      </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );

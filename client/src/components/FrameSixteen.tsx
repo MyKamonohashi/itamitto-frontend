@@ -4,6 +4,7 @@ import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import LanguageToggle from '../components/LanguageToggle';
+import SubmitButton from './SubmitButton';
 import en from '../localize/en';
 import ja from '../localize/ja';
 
@@ -28,6 +29,15 @@ export default function FrameSixteen( { route, navigation }: FrameSixteenProps) 
   useEffect(() => {
     handleLanguage();
   }, [isEnabled]);
+
+  const handleSubmission = () => {
+    // go to FrameNine
+    navigation.navigate("FrameNine", {
+      injury_description: injuryDescription,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
 
   return (
     <View style={styles.container}>
@@ -55,16 +65,7 @@ export default function FrameSixteen( { route, navigation }: FrameSixteenProps) 
           <Text>{language.injury_description.break}</Text>
         </Pressable>
       </View>
-      <Pressable onPress={() => {
-          // go to FrameNine
-          navigation.navigate("FrameNine", {
-            injury_description: injuryDescription,
-            language: language,
-            isEnabled: isEnabled})
-          }
-        }>
-          <Text>{language.button.submit}</Text>
-        </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );

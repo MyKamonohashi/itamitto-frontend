@@ -4,6 +4,7 @@ import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import LanguageToggle from '../components/LanguageToggle';
+import SubmitButton from './SubmitButton';
 import en from '../localize/en';
 import ja from '../localize/ja';
 
@@ -37,6 +38,16 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
     setDuration(text + " " + interval);
   }
 
+  const handleSubmission = () => {
+    // to FrameNine
+    handleDataInput();
+    navigation.navigate("FrameNine", {
+      pain_duration: painDuration,
+      language: language,
+      isEnabled: isEnabled
+    });
+  }
+
   return (
     <View style={styles.container}>
       <Text>{language.title.symptoms_duration}</Text>
@@ -66,18 +77,7 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
           </Pressable>
         </View>
       </View>
-      <Pressable 
-      // to FrameNine
-        onPress={() => {
-          handleDataInput();
-          navigation.navigate("FrameNine", {
-            pain_duration: painDuration,
-            language: language,
-            isEnabled: isEnabled})
-        }}
-        >
-        <Text>{language.button.submit}</Text>
-      </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );

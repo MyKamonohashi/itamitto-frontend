@@ -4,6 +4,7 @@ import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import LanguageToggle from '../components/LanguageToggle';
+import SubmitButton from './SubmitButton';
 import en from '../localize/en';
 import ja from '../localize/ja';
 
@@ -33,6 +34,16 @@ export default function FrameEleven({ route }: FrameElevenProps) {
     handleLanguage();
   }, [isEnabled]);
 
+  const handleSubmission = () => {
+    // uncomment when FrameTwelve is created to navigate
+      // onPress={() => {
+      //   navigation.navigate("FrameTwelve", {
+      //     language: language,
+      //     isEnabled: isEnabled,
+      //     isPregnant: isPregnant
+        // });
+      // }}
+  }
 
   return (
     <View style={styles.container}>
@@ -43,17 +54,7 @@ export default function FrameEleven({ route }: FrameElevenProps) {
         <Pressable  onPress={() => setIsPregnant(false)}>
             <Text>{language.button.no}</Text>
         </Pressable>
-      <Pressable 
-      // uncomment when FrameTwelve is created to navigate
-        // onPress={() => {
-        //   handleDataInput();
-        //   navigation.navigate("FrameTwelve", {
-        //     language: language,
-        //     isEnabled: isEnabled})
-        // }}
-        >
-        <Text>{language.button.submit}</Text>
-      </Pressable>
+      <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
