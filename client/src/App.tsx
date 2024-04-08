@@ -2,7 +2,7 @@ import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
@@ -20,6 +20,8 @@ import FrameSixteen from './components/FrameSixteen';
 
 import { LanguageType } from './type/type';
 import LanguageToggle from './components/LanguageToggle';
+import en from './localize/en';
+import ja from './localize/ja';
 
 export type StackParams = {
   FrameOne: { language: LanguageType, isEnabled: boolean }
@@ -38,12 +40,25 @@ export type StackParams = {
   FrameSixteen: { injury_location: string, language: LanguageType, isEnabled: boolean }
 }
 
+export const LanguageContext = createContext(en);
 const Stack = createNativeStackNavigator<StackParams>();
 
 export default function App() {
+  const [language, setLanguage] = useState(en); 
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  useEffect(() => {
+    if (isEnabled) {
+      setLanguage(ja);
+    } else {
+      setLanguage(en);
+    }
+  }, [isEnabled]);
 
   return (
     <>
+     <LanguageContext.Provider value={ language }>
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="FrameOne"
@@ -69,7 +84,9 @@ export default function App() {
         </Stack.Navigator>
         <StatusBar style="auto" />
       </NavigationContainer>
-      <LanguageToggle />
+      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled} />
+
+     </LanguageContext.Provider>
     </>
   );
 }

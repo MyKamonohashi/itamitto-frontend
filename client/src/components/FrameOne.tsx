@@ -1,21 +1,14 @@
 import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
-import { useState, useEffect } from 'react';
-import LanguageToggle from './LanguageToggle';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
-import { StackParams } from '../App';
+import { StackParams, LanguageContext } from '../App';
+
 
 type Props = NativeStackScreenProps<StackParams, "FrameOne">
 
-const FrameOne: React.FC<Props> = ({ route, navigation }) => {
-  const { language, isEnabled } = route.params;
-
-  // useEffect(() => {
-  //   console.log("HELLO");
-  //   console.log('route', route);
-  //   console.log('language: ', route.params.language);
-  // }, []);
-
+const FrameOne: React.FC<Props> = ({ navigation }) => {
+  const language = useContext(LanguageContext);
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{language.title.reason}</Text>
