@@ -1,10 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { useState, useEffect } from 'react';
-import en from '../localize/en';
-import ja from '../localize/ja'
-import LanguageToggle from './LanguageToggle';
+import { useState, useContext } from 'react';
 import SubmitButton from './SubmitButton';
-import { StackParams } from '../App';
+import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -16,30 +13,14 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
 
   const { pain_description } = route.params;
   console.log(pain_description);
-
-  const [language, setLanguage] = useState(route.params.language);
-  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const language = useContext(LanguageContext);
   const [painScale, setPainScale] = useState('');
 
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
 
   const handleSubmission = () => {
     // go to FrameSix
     navigation.navigate("FrameSix", {
       hurt: painScale,
-      language: language,
-      isEnabled: isEnabled
     });
   }
 
@@ -83,7 +64,6 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
         </Pressable>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle />
     </View>
   );
 }

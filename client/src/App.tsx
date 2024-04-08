@@ -17,27 +17,25 @@ import FrameEleven from './components/FrameEleven';
 
 import FrameFifteen from './components/FrameFifteen';
 import FrameSixteen from './components/FrameSixteen';
-
-import { LanguageType } from './type/type';
 import LanguageToggle from './components/LanguageToggle';
 import en from './localize/en';
 import ja from './localize/ja';
 
 export type StackParams = {
-  FrameOne: { language: LanguageType, isEnabled: boolean }
-  FrameTwo: { reason: string, language: LanguageType , isEnabled: boolean }
-  FrameThree: { symptom: string, language: LanguageType ,isEnabled: boolean }
-  FrameFour: { pain_location: string, language: LanguageType, isEnabled: boolean }
-  FrameFive: { pain_description: string, language: LanguageType, isEnabled: boolean }
-  FrameSix: { hurt: string, language: LanguageType, isEnabled: boolean }
-  FrameSeven: { reason: string, language: LanguageType, isEnabled: boolean }
-  FrameEight: { reason: string, language: LanguageType, isEnabled: boolean }
-  FrameNine: { pain_duration?: string, test?: string, vaccine?: string, injury_description?: string, language: LanguageType, isEnabled: boolean }
-  FrameTen: { takingMedications: boolean, currentMedications: string, dosage: string, language: LanguageType, isEnabled: boolean }
-  FrameEleven: { allergies_name: string, language: LanguageType, isEnabled: boolean }
+  FrameOne: {}
+  FrameTwo: { reason: string }
+  FrameThree: { symptom: string }
+  FrameFour: { pain_location: string }
+  FrameFive: { pain_description: string }
+  FrameSix: { hurt: string }
+  FrameSeven: { reason: string }
+  FrameEight: { reason: string }
+  FrameNine: { pain_duration?: string, test?: string, vaccine?: string, injury_description?: string }
+  FrameTen: { takingMedications: boolean, currentMedications: string, dosage: string }
+  FrameEleven: { allergies_name: string }
 
-  FrameFifteen: { reason: string, language: LanguageType, isEnabled: boolean }
-  FrameSixteen: { injury_location: string, language: LanguageType, isEnabled: boolean }
+  FrameFifteen: { reason: string }
+  FrameSixteen: { injury_location: string }
 }
 
 export const LanguageContext = createContext(en);
@@ -80,7 +78,6 @@ export default function App() {
 
           <Stack.Screen name="FrameSixteen" component={FrameSixteen}/>
           <Stack.Screen name="FrameFifteen" component={FrameFifteen}/>
-
         </Stack.Navigator>
         <StatusBar style="auto" />
       </NavigationContainer>

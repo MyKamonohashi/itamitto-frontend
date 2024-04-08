@@ -1,38 +1,21 @@
 import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
-import { useState, useEffect } from 'react';
-import { StackParams } from '../App';
+import { useState, useContext } from 'react';
+import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import LanguageToggle from '../components/LanguageToggle';
 import SubmitButton from './SubmitButton';
-import en from '../localize/en';
-import ja from '../localize/ja';
 
 type FrameSixRouteProp = RouteProp<StackParams, 'FrameSix'>;
 type FrameSixProps = NativeStackScreenProps<StackParams, 'FrameSix'>; 
 
 export default function FrameSix({ route, navigation }: FrameSixProps) {
-  const [language, setLanguage] = useState(route.params.language);
-  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const language = useContext(LanguageContext);
   const [text, setText] = useState('');
   const [interval, setInterval] = useState('')
   const [painDuration, setDuration] = useState('');
 
   const { hurt } = route.params;
   console.log("hurt🤩", hurt);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
 
   const handleDataInput = () => {
     setDuration(text + " " + interval);
@@ -43,8 +26,6 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
     handleDataInput();
     navigation.navigate("FrameNine", {
       pain_duration: painDuration,
-      language: language,
-      isEnabled: isEnabled
     });
   }
 
@@ -78,7 +59,6 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
         </View>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle />
     </View>
   );
 }

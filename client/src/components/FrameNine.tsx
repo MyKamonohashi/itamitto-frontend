@@ -1,10 +1,7 @@
 import { StyleSheet, Text, View, Pressable, TextInput } from 'react-native';
-import { useState, useEffect } from 'react';
-import en from '../localize/en';
-import ja from '../localize/ja';
-import LanguageToggle from './LanguageToggle';
+import { useContext, useState } from 'react';
 import SubmitButton from './SubmitButton';
-import { StackParams } from '../App';
+import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -12,34 +9,18 @@ type FrameNineRouteProp = RouteProp<StackParams, 'FrameNine'>;
 type FrameNineProps = NativeStackScreenProps<StackParams, 'FrameNine'>; 
 
 export default function FrameNine({ route, navigation }: FrameNineProps) {
-  const [language, setLanguage] = useState(route.params.language);
-  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const language = useContext(LanguageContext);
   const [takingMedications, setTakingMedications] = useState(false);
   const [currentMedications, setCurrentMedications] = useState('');
-  const [dosage, setDosage] = useState('')
+  const [dosage, setDosage] = useState('');
   
   const { pain_duration, test, vaccine } = route.params;
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
 
   const handleNoMedications = () => {
     navigation.navigate("FrameTen", {
       takingMedications: false,
       currentMedications: 'none',
       dosage: 'N/A',
-      language: language,
-      isEnabled: isEnabled
     });
   }
 
@@ -52,8 +33,6 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
       takingMedications: takingMedications,
       currentMedications: currentMedications,
       dosage: dosage,
-      language: language,
-      isEnabled: isEnabled
     });
   }
 
@@ -85,7 +64,6 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
           <SubmitButton language={language} onPress={handleSubmission}/>
         </View>
       }
-      <LanguageToggle />
     </View>
   );
 }

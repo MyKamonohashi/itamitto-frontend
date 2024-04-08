@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { CheckBox } from '@rneui/themed';
 import en from '../localize/en';
 import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
 import SubmitButton from './SubmitButton';
-import { StackParams } from '../App';
+import { StackParams, LanguageContext } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -13,28 +13,14 @@ type FrameEightRouteProp = RouteProp<StackParams, 'FrameEight'>;
 type FrameEightProps = NativeStackScreenProps<StackParams, 'FrameEight'>;
 
 export default function FrameEight({ route, navigation }: FrameEightProps) {
+  const language = useContext(LanguageContext);
   const { reason } = route.params;
-  const [language, setLanguage] = useState(route.params.language);
-  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const [vaccines, setVaccines] = useState('');
 
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
   const [checked4, setChecked4] = useState(false);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
 
   const handleDataInput = () => {
     const result = [];
@@ -57,9 +43,7 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
     handleDataInput();
     // to FrameNine
     navigation.navigate("FrameNine", {
-      vaccine: vaccines,
-      language: language,
-      isEnabled: isEnabled
+      vaccine: vaccines
     });
   }
   
@@ -73,7 +57,6 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
         <CheckBox checked={checked4} title={language.vaccine.measles} onPress={() => {setChecked4(!checked4)}}/>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle />
     </View>
   );
 }

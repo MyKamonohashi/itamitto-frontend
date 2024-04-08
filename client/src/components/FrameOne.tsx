@@ -9,6 +9,7 @@ type Props = NativeStackScreenProps<StackParams, "FrameOne">
 
 const FrameOne: React.FC<Props> = ({ navigation }) => {
   const language = useContext(LanguageContext);
+  
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{language.title.reason}</Text>
@@ -16,7 +17,7 @@ const FrameOne: React.FC<Props> = ({ navigation }) => {
         <Pressable  style={styles.buttonOne}
           onPress={() => {
             //go to illness FrameTwo
-            navigation.navigate("FrameTwo", {reason: "illness", language: language, isEnabled: isEnabled})
+            navigation.navigate("FrameTwo", {reason: "illness"})
           }}
         >
           <Text style={styles.buttonText}>{language.reason.illness}</Text>
@@ -24,14 +25,14 @@ const FrameOne: React.FC<Props> = ({ navigation }) => {
         <Pressable style={styles.buttonTwo}
           onPress={() => {
             //go to injury FrameFifteen
-            navigation.navigate("FrameFifteen", {reason: "injury", language: language, isEnabled: isEnabled})
+            navigation.navigate("FrameFifteen", {reason: "injury"})
           }}>
           <Text style={styles.buttonText}>{language.reason.injury}</Text>
         </Pressable>
         <Pressable style={styles.buttonThree}
           onPress={() => {
             //go to vaccine FrameEight
-            navigation.navigate("FrameEight", {reason: "vaccine", language: language, isEnabled: isEnabled})
+            navigation.navigate("FrameEight", {reason: "vaccine"})
           }}
         >
           <Text style={styles.buttonText}>{language.reason.vaccine}</Text>
@@ -39,7 +40,7 @@ const FrameOne: React.FC<Props> = ({ navigation }) => {
         <Pressable style={styles.buttonFour}
         onPress={() => {
           //go to pain location FrameSeven
-          navigation.navigate("FrameSeven", {reason: "test", language: language, isEnabled: isEnabled})
+          navigation.navigate("FrameSeven", {reason: "test"})
         }}
         >
           <Text style={styles.buttonText}>{language.reason.test}</Text>
