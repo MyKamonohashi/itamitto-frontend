@@ -10,11 +10,11 @@ type Props = NativeStackScreenProps<StackParams, "FrameOne">
 const FrameOne: React.FC<Props> = ({ route, navigation }) => {
   const { language, isEnabled } = route.params;
 
-  useEffect(() => {
-    console.log("HELLO");
-    console.log('route', route);
-    console.log('language: ', route.params.language);
-  }, []);
+  // useEffect(() => {
+  //   console.log("HELLO");
+  //   console.log('route', route);
+  //   console.log('language: ', route.params.language);
+  // }, []);
 
   return (
     <View style={styles.container}>

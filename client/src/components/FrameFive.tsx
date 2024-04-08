@@ -83,7 +83,7 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
         </Pressable>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   );
 }

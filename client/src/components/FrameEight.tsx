@@ -73,7 +73,7 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
         <CheckBox checked={checked4} title={language.vaccine.measles} onPress={() => {setChecked4(!checked4)}}/>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   );
 }

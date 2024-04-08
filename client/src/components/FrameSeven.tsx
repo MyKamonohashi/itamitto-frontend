@@ -99,7 +99,7 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
         <CheckBox checked={checked9} title={language.test.MRI_CAT_scan} onPress={() => {setChecked9(!checked9)}}/>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   )
 }

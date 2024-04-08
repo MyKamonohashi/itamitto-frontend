@@ -63,7 +63,7 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
             />
         </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   );
 }

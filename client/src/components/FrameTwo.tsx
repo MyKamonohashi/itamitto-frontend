@@ -15,7 +15,6 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
 
   const { reason } = route.params;
   console.log("🍎:",reason)
-  // console.log("🍇:", route.params.language, "🍊:",route.params.isEnabled);
   
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
@@ -65,7 +64,7 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
         </Pressable>
       </View>
       <View style={styles.switch}>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
       </View>
     </View>
   );

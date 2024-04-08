@@ -70,7 +70,7 @@ export default function FrameFifteen( { route, navigation }: FrameFifteenProps) 
         </Pressable>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   );
 }

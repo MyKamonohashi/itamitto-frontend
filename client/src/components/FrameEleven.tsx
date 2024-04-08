@@ -55,7 +55,7 @@ export default function FrameEleven({ route }: FrameElevenProps) {
             <Text>{language.button.no}</Text>
         </Pressable>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   );
 }

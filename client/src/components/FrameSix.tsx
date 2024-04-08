@@ -78,7 +78,7 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
         </View>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   );
 }

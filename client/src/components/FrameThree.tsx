@@ -76,7 +76,7 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
         </Pressable>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   );
 }

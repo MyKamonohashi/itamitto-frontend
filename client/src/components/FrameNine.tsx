@@ -85,7 +85,7 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
           <SubmitButton language={language} onPress={handleSubmission}/>
         </View>
       }
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </View>
   );
 }

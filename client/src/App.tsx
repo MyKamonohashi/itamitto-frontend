@@ -20,8 +20,6 @@ import FrameSixteen from './components/FrameSixteen';
 
 import { LanguageType } from './type/type';
 import LanguageToggle from './components/LanguageToggle';
-import en from './localize/en';
-import ja from './localize/ja';
 
 export type StackParams = {
   FrameOne: { language: LanguageType, isEnabled: boolean }
@@ -43,21 +41,6 @@ export type StackParams = {
 const Stack = createNativeStackNavigator<StackParams>();
 
 export default function App() {
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
 
   return (
     <>
@@ -68,7 +51,7 @@ export default function App() {
             headerTitle: 'itamitto',
             headerTitleAlign: 'center'
           }}>
-          <Stack.Screen name="FrameOne" component={FrameOne} initialParams={{language:language, isEnabled:isEnabled}}/>
+          <Stack.Screen name="FrameOne" component={FrameOne} />
           <Stack.Screen name="FrameTwo" component={FrameTwo}/>
           <Stack.Screen name="FrameThree" component={FrameThree}/>
           <Stack.Screen name="FrameFour" component={FrameFour}/>
@@ -86,7 +69,7 @@ export default function App() {
         </Stack.Navigator>
         <StatusBar style="auto" />
       </NavigationContainer>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
+      <LanguageToggle />
     </>
   );
 }
