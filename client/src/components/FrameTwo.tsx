@@ -25,6 +25,7 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
   const [checked5, setChecked5] = useState(false);
   const [checked6, setChecked6] = useState(false);
   const [checked7, setChecked7] = useState(false);
+  const [checked8, setChecked8] = useState(false);
 
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
@@ -46,32 +47,22 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
     <View style={styles.container}>
       <Text style={styles.header}>{language.title.symptoms}</Text>
       <View style={styles.buttons}>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.fever}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.sore_throat}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.cough}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.sneezing}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.nausea}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}
+      <CheckBox checked={checked1} title={language.symptoms.fever} onPress={() => {setChecked1(!checked1)}}/>
+      <CheckBox checked={checked2} title={language.symptoms.sore_throat} onPress={() => {setChecked2(!checked2)}}/>
+      <CheckBox checked={checked4} title={language.symptoms.cough} onPress={() => {setChecked4(!checked4)}}/>
+      <CheckBox checked={checked3} title={language.symptoms.congestion} onPress={() => {setChecked3(!checked3)}}/>
+      <CheckBox checked={checked5} title={language.symptoms.sneezing} onPress={() => {setChecked5(!checked5)}}/>
+      <CheckBox checked={checked6} title={language.symptoms.nausea} onPress={() => {setChecked6(!checked6)}}/>
+      <CheckBox checked={checked7} title={language.symptoms.pain} onPress={() => {setChecked7(!checked7)}}/>
+      <CheckBox checked={checked8} title={language.symptoms.congestion} onPress={() => {setChecked7(!checked8)}}/>
+        {/* <Pressable style={styles.buttonOne}
           onPress={() => {
             //go to pain location FrameThree
             navigation.navigate("FrameThree", {symptom: "pain", language: language, isEnabled: isEnabled})
           }}
           >
           <Text style={styles.buttonText}>{language.symptoms.pain}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.congestion}</Text>
-        </Pressable>
+        </Pressable> */}
       </View>
       <View style={styles.switch}>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
