@@ -52,18 +52,15 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
       result.push(language.symptoms.cough);
     }
     if (checked4) {
-      result.push(language.symptoms.congestion);
-    }
-    if (checked5) {
       result.push(language.symptoms.sneezing);
     }
-    if (checked6) {
+    if (checked5) {
       result.push(language.symptoms.nausea);
     }
-    if (checked7) {
+    if (checked6) {
       result.push(language.symptoms.pain);
     }
-    if (checked8) {
+    if (checked7) {
       result.push(language.symptoms.congestion);
     }
     setSymptoms(result.join('/'));
@@ -71,7 +68,7 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
 
   useEffect(() => {
     handleDataInput();
-  }, [checked1, checked2, checked3, checked4, checked5, checked6, checked7, checked8]);
+  }, [checked1, checked2, checked3, checked4, checked5, checked6, checked7]);
 
   const handleSubmission = () => {
     if (symptoms.includes('pain')) {
@@ -97,12 +94,11 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
       <View style={styles.buttons}>
         <CheckBox checked={checked1} title={language.symptoms.fever} onPress={() => {setChecked1(!checked1)}}/>
         <CheckBox checked={checked2} title={language.symptoms.sore_throat} onPress={() => {setChecked2(!checked2)}}/>
-        <CheckBox checked={checked4} title={language.symptoms.cough} onPress={() => {setChecked4(!checked4)}}/>
-        <CheckBox checked={checked3} title={language.symptoms.congestion} onPress={() => {setChecked3(!checked3)}}/>
-        <CheckBox checked={checked5} title={language.symptoms.sneezing} onPress={() => {setChecked5(!checked5)}}/>
-        <CheckBox checked={checked6} title={language.symptoms.nausea} onPress={() => {setChecked6(!checked6)}}/>
-        <CheckBox checked={checked7} title={language.symptoms.pain} onPress={() => {setChecked7(!checked7)}}/>
-        <CheckBox checked={checked8} title={language.symptoms.congestion} onPress={() => {setChecked8(!checked8)}}/>
+        <CheckBox checked={checked3} title={language.symptoms.cough} onPress={() => {setChecked3(!checked4)}}/>
+        <CheckBox checked={checked4} title={language.symptoms.sneezing} onPress={() => {setChecked4(!checked5)}}/>
+        <CheckBox checked={checked5} title={language.symptoms.nausea} onPress={() => {setChecked5(!checked6)}}/>
+        <CheckBox checked={checked6} title={language.symptoms.pain} onPress={() => {setChecked6(!checked7)}}/>
+        <CheckBox checked={checked7} title={language.symptoms.congestion} onPress={() => {setChecked7(!checked8)}}/>
       </View>
       <View style={styles.switch}>
       <SubmitButton language={language} onPress={handleSubmission}/>
