@@ -22,7 +22,7 @@ import { LanguageType } from './type/type';
 export type StackParams = {
   FrameOne: {language: LanguageType}
   FrameTwo: {reason: string, language: LanguageType , isEnabled: boolean}
-  FrameThree: { symptoms: string[], language: LanguageType ,isEnabled: boolean}
+  FrameThree: { symptoms: string, language: LanguageType ,isEnabled: boolean}
   FrameFour: { pain_location: string, language: LanguageType, isEnabled: boolean}
   FrameFive: { pain_description: string, language: LanguageType, isEnabled: boolean}
   FrameSix: { hurt: string, language: LanguageType, isEnabled: boolean}

@@ -14,7 +14,7 @@ type FrameTwoRouteProp = RouteProp<StackParams, 'FrameTwo'>;
 type FrameTwoProps = NativeStackScreenProps<StackParams, 'FrameTwo'>; 
 
 const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
-  const [symptoms, setSymptoms] = useState([]);
+  const [symptoms, setSymptoms] = useState('');
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
@@ -40,11 +40,37 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
     handleLanguage();
   }, [isEnabled]);
 
-  useEffect(() => {
-    console.log(symptoms);
-  }, [symptoms]);
+  const handleDataInput = () => {
+    const result = [];
+    if (checked1) {
+      result.push(language.symptoms.fever);
+    }
+    if (checked2) {
+      result.push(language.symptoms.sore_throat);
+    }
+    if (checked3) {
+      result.push(language.symptoms.cough);
+    }
+    if (checked4) {
+      result.push(language.symptoms.congestion);
+    }
+    if (checked5) {
+      result.push(language.symptoms.sneezing);
+    }
+    if (checked6) {
+      result.push(language.symptoms.nausea);
+    }
+    if (checked7) {
+      result.push(language.symptoms.pain);
+    }
+    if (checked8) {
+      result.push(language.symptoms.congestion);
+    }
+    setSymptoms(result.join('/'));
+  }
 
   const handleSubmission = () => {
+    handleDataInput();
     navigation.navigate(
       "FrameThree", {
         symptoms: symptoms, 
