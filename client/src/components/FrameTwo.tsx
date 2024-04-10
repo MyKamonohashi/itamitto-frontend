@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
 import LanguageToggle from './LanguageToggle';
+import { CheckBox } from '@rneui/themed';
+import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -16,7 +18,14 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
   const { reason } = route.params;
   console.log("🍎:",reason)
   // console.log("🍇:", route.params.language, "🍊:",route.params.isEnabled);
-  
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
+  const [checked4, setChecked4] = useState(false);
+  const [checked5, setChecked5] = useState(false);
+  const [checked6, setChecked6] = useState(false);
+  const [checked7, setChecked7] = useState(false);
+
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
