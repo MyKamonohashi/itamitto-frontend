@@ -69,14 +69,26 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
     setSymptoms(result.join('/'));
   }
 
-  const handleSubmission = () => {
+  useEffect(() => {
     handleDataInput();
-    navigation.navigate(
-      "FrameThree", {
-        symptoms: symptoms, 
-        language: language, 
-        isEnabled: isEnabled
+  }, [checked1, checked2, checked3, checked4, checked5, checked6, checked7, checked8]);
+
+  const handleSubmission = () => {
+    if (symptoms.includes('pain')) {
+      navigation.navigate(
+        "FrameThree", {
+          symptoms: symptoms, 
+          language: language, 
+          isEnabled: isEnabled
       });
+    } else {
+      navigation.navigate(
+        "FrameSix", {
+          symptoms: symptoms, 
+          language: language, 
+          isEnabled: isEnabled
+      });
+    }
   }
 
   return (
