@@ -101,9 +101,7 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
         <CheckBox checked={checked7} title={language.symptoms.congestion} onPress={() => {setChecked7(!checked7)}} textStyle={styles.optionText}/>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <View>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
-      </View>
     </View>
   );
 }

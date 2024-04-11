@@ -15,8 +15,8 @@ type FrameThreeProps = NativeStackScreenProps<StackParams, 'FrameThree'>;
 
 const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
 
-  const { symptom } = route.params;
-  console.log(symptom);
+  const { symptoms } = route.params;
+  console.log(symptoms);
 
   const [language, setLanguage] = useState(route.params.language);
   const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
