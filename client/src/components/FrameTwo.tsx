@@ -1,11 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { useState, useEffect } from 'react';
-import en from '../localize/en';
-import ja from '../localize/ja';
+import { useState, useEffect, useContext } from 'react';
 import LanguageToggle from './LanguageToggle';
 import { CheckBox } from '@rneui/themed';
 import SubmitButton from './SubmitButton';
-import { StackParams } from '../App';
+import { StackParams,  LanguageContext } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -14,6 +12,10 @@ type FrameTwoRouteProp = RouteProp<StackParams, 'FrameTwo'>;
 type FrameTwoProps = NativeStackScreenProps<StackParams, 'FrameTwo'>; 
 
 const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
+  const language = useContext(LanguageContext);
+  const { reason } = route.params;
+  console.log("🍎:",reason)
+  
   const [symptoms, setSymptoms] = useState('');
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
@@ -22,23 +24,6 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
   const [checked5, setChecked5] = useState(false);
   const [checked6, setChecked6] = useState(false);
   const [checked7, setChecked7] = useState(false);
-  const [checked8, setChecked8] = useState(false);
-
-  const [language, setLanguage] = useState(route.params.language);
-  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
 
   const handleDataInput = () => {
     const result = [];
@@ -75,15 +60,11 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
       navigation.navigate(
         "FrameThree", {
           symptoms: symptoms, 
-          language: language, 
-          isEnabled: isEnabled
       });
     } else {
       navigation.navigate(
         "FrameSix", {
           symptoms: symptoms, 
-          language: language, 
-          isEnabled: isEnabled
       });
     }
   }
@@ -100,10 +81,8 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
         <CheckBox checked={checked6} title={language.symptoms.pain} onPress={() => {setChecked6(!checked6)}}/>
         <CheckBox checked={checked7} title={language.symptoms.congestion} onPress={() => {setChecked7(!checked7)}}/>
       </View>
-      <View style={styles.switch}>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
-      </View>
+     
     </View>
   );
 }
@@ -136,13 +115,6 @@ const styles = StyleSheet.create({
       padding: 5,
       minWidth: 300,
     },
-    switch: {
-      marginTop: 40,
-      marginBottom: 40,
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: 5,
-    }
   });
 
   export default FrameTwo;
