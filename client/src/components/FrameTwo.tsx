@@ -1,6 +1,9 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { useContext } from 'react';
-import { StackParams, LanguageContext } from '../App';
+import { StyleSheet, Text, View } from 'react-native';
+import { useState, useEffect, useContext } from 'react';
+import LanguageToggle from './LanguageToggle';
+import { CheckBox } from '@rneui/themed';
+import SubmitButton from './SubmitButton';
+import { StackParams,  LanguageContext } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -13,37 +16,73 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
   const { reason } = route.params;
   console.log("🍎:",reason)
   
+  const [symptoms, setSymptoms] = useState('');
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
+  const [checked4, setChecked4] = useState(false);
+  const [checked5, setChecked5] = useState(false);
+  const [checked6, setChecked6] = useState(false);
+  const [checked7, setChecked7] = useState(false);
+
+  const handleDataInput = () => {
+    const result = [];
+    if (checked1) {
+      result.push(language.symptoms.fever);
+    }
+    if (checked2) {
+      result.push(language.symptoms.sore_throat);
+    }
+    if (checked3) {
+      result.push(language.symptoms.cough);
+    }
+    if (checked4) {
+      result.push(language.symptoms.sneezing);
+    }
+    if (checked5) {
+      result.push(language.symptoms.nausea);
+    }
+    if (checked6) {
+      result.push(language.symptoms.pain);
+    }
+    if (checked7) {
+      result.push(language.symptoms.congestion);
+    }
+    setSymptoms(result.join('/'));
+  }
+
+  useEffect(() => {
+    handleDataInput();
+  }, [checked1, checked2, checked3, checked4, checked5, checked6, checked7]);
+
+  const handleSubmission = () => {
+    if (symptoms.includes('pain')) {
+      navigation.navigate(
+        "FrameThree", {
+          symptoms: symptoms, 
+      });
+    } else {
+      navigation.navigate(
+        "FrameSix", {
+          symptoms: symptoms, 
+      });
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{language.title.symptoms}</Text>
       <View style={styles.buttons}>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.fever}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.sore_throat}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.cough}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.sneezing}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.nausea}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}
-          onPress={() => {
-            //go to pain location FrameThree
-            navigation.navigate("FrameThree", {symptom: "pain"})
-          }}
-          >
-          <Text style={styles.buttonText}>{language.symptoms.pain}</Text>
-        </Pressable>
-        <Pressable style={styles.buttonOne}>
-          <Text style={styles.buttonText}>{language.symptoms.congestion}</Text>
-        </Pressable>
+        <CheckBox checked={checked1} title={language.symptoms.fever} onPress={() => {setChecked1(!checked1)}}/>
+        <CheckBox checked={checked2} title={language.symptoms.sore_throat} onPress={() => {setChecked2(!checked2)}}/>
+        <CheckBox checked={checked3} title={language.symptoms.cough} onPress={() => {setChecked3(!checked3)}}/>
+        <CheckBox checked={checked4} title={language.symptoms.sneezing} onPress={() => {setChecked4(!checked4)}}/>
+        <CheckBox checked={checked5} title={language.symptoms.nausea} onPress={() => {setChecked5(!checked5)}}/>
+        <CheckBox checked={checked6} title={language.symptoms.pain} onPress={() => {setChecked6(!checked6)}}/>
+        <CheckBox checked={checked7} title={language.symptoms.congestion} onPress={() => {setChecked7(!checked7)}}/>
       </View>
+      <SubmitButton language={language} onPress={handleSubmission}/>
+     
     </View>
   );
 }
