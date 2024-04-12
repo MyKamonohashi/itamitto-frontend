@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Header from 'Header';
 import LanguageToggle from '../components/LanguageToggle';
 import SubmitButton from './SubmitButton';
 import en from '../localize/en';
@@ -50,7 +51,7 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.symptoms_duration}</Text>
+      <Header text={language.title.symptoms_duration}/>
       <View style={styles.inputs}>
         <Text>{language.duration.about}</Text>
         <TextInput

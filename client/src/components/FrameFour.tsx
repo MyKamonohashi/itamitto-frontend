@@ -1,6 +1,7 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { CheckBox } from '@rneui/themed';
+import Header from 'Header';
 import LanguageToggle from './LanguageToggle';
 import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
@@ -84,7 +85,7 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.pain_description}</Text>
+      <Header text={language.title.pain_description} />
       <View>
         <CheckBox checked={checked1} title={language.pain_description.sharp} onPress={() => {setChecked1(!checked1)}}/>
         <CheckBox checked={checked2} title={language.pain_description.throbbing} onPress={() => {setChecked2(!checked2)}}/>

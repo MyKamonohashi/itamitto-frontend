@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
+import Header from 'Header';
 import LanguageToggle from './LanguageToggle';
 import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
@@ -45,7 +46,7 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.pain_location}</Text>
+      <Header text={language.title.pain_location}/>
       <View>
         <Pressable onPress={() => setPainLocation("head")}>
           <Text>{language.pain_location.head}</Text>

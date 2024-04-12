@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
-import ja from '../localize/ja'
+import ja from '../localize/ja';
+import Header from 'Header';
 import LanguageToggle from './LanguageToggle';
 import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
@@ -46,7 +47,7 @@ const FrameFive: React.FC<FrameFiveProps>  = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.hurt_scale}</Text>
+      <Header text={language.title.hurt_scale}/>
       <View>
         <Pressable onPress={() => setPainScale("No pain")}>
             <Text>{language.hurt.no_pain}</Text>

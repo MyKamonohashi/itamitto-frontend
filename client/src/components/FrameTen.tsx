@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Header from 'Header';
 import LanguageToggle from '../components/LanguageToggle';
 import SubmitButton from './SubmitButton';
 import en from '../localize/en';
@@ -47,21 +48,21 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.allergy}</Text>
-        <Pressable onPress={() => setIsAllergic(true)}>
-            <Text>{language.button.yes}</Text>
-        </Pressable>
-        <Pressable  onPress={() => setIsAllergic(false)}>
-            <Text>{language.button.no}</Text>
-        </Pressable>
-        <View style={styles.inputs}>
-            <Text>{language.allergies.allergies_name}</Text>
-            <TextInput
-            onChangeText={setAllergy}
-            value={allergy}
-            placeholder='#'
-            />
-        </View>
+      <Header text={language.title.allergy} />
+      <Pressable onPress={() => setIsAllergic(true)}>
+          <Text>{language.button.yes}</Text>
+      </Pressable>
+      <Pressable  onPress={() => setIsAllergic(false)}>
+          <Text>{language.button.no}</Text>
+      </Pressable>
+      <View style={styles.inputs}>
+          <Text>{language.allergies.allergies_name}</Text>
+          <TextInput
+          onChangeText={setAllergy}
+          value={allergy}
+          placeholder='#'
+          />
+      </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>

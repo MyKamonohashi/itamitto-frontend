@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Pressable, TextInput } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
+import Header from 'Header';
 import LanguageToggle from './LanguageToggle';
 import SubmitButton from './SubmitButton';
 import { StackParams } from '../App';
@@ -59,7 +60,7 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.medications}</Text>
+      <Header text={language.title.medications} />
       <Pressable onPress={handleTakesMedications}>
         <Text>{language.button.yes}</Text>
       </Pressable>

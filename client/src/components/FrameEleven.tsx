@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Header from 'Header';
 import LanguageToggle from '../components/LanguageToggle';
 import SubmitButton from './SubmitButton';
 import en from '../localize/en';
@@ -47,13 +48,13 @@ export default function FrameEleven({ route }: FrameElevenProps) {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.pregnancy}</Text>
-        <Pressable onPress={() => setIsPregnant(true)}>
-            <Text>{language.button.yes}</Text>
-        </Pressable>
-        <Pressable  onPress={() => setIsPregnant(false)}>
-            <Text>{language.button.no}</Text>
-        </Pressable>
+      <Header text={language.title.pregnancy} />
+      <Pressable onPress={() => setIsPregnant(true)}>
+          <Text>{language.button.yes}</Text>
+      </Pressable>
+      <Pressable  onPress={() => setIsPregnant(false)}>
+          <Text>{language.button.no}</Text>
+      </Pressable>
       <SubmitButton language={language} onPress={handleSubmission}/>
       <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>

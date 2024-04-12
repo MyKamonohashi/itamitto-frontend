@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
+import Header from 'Header';
 import LanguageToggle from './LanguageToggle';
 import { StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
@@ -35,7 +36,7 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>{language.title.symptoms}</Text>
+      <Header text={language.title.symptoms}/>
       <View style={styles.buttons}>
         <Pressable style={styles.buttonOne}>
           <Text style={styles.buttonText}>{language.symptoms.fever}</Text>
