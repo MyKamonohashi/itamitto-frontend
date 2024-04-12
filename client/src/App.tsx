@@ -2,6 +2,7 @@ import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Image } from 'react-native';
 import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
@@ -40,31 +41,34 @@ const Stack = createNativeStackNavigator<StackParams>();
 
 export default function App() {
   return (
-  <NavigationContainer>
-    <Stack.Navigator
-      initialRouteName="FrameOne"
-      screenOptions={{
-        headerTitle: 'itamitto',
-        headerTitleAlign: 'center'
-      }}>
-      <Stack.Screen name="FrameOne" component={FrameOne}/>
-      <Stack.Screen name="FrameTwo" component={FrameTwo}/>
-      <Stack.Screen name="FrameThree" component={FrameThree}/>
-      <Stack.Screen name="FrameFour" component={FrameFour}/>
-      <Stack.Screen name="FrameFive" component={FrameFive}/>
-      <Stack.Screen name="FrameSix" component={FrameSix}/>
-      <Stack.Screen name="FrameSeven" component={FrameSeven}/>
-      <Stack.Screen name="FrameEight" component={FrameEight}/>
-      <Stack.Screen name="FrameNine" component={FrameNine}/>
-      <Stack.Screen name="FrameTen" component={FrameTen}/>
-      <Stack.Screen name="FrameEleven" component={FrameEleven}/>
+  <>
+    <Image source={require('./assets/Green Simple Medical Clinic Logo 3.svg')} />
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="FrameOne"
+        screenOptions={{
+          headerTitle: 'itamitto',
+          headerTitleAlign: 'center'
+        }}>
+        <Stack.Screen name="FrameOne" component={FrameOne}/>
+        <Stack.Screen name="FrameTwo" component={FrameTwo}/>
+        <Stack.Screen name="FrameThree" component={FrameThree}/>
+        <Stack.Screen name="FrameFour" component={FrameFour}/>
+        <Stack.Screen name="FrameFive" component={FrameFive}/>
+        <Stack.Screen name="FrameSix" component={FrameSix}/>
+        <Stack.Screen name="FrameSeven" component={FrameSeven}/>
+        <Stack.Screen name="FrameEight" component={FrameEight}/>
+        <Stack.Screen name="FrameNine" component={FrameNine}/>
+        <Stack.Screen name="FrameTen" component={FrameTen}/>
+        <Stack.Screen name="FrameEleven" component={FrameEleven}/>
 
-      <Stack.Screen name="FrameSixteen" component={FrameSixteen}/>
-      <Stack.Screen name="FrameFifteen" component={FrameFifteen}/>
+        <Stack.Screen name="FrameSixteen" component={FrameSixteen}/>
+        <Stack.Screen name="FrameFifteen" component={FrameFifteen}/>
 
-    </Stack.Navigator>
-    <StatusBar style="auto" />
-  </NavigationContainer>
+      </Stack.Navigator>
+      <StatusBar style="auto" />
+    </NavigationContainer>
+  </>
   );
 }
 
