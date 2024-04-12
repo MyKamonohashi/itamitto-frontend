@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Pressable, Switch, Image } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
 import { useState, useEffect } from 'react';
 import en from '../localize/en';
 import ja from '../localize/ja';
+import Header from './Header';
 import LanguageToggle from './LanguageToggle';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -30,8 +31,7 @@ const FrameOne: React.FC<Props> = () => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require('../assets/Green Simple Medical Clinic Logo 3.svg')} />
-      <Text style={styles.header}>{language.title.reason}</Text>
+      <Header text={language.title.reason}/>
       <View style={styles.buttons}>
         <Pressable  style={styles.buttonOne}
           onPress={() => {
@@ -123,9 +123,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 5,
   },
-  image: {
-    height: 100
-  }
 });
 
 export default FrameOne;
