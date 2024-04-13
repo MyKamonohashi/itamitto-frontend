@@ -1,21 +1,15 @@
 import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
-import { useState, useEffect } from 'react';
-import { StackParams } from '../App';
+import { useState, useContext } from 'react';
+import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import LanguageToggle from '../components/LanguageToggle';
 import SubmitButton from './SubmitButton';
-import en from '../localize/en';
-import ja from '../localize/ja';
 
 type FrameTenRouteProp = RouteProp<StackParams, 'FrameTen'>;
 type FrameTenProps = NativeStackScreenProps<StackParams, 'FrameTen'>; 
 
 export default function FrameTen({ route, navigation }: FrameTenProps) {
-  const [language, setLanguage] = useState(route.params.language);
-  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
+  const language = useContext(LanguageContext);
   const [isAllergic, setIsAllergic] = useState(false);
   const [allergy, setAllergy] = useState('')
 
@@ -24,23 +18,9 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
   console.log('current medications: ', currentMedications);
   console.log('dosage: ', dosage);
 
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
-
   const handleSubmission = () => {
     navigation.navigate("FrameEleven", {
       allergies_name: allergy,
-      language: language,
-      isEnabled: isEnabled
     });
   }
 
@@ -63,7 +43,6 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
             />
         </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
 }

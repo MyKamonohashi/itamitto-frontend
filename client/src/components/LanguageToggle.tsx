@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View, Switch } from 'react-native';
-import { useState, useEffect } from 'react';
 
 interface LanguageToggleProps {
   isEnabled: boolean,
