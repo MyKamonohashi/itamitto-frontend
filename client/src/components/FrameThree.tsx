@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useState, useContext } from 'react';
+import Header from 'Header';
 import SubmitButton from './SubmitButton';
 import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
