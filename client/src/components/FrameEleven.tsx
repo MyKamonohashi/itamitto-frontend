@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Header from 'Header';
 import SubmitButton from './SubmitButton';
 
 type FrameElevenRouteProp = RouteProp<StackParams, 'FrameEleven'>;
@@ -25,13 +26,13 @@ export default function FrameEleven({ route }: FrameElevenProps) {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.pregnancy}</Text>
-        <Pressable onPress={() => setIsPregnant(true)}>
-            <Text>{language.button.yes}</Text>
-        </Pressable>
-        <Pressable  onPress={() => setIsPregnant(false)}>
-            <Text>{language.button.no}</Text>
-        </Pressable>
+      <Header text={language.title.pregnancy} />
+      <Pressable onPress={() => setIsPregnant(true)}>
+          <Text>{language.button.yes}</Text>
+      </Pressable>
+      <Pressable  onPress={() => setIsPregnant(false)}>
+          <Text>{language.button.no}</Text>
+      </Pressable>
       <SubmitButton language={language} onPress={handleSubmission}/>
     </View>
   );

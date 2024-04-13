@@ -12,7 +12,7 @@ const FrameOne: React.FC<Props> = ({ navigation }) => {
   
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>{language.title.reason}</Text>
+      <Header text={language.title.reason}/>
       <View style={styles.buttons}>
         <Pressable  style={styles.buttonOne}
           onPress={() => {
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
-  }
+  },
 });
 
 export default FrameOne;

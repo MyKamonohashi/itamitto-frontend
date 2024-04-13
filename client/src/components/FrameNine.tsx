@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Pressable, TextInput } from 'react-native';
-import { useContext, useState } from 'react';
+import { useState, useContext } from 'react';
+import Header from 'Header';
 import SubmitButton from './SubmitButton';
 import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
@@ -38,7 +39,7 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.medications}</Text>
+      <Header text={language.title.medications} />
       <Pressable onPress={handleTakesMedications}>
         <Text>{language.button.yes}</Text>
       </Pressable>

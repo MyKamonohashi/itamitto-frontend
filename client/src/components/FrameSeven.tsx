@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useState, useContext } from 'react';
 import { CheckBox } from '@rneui/themed';
+import Header from 'Header';
 import SubmitButton from './SubmitButton';
 import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
@@ -66,7 +67,7 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
   
   return (
     <View style={styles.container}>
-      <Text>{language.title.test}</Text>
+      <Header text={language.title.test} />
       <View>
         <CheckBox checked={checked1} title={language.test.blood_test} onPress={() => {setChecked1(!checked1)}}/>
         <CheckBox checked={checked2} title={language.test.urine_test} onPress={() => {setChecked2(!checked2)}}/>

@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { CheckBox } from '@rneui/themed';
 import en from '../localize/en';
 import ja from '../localize/ja';
+import Header from 'Header';
 import LanguageToggle from './LanguageToggle';
 import SubmitButton from './SubmitButton';
 import { StackParams, LanguageContext } from '../App';
@@ -49,7 +50,7 @@ export default function FrameEight({ route, navigation }: FrameEightProps) {
   
   return (
     <View style={styles.container}>
-      <Text>{language.reason.vaccine}</Text>
+      <Header text={language.reason.vaccine}/>
       <View>
       <CheckBox checked={checked1} title={language.vaccine.influenza} onPress={() => {setChecked1(!checked1)}}/>
         <CheckBox checked={checked2} title={language.vaccine.COVID_19} onPress={() => {setChecked2(!checked2)}}/>

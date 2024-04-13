@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Header from 'Header';
 import SubmitButton from './SubmitButton';
 
 type FrameSixteenRouteProp = RouteProp<StackParams, 'FrameSixteen'>;
@@ -21,7 +22,7 @@ export default function FrameSixteen( { route, navigation }: FrameSixteenProps) 
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.injury_description}</Text>
+      <Header text={language.title.injury_description} />
       <View>
       <Pressable onPress={() => setInjuryDescription("cut/gash")}>
           <Text>{language.injury_description.cut_gash}</Text>

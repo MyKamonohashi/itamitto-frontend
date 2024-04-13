@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect, useContext } from 'react';
+import Header from 'Header';
 import LanguageToggle from './LanguageToggle';
 import { CheckBox } from '@rneui/themed';
 import SubmitButton from './SubmitButton';
@@ -71,7 +72,7 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>{language.title.symptoms}</Text>
+      <Header text={language.title.symptoms}/>
       <View>
         <CheckBox checked={checked1} title={language.symptoms.fever} onPress={() => {setChecked1(!checked1)}} textStyle={styles.optionText}/>
         <CheckBox checked={checked2} title={language.symptoms.sore_throat} onPress={() => {setChecked2(!checked2)}} textStyle={styles.optionText}/>

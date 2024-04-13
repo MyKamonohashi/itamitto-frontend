@@ -25,7 +25,7 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.pain_location}</Text>
+      <Header text={language.title.pain_location}/>
       <View>
         <Pressable onPress={() => setPainLocation("head")}>
           <Text>{language.pain_location.head}</Text>

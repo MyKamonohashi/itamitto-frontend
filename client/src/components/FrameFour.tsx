@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useState, useContext } from 'react';
 import { CheckBox } from '@rneui/themed';
+import Header from 'Header';
 import SubmitButton from './SubmitButton';
 import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
@@ -63,7 +64,7 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>{language.title.pain_description}</Text>
+      <Header text={language.title.pain_description} />
       <View>
         <CheckBox checked={checked1} title={language.pain_description.sharp} onPress={() => {setChecked1(!checked1)}} textStyle={styles.optionText}/>
         <CheckBox checked={checked2} title={language.pain_description.throbbing} onPress={() => {setChecked2(!checked2)}} textStyle={styles.optionText}/>

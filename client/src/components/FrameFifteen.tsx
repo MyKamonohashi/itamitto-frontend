@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import { StackParams, LanguageContext } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Header from 'Header';
 import SubmitButton from './SubmitButton';
 
 type FrameFifteenRouteProp = RouteProp<StackParams, 'FrameFifteen'>;
@@ -20,7 +21,7 @@ export default function FrameFifteen( { route, navigation }: FrameFifteenProps) 
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.injury_location}</Text>
+      <Header text={language.title.injury_location} />
       <View>
       <Pressable onPress={() => setInjuryLocation("head")}>
           <Text>{language.injury_location.head}</Text>
