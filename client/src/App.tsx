@@ -2,7 +2,7 @@ import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Image } from 'react-native';
+import { createContext, useState, useEffect } from 'react';
 import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
@@ -17,58 +17,74 @@ import FrameEleven from './components/FrameEleven';
 
 import FrameFifteen from './components/FrameFifteen';
 import FrameSixteen from './components/FrameSixteen';
-
-import { LanguageType } from './type/type';
+import LanguageToggle from './components/LanguageToggle';
+import en from './localize/en';
+import ja from './localize/ja';
 
 export type StackParams = {
-  FrameOne: {language: LanguageType}
-  FrameTwo: {reason: string, language: LanguageType , isEnabled: boolean}
-  FrameThree: { symptom: string, language: LanguageType ,isEnabled: boolean}
-  FrameFour: { pain_location: string, language: LanguageType, isEnabled: boolean}
-  FrameFive: { pain_description: string, language: LanguageType, isEnabled: boolean}
-  FrameSix: { hurt: string, language: LanguageType, isEnabled: boolean}
-  FrameSeven: { reason: string, language: LanguageType, isEnabled: boolean}
-  FrameEight: { reason: string, language: LanguageType, isEnabled: boolean}
-  FrameNine: { pain_duration?: string, test?: string, vaccine?: string, injury_description?: string, language: LanguageType, isEnabled: boolean}
-  FrameTen: { takingMedications: boolean, currentMedications: string, dosage: string, language: LanguageType, isEnabled: boolean}
-  FrameEleven: { allergies_name: string, language: LanguageType, isEnabled: boolean}
+  FrameOne: {}
+  FrameTwo: { reason: string }
+  FrameThree: { symptoms: string }
+  FrameFour: { pain_location: string }
+  FrameFive: { pain_description: string }
+  FrameSix: { symptoms?: string, hurt?: string }
+  FrameSeven: { reason: string }
+  FrameEight: { reason: string }
+  FrameNine: { pain_duration?: string, test?: string, vaccine?: string, injury_description?: string }
+  FrameTen: { takingMedications: boolean, currentMedications: string, dosage: string }
+  FrameEleven: { allergies_name: string }
 
-  FrameFifteen: {reason: string, language: LanguageType, isEnabled: boolean}
-  FrameSixteen: {injury_location: string, language: LanguageType, isEnabled: boolean}
+  FrameFifteen: { reason: string }
+  FrameSixteen: { injury_location: string }
 }
 
+export const LanguageContext = createContext(en);
 const Stack = createNativeStackNavigator<StackParams>();
 
 export default function App() {
+  const [language, setLanguage] = useState(en); 
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  useEffect(() => {
+    if (isEnabled) {
+      setLanguage(ja);
+    } else {
+      setLanguage(en);
+    }
+  }, [isEnabled]);
+
   return (
-  <>
-    <Image source={require('./assets/Green Simple Medical Clinic Logo 3.svg')} />
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="FrameOne"
-        screenOptions={{
-          headerTitle: 'itamitto',
-          headerTitleAlign: 'center'
-        }}>
-        <Stack.Screen name="FrameOne" component={FrameOne}/>
-        <Stack.Screen name="FrameTwo" component={FrameTwo}/>
-        <Stack.Screen name="FrameThree" component={FrameThree}/>
-        <Stack.Screen name="FrameFour" component={FrameFour}/>
-        <Stack.Screen name="FrameFive" component={FrameFive}/>
-        <Stack.Screen name="FrameSix" component={FrameSix}/>
-        <Stack.Screen name="FrameSeven" component={FrameSeven}/>
-        <Stack.Screen name="FrameEight" component={FrameEight}/>
-        <Stack.Screen name="FrameNine" component={FrameNine}/>
-        <Stack.Screen name="FrameTen" component={FrameTen}/>
-        <Stack.Screen name="FrameEleven" component={FrameEleven}/>
+    <>
+     <LanguageContext.Provider value={ language }>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="FrameOne"
+          screenOptions={{
+            headerTitle: 'itamitto',
+            headerTitleAlign: 'center'
+          }}>
+          <Stack.Screen name="FrameOne" component={FrameOne} />
+          <Stack.Screen name="FrameTwo" component={FrameTwo}/>
+          <Stack.Screen name="FrameThree" component={FrameThree}/>
+          <Stack.Screen name="FrameFour" component={FrameFour}/>
+          <Stack.Screen name="FrameFive" component={FrameFive}/>
+          <Stack.Screen name="FrameSix" component={FrameSix}/>
+          <Stack.Screen name="FrameSeven" component={FrameSeven}/>
+          <Stack.Screen name="FrameEight" component={FrameEight}/>
+          <Stack.Screen name="FrameNine" component={FrameNine}/>
+          <Stack.Screen name="FrameTen" component={FrameTen}/>
+          <Stack.Screen name="FrameEleven" component={FrameEleven}/>
 
-        <Stack.Screen name="FrameSixteen" component={FrameSixteen}/>
-        <Stack.Screen name="FrameFifteen" component={FrameFifteen}/>
+          <Stack.Screen name="FrameSixteen" component={FrameSixteen}/>
+          <Stack.Screen name="FrameFifteen" component={FrameFifteen}/>
+        </Stack.Navigator>
+        <StatusBar style="auto" />
+      </NavigationContainer>
+      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled} />
 
-      </Stack.Navigator>
-      <StatusBar style="auto" />
-    </NavigationContainer>
-  </>
+     </LanguageContext.Provider>
+    </>
   );
 }
 

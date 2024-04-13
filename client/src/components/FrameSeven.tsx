@@ -1,12 +1,9 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { useState, useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useState, useContext } from 'react';
 import { CheckBox } from '@rneui/themed';
 import Header from 'Header';
-import LanguageToggle from './LanguageToggle';
 import SubmitButton from './SubmitButton';
-import en from '../localize/en';
-import ja from '../localize/ja';
-import { StackParams } from '../App';
+import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -14,11 +11,8 @@ type FrameSevenRouteProp = RouteProp<StackParams, 'FrameSeven'>;
 type FrameSevenProps = NativeStackScreenProps<StackParams, 'FrameSeven'>;
 
 export default function FrameSeven({ route, navigation }: FrameSevenProps) {
-
+  const language = useContext(LanguageContext);
   const { reason } = route.params;
-  const [language, setLanguage] = useState(route.params.language);
-  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const [tests, setTests] = useState('');
 
   const [checked1, setChecked1] = useState(false);
@@ -30,18 +24,6 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
   const [checked7, setChecked7] = useState(false);
   const [checked8, setChecked8] = useState(false);
   const [checked9, setChecked9] = useState(false);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
 
   const handleDataInput = () => {
     const result = [];
@@ -80,8 +62,6 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
     //to FrameNine
     navigation.navigate("FrameNine", {
       test: tests,
-      language: language,
-      isEnabled: isEnabled
     });
   }
   
@@ -100,7 +80,6 @@ export default function FrameSeven({ route, navigation }: FrameSevenProps) {
         <CheckBox checked={checked9} title={language.test.MRI_CAT_scan} onPress={() => {setChecked9(!checked9)}}/>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   )
 }

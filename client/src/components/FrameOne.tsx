@@ -1,34 +1,15 @@
 import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
-import { useState, useEffect } from 'react';
-import en from '../localize/en';
-import ja from '../localize/ja';
-import Header from './Header';
-import LanguageToggle from './LanguageToggle';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
-import { StackParams } from '../App';
+import { StackParams, LanguageContext } from '../App';
+
 
 type Props = NativeStackScreenProps<StackParams, "FrameOne">
 
-const FrameOne: React.FC<Props> = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
-
-  const [language, setLanguage] = useState(en);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
-
+const FrameOne: React.FC<Props> = ({ navigation }) => {
+  const language = useContext(LanguageContext);
+  
   return (
     <View style={styles.container}>
       <Header text={language.title.reason}/>
@@ -36,7 +17,7 @@ const FrameOne: React.FC<Props> = () => {
         <Pressable  style={styles.buttonOne}
           onPress={() => {
             //go to illness FrameTwo
-            navigation.navigate("FrameTwo", {reason: "illness", language: language, isEnabled: isEnabled})
+            navigation.navigate("FrameTwo", {reason: "illness"})
           }}
         >
           <Text style={styles.buttonText}>{language.reason.illness}</Text>
@@ -44,14 +25,14 @@ const FrameOne: React.FC<Props> = () => {
         <Pressable style={styles.buttonTwo}
           onPress={() => {
             //go to injury FrameFifteen
-            navigation.navigate("FrameFifteen", {reason: "injury", language: language, isEnabled: isEnabled})
+            navigation.navigate("FrameFifteen", {reason: "injury"})
           }}>
           <Text style={styles.buttonText}>{language.reason.injury}</Text>
         </Pressable>
         <Pressable style={styles.buttonThree}
           onPress={() => {
             //go to vaccine FrameEight
-            navigation.navigate("FrameEight", {reason: "vaccine", language: language, isEnabled: isEnabled})
+            navigation.navigate("FrameEight", {reason: "vaccine"})
           }}
         >
           <Text style={styles.buttonText}>{language.reason.vaccine}</Text>
@@ -59,13 +40,12 @@ const FrameOne: React.FC<Props> = () => {
         <Pressable style={styles.buttonFour}
         onPress={() => {
           //go to pain location FrameSeven
-          navigation.navigate("FrameSeven", {reason: "test", language: language, isEnabled: isEnabled})
+          navigation.navigate("FrameSeven", {reason: "test"})
         }}
         >
           <Text style={styles.buttonText}>{language.reason.test}</Text>
         </Pressable>
       </View>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
 }

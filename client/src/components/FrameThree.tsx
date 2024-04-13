@@ -1,11 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { useState, useEffect } from 'react';
-import en from '../localize/en';
-import ja from '../localize/ja';
-import Header from 'Header';
-import LanguageToggle from './LanguageToggle';
+import { useState, useContext } from 'react';
 import SubmitButton from './SubmitButton';
-import { StackParams } from '../App';
+import { LanguageContext, StackParams } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -15,33 +11,16 @@ type FrameThreeRouteProp = RouteProp<StackParams, 'FrameThree'>;
 type FrameThreeProps = NativeStackScreenProps<StackParams, 'FrameThree'>; 
 
 const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
-
-  const { symptom } = route.params;
-  console.log(symptom);
-
-  const [language, setLanguage] = useState(route.params.language);
-  const [isEnabled, setIsEnabled] = useState(route.params.isEnabled);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const language = useContext(LanguageContext)
+  const { symptoms } = route.params;
+  console.log(symptoms);
   const [painLocation, setPainLocation] = useState("pain");
-
-  const handleLanguage = () => {
-    if (!isEnabled) {
-      setLanguage(en);
-    } else {
-      setLanguage(ja);
-    }
-  }
-
-  useEffect(() => {
-    handleLanguage();
-  }, [isEnabled]);
 
   const handleSubmission = () => {
     // go to FrameFour
     navigation.navigate("FrameFour", {
-      pain_location: painLocation,
-      language: language,
-      isEnabled: isEnabled})
+      pain_location: painLocation
+    });
   }
 
   return (
@@ -77,7 +56,6 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
         </Pressable>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-      <LanguageToggle onValueChange={toggleSwitch} isEnabled={isEnabled}/>
     </View>
   );
 }
