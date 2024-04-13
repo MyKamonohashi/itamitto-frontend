@@ -27,7 +27,7 @@ export type StackParams = {
   FrameThree: { symptoms: string }
   FrameFour: { pain_location: string }
   FrameFive: { pain_description: string }
-  FrameSix: { symptoms: string, hurt?: string }
+  FrameSix: { symptoms?: string, hurt?: string }
   FrameSeven: { reason: string }
   FrameEight: { reason: string }
   FrameNine: { pain_duration?: string, test?: string, vaccine?: string, injury_description?: string }

@@ -12,8 +12,8 @@ type FrameThreeProps = NativeStackScreenProps<StackParams, 'FrameThree'>;
 
 const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
   const language = useContext(LanguageContext)
-  const { symptom } = route.params;
-  console.log(symptom);
+  const { symptoms } = route.params;
+  console.log(symptoms);
   const [painLocation, setPainLocation] = useState("pain");
 
   const handleSubmission = () => {

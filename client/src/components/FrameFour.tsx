@@ -63,16 +63,16 @@ const FrameFour: React.FC<FrameFourProps>  = ({ route, navigation }) =>  {
 
   return (
     <View style={styles.container}>
-      <Text>{language.title.pain_description}</Text>
+      <Text style={styles.header}>{language.title.pain_description}</Text>
       <View>
-        <CheckBox checked={checked1} title={language.pain_description.sharp} onPress={() => {setChecked1(!checked1)}}/>
-        <CheckBox checked={checked2} title={language.pain_description.throbbing} onPress={() => {setChecked2(!checked2)}}/>
-        <CheckBox checked={checked3} title={language.pain_description.aching} onPress={() => {setChecked3(!checked3)}}/>
-        <CheckBox checked={checked4} title={language.pain_description.burning} onPress={() => {setChecked4(!checked4)}}/>
-        <CheckBox checked={checked5} title={language.pain_description.cramping} onPress={() => {setChecked5(!checked5)}}/>
-        <CheckBox checked={checked6} title={language.pain_description.numbness} onPress={() => {setChecked6(!checked6)}}/>
-        <CheckBox checked={checked7} title={language.pain_description.constant} onPress={() => {setChecked7(!checked7)}}/>
-        <CheckBox checked={checked8} title={language.pain_description.sudden} onPress={() => {setChecked8(!checked8)}}/>
+        <CheckBox checked={checked1} title={language.pain_description.sharp} onPress={() => {setChecked1(!checked1)}} textStyle={styles.optionText}/>
+        <CheckBox checked={checked2} title={language.pain_description.throbbing} onPress={() => {setChecked2(!checked2)}} textStyle={styles.optionText}/>
+        <CheckBox checked={checked3} title={language.pain_description.aching} onPress={() => {setChecked3(!checked3)}} textStyle={styles.optionText}/>
+        <CheckBox checked={checked4} title={language.pain_description.burning} onPress={() => {setChecked4(!checked4)}} textStyle={styles.optionText}/>
+        <CheckBox checked={checked5} title={language.pain_description.cramping} onPress={() => {setChecked5(!checked5)}} textStyle={styles.optionText}/>
+        <CheckBox checked={checked6} title={language.pain_description.numbness} onPress={() => {setChecked6(!checked6)}} textStyle={styles.optionText}/>
+        <CheckBox checked={checked7} title={language.pain_description.constant} onPress={() => {setChecked7(!checked7)}} textStyle={styles.optionText}/>
+        <CheckBox checked={checked8} title={language.pain_description.sudden} onPress={() => {setChecked8(!checked8)}} textStyle={styles.optionText}/>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
     </View>
@@ -85,6 +85,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around'
+  },
+  header: {
+    fontSize: 35,
+    textAlign: 'center',
+    minWidth:'100%',
+  },
+  optionText: {
+    fontSize: 28,
+    fontWeight: 'normal',
+    textAlign: 'center',
   },
 });
 
