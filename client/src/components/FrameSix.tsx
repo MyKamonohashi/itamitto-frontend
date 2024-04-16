@@ -34,8 +34,9 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
     <View style={styles.container}>
       <Header text={language.title.symptoms_duration}/>
       <View style={styles.inputs}>
-        <Text>{language.duration.about}</Text>
+        <Text style={styles.text}>{language.duration.about}</Text>
         <TextInput
+          style={styles.textInput}
           onChangeText={setText}
           value={text}
           placeholder='#'
@@ -43,19 +44,19 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
         />
         <View>
           <Pressable onPress={() => {setInterval('hour(s)')}}>
-            <Text>{language.duration.hours}</Text>
+            <Text style={styles.text}>{language.duration.hours}</Text>
           </Pressable>
           <Pressable onPress={() => {setInterval('day(s)')}}>
-            <Text>{language.duration.days}</Text>
+            <Text style={styles.text}>{language.duration.days}</Text>
           </Pressable>
           <Pressable onPress={() => {setInterval('week(s)')}}>
-            <Text>{language.duration.weeks}</Text>
+            <Text style={styles.text}>{language.duration.weeks}</Text>
           </Pressable>
           <Pressable onPress={() => {setInterval('month(s)')}}>
-            <Text>{language.duration.months}</Text>
+            <Text style={styles.text}>{language.duration.months}</Text>
           </Pressable>
           <Pressable onPress={() => {setInterval('year(s)')}}>
-            <Text>{language.duration.years}</Text>
+            <Text style={styles.text}>{language.duration.years}</Text>
           </Pressable>
         </View>
       </View>
@@ -72,6 +73,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   inputs: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    gap: 20
+  },
+  text: {
+    fontSize: 25
+  },
+  textInput: {
+    height: 35,
+    width: 55,
+    borderWidth: 1,
+    borderRadius: 3,
+    padding: 10,
   }
 });
