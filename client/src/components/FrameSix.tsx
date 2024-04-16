@@ -34,7 +34,7 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
     <View style={styles.container}>
       <Header text={language.title.symptoms_duration}/>
       <View style={styles.inputs}>
-        <Text style={styles.text}>{language.duration.about}</Text>
+        <Text style={styles.about}>{language.duration.about}</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={setText}
@@ -42,20 +42,20 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
           placeholder='#'
           inputMode="numeric"
         />
-        <View>
-          <Pressable onPress={() => {setInterval('hour(s)')}}>
+        <View style={styles.buttons}>
+          <Pressable style={styles.button} onPress={() => {setInterval('hour(s)')}}>
             <Text style={styles.text}>{language.duration.hours}</Text>
           </Pressable>
-          <Pressable onPress={() => {setInterval('day(s)')}}>
+          <Pressable style={styles.button} onPress={() => {setInterval('day(s)')}}>
             <Text style={styles.text}>{language.duration.days}</Text>
           </Pressable>
-          <Pressable onPress={() => {setInterval('week(s)')}}>
+          <Pressable style={styles.button} onPress={() => {setInterval('week(s)')}}>
             <Text style={styles.text}>{language.duration.weeks}</Text>
           </Pressable>
-          <Pressable onPress={() => {setInterval('month(s)')}}>
+          <Pressable style={styles.button} onPress={() => {setInterval('month(s)')}}>
             <Text style={styles.text}>{language.duration.months}</Text>
           </Pressable>
-          <Pressable onPress={() => {setInterval('year(s)')}}>
+          <Pressable style={styles.button} onPress={() => {setInterval('year(s)')}}>
             <Text style={styles.text}>{language.duration.years}</Text>
           </Pressable>
         </View>
@@ -76,12 +76,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 20
   },
-  text: {
+  buttons: {
+    gap: 10
+  },
+  button: {
+    borderRadius: 10,
+    padding: 8,
+    minWidth: 100,
+    backgroundColor: '#039388',
+  },
+  about: {
+    color: 'black',
     fontSize: 25
   },
+  text: {
+    color: 'white',
+    fontSize: 25,
+    textAlign: 'center'
+  },
   textInput: {
-    height: 35,
-    width: 55,
+    height: 40,
+    width: 60,
     borderWidth: 1,
     borderRadius: 3,
     padding: 10,
