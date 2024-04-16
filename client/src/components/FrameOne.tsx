@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
+import Header from 'Header';
 import { StackParams, LanguageContext } from '../App';
 
 
