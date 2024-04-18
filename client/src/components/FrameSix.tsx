@@ -100,5 +100,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 3,
     padding: 10,
+    fontSize: 25
   }
 });
