@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useState, useContext } from 'react';
 import { CheckBox } from '@rneui/themed';
 import Header from 'Header';

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import Header from 'Header';
 import SubmitButton from './SubmitButton';
 import { LanguageContext, StackParams } from '../App';

@@ -1,10 +1,7 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { useState, useEffect, useContext } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useState, useContext } from 'react';
 import { CheckBox } from '@rneui/themed';
-import en from '../localize/en';
-import ja from '../localize/ja';
 import Header from 'Header';
-import LanguageToggle from './LanguageToggle';
 import SubmitButton from './SubmitButton';
 import { StackParams, LanguageContext } from '../App';
 import { RouteProp } from '@react-navigation/native';
