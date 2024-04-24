@@ -14,7 +14,7 @@ const FrameOne: React.FC<Props> = ({ navigation }) => {
     <View style={styles.container}>
       <Header text={language.title.reason}/>
       <View style={styles.buttons}>
-        <Pressable  style={styles.buttonOne}
+        <Pressable style={styles.button}
           onPress={() => {
             //go to illness FrameTwo
             navigation.navigate("FrameTwo", {reason: "illness"})
@@ -22,14 +22,14 @@ const FrameOne: React.FC<Props> = ({ navigation }) => {
         >
           <Text style={styles.buttonText}>{language.reason.illness}</Text>
         </Pressable>
-        <Pressable style={styles.buttonTwo}
+        <Pressable style={styles.button}
           onPress={() => {
             //go to injury FrameFifteen
             navigation.navigate("FrameFifteen", {reason: "injury"})
           }}>
           <Text style={styles.buttonText}>{language.reason.injury}</Text>
         </Pressable>
-        <Pressable style={styles.buttonThree}
+        <Pressable style={styles.button}
           onPress={() => {
             //go to vaccine FrameEight
             navigation.navigate("FrameEight", {reason: "vaccine"})
@@ -37,7 +37,7 @@ const FrameOne: React.FC<Props> = ({ navigation }) => {
         >
           <Text style={styles.buttonText}>{language.reason.vaccine}</Text>
         </Pressable>
-        <Pressable style={styles.buttonFour}
+        <Pressable style={styles.button}
         onPress={() => {
           //go to pain location FrameSeven
           navigation.navigate("FrameSeven", {reason: "test"})
@@ -57,45 +57,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around'
   },
-  header: {
-    backgroundColor: '#B9F3E4',
-    fontSize: 35,
-    textAlign: 'center',
-    minWidth:'100%',
-    paddingBottom: 20,
-    paddingTop: 20,
-    marginTop: 10
-  },
   buttons: {
-    gap: 30
+    gap: 30,
+  },
+  button: {
+    borderRadius: 10,
+    borderWidth: 1,
+    backgroundColor:'white',
+    padding: 20,
+    minWidth: 300,
   },
   buttonText: {
     fontSize: 35,
     textAlign: 'center',
-  },
-  buttonOne: {
-    borderRadius: 10,
-    backgroundColor:'#EA8FEA',
-    padding: 20,
-    minWidth: 300
-  },
-  buttonTwo: {
-    borderRadius: 10,
-    backgroundColor:'#FFAACF',
-    padding: 20,
-    minWidth: 300
-  },
-  buttonThree: {
-    borderRadius: 10,
-    backgroundColor:'#F6E6C2',
-    padding: 20,
-    minWidth: 300
-  },
-  buttonFour: {
-    borderRadius: 10,
-    backgroundColor:'#8ACDD7',
-    padding: 20,
-    minWidth: 300
+    color: 'black'
   },
   switch: {
     marginBottom: 40,
