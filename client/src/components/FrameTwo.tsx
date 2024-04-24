@@ -1,7 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useState, useEffect, useContext } from 'react';
 import Header from 'Header';
-import LanguageToggle from './LanguageToggle';
 import { CheckBox } from '@rneui/themed';
 import SubmitButton from './SubmitButton';
 import { StackParams,  LanguageContext } from '../App';
@@ -83,7 +82,6 @@ const FrameTwo: React.FC<FrameTwoProps>  = ({ route, navigation }) => {
         <CheckBox checked={checked7} title={language.symptoms.congestion} onPress={() => {setChecked7(!checked7)}} textStyle={styles.optionText}/>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
-     
     </View>
   );
 }

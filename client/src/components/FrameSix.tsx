@@ -34,28 +34,29 @@ export default function FrameSix({ route, navigation }: FrameSixProps) {
     <View style={styles.container}>
       <Header text={language.title.symptoms_duration}/>
       <View style={styles.inputs}>
-        <Text>{language.duration.about}</Text>
+        <Text style={styles.about}>{language.duration.about}</Text>
         <TextInput
+          style={styles.textInput}
           onChangeText={setText}
           value={text}
           placeholder='#'
           inputMode="numeric"
         />
-        <View>
-          <Pressable onPress={() => {setInterval('hour(s)')}}>
-            <Text>{language.duration.hours}</Text>
+        <View style={styles.buttons}>
+          <Pressable style={styles.button} onPress={() => {setInterval('hour(s)')}}>
+            <Text style={styles.text}>{language.duration.hours}</Text>
           </Pressable>
-          <Pressable onPress={() => {setInterval('day(s)')}}>
-            <Text>{language.duration.days}</Text>
+          <Pressable style={styles.button} onPress={() => {setInterval('day(s)')}}>
+            <Text style={styles.text}>{language.duration.days}</Text>
           </Pressable>
-          <Pressable onPress={() => {setInterval('week(s)')}}>
-            <Text>{language.duration.weeks}</Text>
+          <Pressable style={styles.button} onPress={() => {setInterval('week(s)')}}>
+            <Text style={styles.text}>{language.duration.weeks}</Text>
           </Pressable>
-          <Pressable onPress={() => {setInterval('month(s)')}}>
-            <Text>{language.duration.months}</Text>
+          <Pressable style={styles.button} onPress={() => {setInterval('month(s)')}}>
+            <Text style={styles.text}>{language.duration.months}</Text>
           </Pressable>
-          <Pressable onPress={() => {setInterval('year(s)')}}>
-            <Text>{language.duration.years}</Text>
+          <Pressable style={styles.button} onPress={() => {setInterval('year(s)')}}>
+            <Text style={styles.text}>{language.duration.years}</Text>
           </Pressable>
         </View>
       </View>
@@ -72,6 +73,33 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   inputs: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    gap: 20
+  },
+  buttons: {
+    gap: 10
+  },
+  button: {
+    borderRadius: 10,
+    padding: 8,
+    minWidth: 100,
+    backgroundColor: '#039388',
+  },
+  about: {
+    color: 'black',
+    fontSize: 25
+  },
+  text: {
+    color: 'white',
+    fontSize: 25,
+    textAlign: 'center'
+  },
+  textInput: {
+    height: 40,
+    width: 60,
+    borderWidth: 1,
+    borderRadius: 3,
+    padding: 10,
+    fontSize: 25
   }
 });
