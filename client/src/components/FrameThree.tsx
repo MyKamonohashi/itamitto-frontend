@@ -27,33 +27,33 @@ const FrameThree: React.FC<FrameThreeProps>  = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <Header text={language.title.pain_location}/>
-      <View>
-        <Pressable onPress={() => setPainLocation("head")}>
-          <Text>{language.pain_location.head}</Text>
+      <View style={styles.buttons}>
+        <Pressable style={styles.button} onPress={() => setPainLocation("head")}>
+          <Text style={styles.buttonText}>{language.pain_location.head}</Text>
         </Pressable>
-        <Pressable onPress={() => setPainLocation("stomach")}>
-          <Text>{language.pain_location.stomach}</Text>
+        <Pressable style={styles.button} onPress={() => setPainLocation("stomach")}>
+          <Text style={styles.buttonText}>{language.pain_location.stomach}</Text>
         </Pressable>
-        <Pressable onPress={() => setPainLocation("arm")}>
-          <Text>{language.pain_location.arm}</Text>
+        <Pressable style={styles.button} onPress={() => setPainLocation("arm")}>
+          <Text style={styles.buttonText}>{language.pain_location.arm}</Text>
         </Pressable>
-        <Pressable onPress={() => setPainLocation("leg")}>
-          <Text>{language.pain_location.leg}</Text>
+        <Pressable style={styles.button} onPress={() => setPainLocation("leg")}>
+          <Text style={styles.buttonText}>{language.pain_location.leg}</Text>
         </Pressable>
-        <Pressable onPress={() => setPainLocation("back")}>
-          <Text>{language.pain_location.back}</Text>
+        <Pressable style={styles.button} onPress={() => setPainLocation("back")}>
+          <Text style={styles.buttonText}>{language.pain_location.back}</Text>
         </Pressable>
-        <Pressable onPress={() => setPainLocation("shoulder")}>
-          <Text>{language.pain_location.shoulder}</Text>
+        <Pressable style={styles.button} onPress={() => setPainLocation("shoulder")}>
+          <Text style={styles.buttonText}>{language.pain_location.shoulder}</Text>
         </Pressable>
-        <Pressable onPress={() => setPainLocation("neck")}>
-          <Text>{language.pain_location.neck}</Text>
+        <Pressable  style={styles.button} onPress={() => setPainLocation("neck")}>
+          <Text style={styles.buttonText}>{language.pain_location.neck}</Text>
         </Pressable>
-        <Pressable onPress={() => setPainLocation("chest")}>
-          <Text>{language.pain_location.chest}</Text>
+        <Pressable style={styles.button} onPress={() => setPainLocation("chest")}>
+          <Text style={styles.buttonText}>{language.pain_location.chest}</Text>
         </Pressable>
-        <Pressable onPress={() => setPainLocation("eyes/ears/nose")}>
-          <Text>{language.pain_location.eyes_ears_nose}</Text>
+        <Pressable style={styles.button} onPress={() => setPainLocation("eyes/ears/nose")}>
+          <Text style={styles.buttonText}>{language.pain_location.eyes_ears_nose}</Text>
         </Pressable>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
@@ -67,6 +67,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around'
+  },
+  buttons: {
+    marginHorizontal: 10,
+    padding: 10,
+    flexDirection: 'row',
+    flexWrap: "wrap",
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
+  },
+  button: {
+    borderRadius: 10,
+    borderWidth: 1,
+    backgroundColor:'white',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+  },
+  buttonText: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'black'
   },
 });
 
