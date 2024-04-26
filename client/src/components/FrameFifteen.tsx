@@ -22,33 +22,33 @@ export default function FrameFifteen( { route, navigation }: FrameFifteenProps) 
   return (
     <View style={styles.container}>
       <Header text={language.title.injury_location} />
-      <View>
-      <Pressable onPress={() => setInjuryLocation("head")}>
-          <Text>{language.injury_location.head}</Text>
+      <View style={styles.buttons}>
+      <Pressable style={styles.button} onPress={() => setInjuryLocation("head")}>
+          <Text style={styles.buttonText}>{language.injury_location.head}</Text>
         </Pressable>
-        <Pressable onPress={() => setInjuryLocation("stomach")}>
-          <Text>{language.injury_location.stomach}</Text>
+        <Pressable style={styles.button} onPress={() => setInjuryLocation("stomach")}>
+          <Text style={styles.buttonText}>{language.injury_location.stomach}</Text>
         </Pressable>
-        <Pressable onPress={() => setInjuryLocation("arm")}>
-          <Text>{language.injury_location.arm}</Text>
+        <Pressable style={styles.button} onPress={() => setInjuryLocation("arm")}>
+          <Text style={styles.buttonText}>{language.injury_location.arm}</Text>
         </Pressable>
-        <Pressable onPress={() => setInjuryLocation("leg")}>
-          <Text>{language.injury_location.leg}</Text>
+        <Pressable style={styles.button} onPress={() => setInjuryLocation("leg")}>
+          <Text style={styles.buttonText}>{language.injury_location.leg}</Text>
         </Pressable>
-        <Pressable onPress={() => setInjuryLocation("back")}>
-          <Text>{language.injury_location.back}</Text>
+        <Pressable style={styles.button} onPress={() => setInjuryLocation("back")}>
+          <Text style={styles.buttonText}>{language.injury_location.back}</Text>
         </Pressable>
-        <Pressable onPress={() => setInjuryLocation("shoulder")}>
-          <Text>{language.injury_location.shoulder}</Text>
+        <Pressable style={styles.button} onPress={() => setInjuryLocation("shoulder")}>
+          <Text style={styles.buttonText}>{language.injury_location.shoulder}</Text>
         </Pressable>
-        <Pressable onPress={() => setInjuryLocation("neck")}>
-          <Text>{language.injury_location.neck}</Text>
+        <Pressable style={styles.button} onPress={() => setInjuryLocation("neck")}>
+          <Text style={styles.buttonText}>{language.injury_location.neck}</Text>
         </Pressable>
-        <Pressable onPress={() => setInjuryLocation("chest")}>
-          <Text>{language.injury_location.chest}</Text>
+        <Pressable style={styles.button} onPress={() => setInjuryLocation("chest")}>
+          <Text style={styles.buttonText}>{language.injury_location.chest}</Text>
         </Pressable>
-        <Pressable onPress={() => setInjuryLocation("eyes/ears/nose")}>
-          <Text>{language.injury_location.eyes_ears_nose}</Text>
+        <Pressable style={styles.button} onPress={() => setInjuryLocation("eyes/ears/nose")}>
+          <Text style={styles.buttonText}>{language.injury_location.eyes_ears_nose}</Text>
         </Pressable>
       </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
@@ -63,4 +63,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around'
   },
+  buttons: {
+    marginHorizontal: 10,
+    padding: 10,
+    flexDirection: 'row',
+    flexWrap: "wrap",
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
+  },
+  button: {
+    borderRadius: 10,
+    borderWidth: 1,
+    backgroundColor:'white',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+  },
+  buttonText: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'black'
+  }
 });
