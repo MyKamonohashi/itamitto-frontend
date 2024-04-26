@@ -40,11 +40,11 @@ export default function FrameNine({ route, navigation }: FrameNineProps) {
   return (
     <View style={styles.container}>
       <Header text={language.title.medications} />
-      <Pressable onPress={handleTakesMedications}>
-        <Text>{language.button.yes}</Text>
+      <Pressable style={styles.button} onPress={handleTakesMedications}>
+        <Text style={styles.buttonText}>{language.button.yes}</Text>
       </Pressable>
-      <Pressable onPress={handleNoMedications}>
-        <Text>{language.button.no}</Text>
+      <Pressable style={styles.button} onPress={handleNoMedications}>
+        <Text style={styles.buttonText}>{language.button.no}</Text>
       </Pressable>
       { takingMedications && 
         <View>
@@ -75,6 +75,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around'
+  },
+  button: {
+    borderRadius: 10,
+    borderWidth: 1,
+    backgroundColor:'#039388',
+    padding: 20,
+    minWidth: 100,
+  },
+  buttonText: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'white'
   },
   inputs: {
     flexDirection: "row",
