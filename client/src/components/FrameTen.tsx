@@ -29,12 +29,14 @@ export default function FrameTen({ route, navigation }: FrameTenProps) {
   return (
     <View style={styles.container}>
       <Header text={language.title.allergy} />
-      <Pressable onPress={() => setIsAllergic(true)}>
-          <Text>{language.button.yes}</Text>
-      </Pressable>
-      <Pressable  onPress={() => setIsAllergic(false)}>
-          <Text>{language.button.no}</Text>
-      </Pressable>
+      <View style={styles.buttons}>
+        <Pressable style={styles.button} onPress={() => setIsAllergic(true)}>
+            <Text style={styles.buttonText}>{language.button.yes}</Text>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => setIsAllergic(false)}>
+            <Text style={styles.buttonText}>{language.button.no}</Text>
+        </Pressable>
+      </View>
       <View style={styles.inputs}>
           <Text>{language.allergies.allergies_name}</Text>
           <TextInput
@@ -54,6 +56,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around'
+  },
+  buttons: {
+    flexDirection: 'row',
+    gap: 30,
+  },
+  button: {
+    borderRadius: 10,
+    borderWidth: 1,
+    backgroundColor:'#039388',
+    padding: 15,
+    minWidth: 150,
+  },
+  buttonText: {
+    fontSize: 28,
+    textAlign: 'center',
+    color: 'white'
   },
   inputs: {
     flexDirection: 'column'

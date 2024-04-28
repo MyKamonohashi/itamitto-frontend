@@ -27,12 +27,14 @@ export default function FrameEleven({ route }: FrameElevenProps) {
   return (
     <View style={styles.container}>
       <Header text={language.title.pregnancy} />
-      <Pressable onPress={() => setIsPregnant(true)}>
-          <Text>{language.button.yes}</Text>
-      </Pressable>
-      <Pressable  onPress={() => setIsPregnant(false)}>
-          <Text>{language.button.no}</Text>
-      </Pressable>
+      <View style={styles.buttons}>
+        <Pressable style={styles.button} onPress={() => setIsPregnant(true)}>
+            <Text style={styles.buttonText}>{language.button.yes}</Text>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => setIsPregnant(false)}>
+            <Text style={styles.buttonText}>{language.button.no}</Text>
+        </Pressable>
+      </View>
       <SubmitButton language={language} onPress={handleSubmission}/>
     </View>
   );
@@ -44,5 +46,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-around'
+  },
+  buttons: {
+    flexDirection: 'row',
+    gap: 30,
+  },
+  button: {
+    borderRadius: 10,
+    borderWidth: 1,
+    backgroundColor:'#039388',
+    padding: 15,
+    minWidth: 150,
+  },
+  buttonText: {
+    fontSize: 28,
+    textAlign: 'center',
+    color: 'white'
   }
 });
