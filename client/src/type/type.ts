@@ -1,4 +1,21 @@
-type LanguageType = {
+export type StackParams = {
+  FrameOne: {}
+  FrameTwo: { reason: string }
+  FrameThree: { symptoms: string }
+  FrameFour: { pain_location: string }
+  FrameFive: { pain_description: string }
+  FrameSix: { symptoms?: string, hurt?: string }
+  FrameSeven: { reason: string }
+  FrameEight: { reason: string }
+  FrameNine: { pain_duration?: string, test?: string, vaccine?: string, injury_description?: string }
+  FrameTen: { takingMedications: boolean, currentMedications: string, dosage: string }
+  FrameEleven: { allergies_name: string }
+
+  FrameFifteen: { reason: string }
+  FrameSixteen: { injury_location: string }
+}
+
+export type LanguageType = {
   title: {
     reason: string,
     symptoms: string,
@@ -143,4 +160,4 @@ type LanguageType = {
 
 }
 
-export type { LanguageType };
+// export type { LanguageType };
