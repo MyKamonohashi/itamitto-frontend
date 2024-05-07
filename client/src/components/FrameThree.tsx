@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useState, useContext } from 'react';
 import Header from 'Header';
 import SubmitButton from './SubmitButton';
-import { LanguageContext, StackParams } from '../App';
+import { LanguageContext } from '../localize/LanguageContext';
+import { StackParams } from '../type/type';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 

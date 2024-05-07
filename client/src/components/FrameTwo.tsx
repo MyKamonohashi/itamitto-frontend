@@ -3,7 +3,8 @@ import { useState, useEffect, useContext } from 'react';
 import Header from 'Header';
 import { CheckBox } from '@rneui/themed';
 import SubmitButton from './SubmitButton';
-import { StackParams,  LanguageContext } from '../App';
+import { LanguageContext } from '../localize/LanguageContext';
+import { StackParams } from '../type/type';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 

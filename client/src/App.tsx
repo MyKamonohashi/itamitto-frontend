@@ -2,7 +2,7 @@ import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import FrameOne from './components/FrameOne'
 import FrameTwo from './components/FrameTwo';
 import FrameThree from './components/FrameThree';
@@ -18,27 +18,11 @@ import FrameEleven from './components/FrameEleven';
 import FrameFifteen from './components/FrameFifteen';
 import FrameSixteen from './components/FrameSixteen';
 import LanguageToggle from './components/LanguageToggle';
+import { LanguageContext } from './localize/LanguageContext';
+import { StackParams } from './type/type';
 import en from './localize/en';
 import ja from './localize/ja';
 
-export type StackParams = {
-  FrameOne: {}
-  FrameTwo: { reason: string }
-  FrameThree: { symptoms: string }
-  FrameFour: { pain_location: string }
-  FrameFive: { pain_description: string }
-  FrameSix: { symptoms?: string, hurt?: string }
-  FrameSeven: { reason: string }
-  FrameEight: { reason: string }
-  FrameNine: { pain_duration?: string, test?: string, vaccine?: string, injury_description?: string }
-  FrameTen: { takingMedications: boolean, currentMedications: string, dosage: string }
-  FrameEleven: { allergies_name: string }
-
-  FrameFifteen: { reason: string }
-  FrameSixteen: { injury_location: string }
-}
-
-export const LanguageContext = createContext(en);
 const Stack = createNativeStackNavigator<StackParams>();
 
 export default function App() {
