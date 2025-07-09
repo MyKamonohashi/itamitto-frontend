@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { useState, useEffect, useContext } from 'react';
-import Header from 'Header';
+import Header from './Header';
 import { CheckBox } from '@rneui/themed';
 import SubmitButton from './SubmitButton';
 import { LanguageContext } from '../localize/LanguageContext';

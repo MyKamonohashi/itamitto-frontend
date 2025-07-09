@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import { useState, useContext } from 'react';
 import { CheckBox } from '@rneui/themed';
-import Header from 'Header';
+import Header from './Header';
 import SubmitButton from './SubmitButton';
 import { LanguageContext } from '../localize/LanguageContext';
 import { StackParams } from '../type/type';

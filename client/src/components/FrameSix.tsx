@@ -4,7 +4,7 @@ import { LanguageContext } from '../localize/LanguageContext';
 import { StackParams } from '../type/type';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import Header from 'Header';
+import Header from './Header';
 import SubmitButton from './SubmitButton';
 
 type FrameSixRouteProp = RouteProp<StackParams, 'FrameSix'>;
